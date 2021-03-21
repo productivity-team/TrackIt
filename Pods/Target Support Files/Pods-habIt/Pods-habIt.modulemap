@@ -1,0 +1,6 @@
+framework module Pods_habIt {
+  umbrella header "Pods-habIt-umbrella.h"
+
+  export *
+  module * { export * }
+}

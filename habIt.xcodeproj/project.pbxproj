@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1819D183E29074265C7600E6 /* Pods_habIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A03A80A9E2721331B8853E1 /* Pods_habIt.framework */; };
+		BB0D35412606A5A800A9988E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0D35402606A5A800A9988E /* AppDelegate.swift */; };
+		BB0D35432606A5A800A9988E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0D35422606A5A800A9988E /* SceneDelegate.swift */; };
+		BB0D35452606A5A800A9988E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0D35442606A5A800A9988E /* ViewController.swift */; };
+		BB0D35482606A5A800A9988E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB0D35462606A5A800A9988E /* Main.storyboard */; };
+		BB0D354A2606A5A900A9988E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB0D35492606A5A900A9988E /* Assets.xcassets */; };
+		BB0D354D2606A5A900A9988E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB0D354B2606A5A900A9988E /* LaunchScreen.storyboard */; };
+		BBD9E62B2606A7E400A89C24 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBD9E62A2606A7E400A89C24 /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1F6EC0874D69E8D56FAA2E7F /* Pods-habIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-habIt.release.xcconfig"; path = "Target Support Files/Pods-habIt/Pods-habIt.release.xcconfig"; sourceTree = "<group>"; };
+		3461CEAED8B291ACDE46234F /* Pods-habIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-habIt.debug.xcconfig"; path = "Target Support Files/Pods-habIt/Pods-habIt.debug.xcconfig"; sourceTree = "<group>"; };
+		8A03A80A9E2721331B8853E1 /* Pods_habIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_habIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB0D353D2606A5A800A9988E /* habIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = habIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB0D35402606A5A800A9988E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BB0D35422606A5A800A9988E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BB0D35442606A5A800A9988E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BB0D35472606A5A800A9988E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BB0D35492606A5A900A9988E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BB0D354C2606A5A900A9988E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BB0D354E2606A5A900A9988E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBD9E62A2606A7E400A89C24 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BB0D353A2606A5A800A9988E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1819D183E29074265C7600E6 /* Pods_habIt.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3FDCC6AE271126044DD9D3FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3461CEAED8B291ACDE46234F /* Pods-habIt.debug.xcconfig */,
+				1F6EC0874D69E8D56FAA2E7F /* Pods-habIt.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BB0D35342606A5A800A9988E = {
+			isa = PBXGroup;
+			children = (
+				BB0D353F2606A5A800A9988E /* habIt */,
+				BB0D353E2606A5A800A9988E /* Products */,
+				3FDCC6AE271126044DD9D3FE /* Pods */,
+				F387F0ED6C9883A1B1DFB477 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BB0D353E2606A5A800A9988E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB0D353D2606A5A800A9988E /* habIt.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BB0D353F2606A5A800A9988E /* habIt */ = {
+			isa = PBXGroup;
+			children = (
+				BBD9E62A2606A7E400A89C24 /* GoogleService-Info.plist */,
+				BB0D35402606A5A800A9988E /* AppDelegate.swift */,
+				BB0D35422606A5A800A9988E /* SceneDelegate.swift */,
+				BB0D35442606A5A800A9988E /* ViewController.swift */,
+				BB0D35462606A5A800A9988E /* Main.storyboard */,
+				BB0D35492606A5A900A9988E /* Assets.xcassets */,
+				BB0D354B2606A5A900A9988E /* LaunchScreen.storyboard */,
+				BB0D354E2606A5A900A9988E /* Info.plist */,
+			);
+			path = habIt;
+			sourceTree = "<group>";
+		};
+		F387F0ED6C9883A1B1DFB477 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A03A80A9E2721331B8853E1 /* Pods_habIt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BB0D353C2606A5A800A9988E /* habIt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB0D35512606A5A900A9988E /* Build configuration list for PBXNativeTarget "habIt" */;
+			buildPhases = (
+				9AF44C41CF1B7C1CC94CDAC6 /* [CP] Check Pods Manifest.lock */,
+				BB0D35392606A5A800A9988E /* Sources */,
+				BB0D353A2606A5A800A9988E /* Frameworks */,
+				BB0D353B2606A5A800A9988E /* Resources */,
+				60F7516E974C53F06B09A6A7 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = habIt;
+			productName = habIt;
+			productReference = BB0D353D2606A5A800A9988E /* habIt.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BB0D35352606A5A800A9988E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					BB0D353C2606A5A800A9988E = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = BB0D35382606A5A800A9988E /* Build configuration list for PBXProject "habIt" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BB0D35342606A5A800A9988E;
+			productRefGroup = BB0D353E2606A5A800A9988E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BB0D353C2606A5A800A9988E /* habIt */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BB0D353B2606A5A800A9988E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB0D354D2606A5A900A9988E /* LaunchScreen.storyboard in Resources */,
+				BBD9E62B2606A7E400A89C24 /* GoogleService-Info.plist in Resources */,
+				BB0D354A2606A5A900A9988E /* Assets.xcassets in Resources */,
+				BB0D35482606A5A800A9988E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		60F7516E974C53F06B09A6A7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-habIt/Pods-habIt-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-habIt/Pods-habIt-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-habIt/Pods-habIt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9AF44C41CF1B7C1CC94CDAC6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-habIt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BB0D35392606A5A800A9988E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB0D35452606A5A800A9988E /* ViewController.swift in Sources */,
+				BB0D35412606A5A800A9988E /* AppDelegate.swift in Sources */,
+				BB0D35432606A5A800A9988E /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BB0D35462606A5A800A9988E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB0D35472606A5A800A9988E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BB0D354B2606A5A900A9988E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB0D354C2606A5A900A9988E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BB0D354F2606A5A900A9988E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BB0D35502606A5A900A9988E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BB0D35522606A5A900A9988E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3461CEAED8B291ACDE46234F /* Pods-habIt.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 28MMMY5L8Z;
+				INFOPLIST_FILE = habIt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = habtr.habIt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BB0D35532606A5A900A9988E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F6EC0874D69E8D56FAA2E7F /* Pods-habIt.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 28MMMY5L8Z;
+				INFOPLIST_FILE = habIt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = habtr.habIt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BB0D35382606A5A800A9988E /* Build configuration list for PBXProject "habIt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB0D354F2606A5A900A9988E /* Debug */,
+				BB0D35502606A5A900A9988E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB0D35512606A5A900A9988E /* Build configuration list for PBXNativeTarget "habIt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB0D35522606A5A900A9988E /* Debug */,
+				BB0D35532606A5A900A9988E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BB0D35352606A5A800A9988E /* Project object */;
+}
