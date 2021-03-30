@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1819D183E29074265C7600E6 /* Pods_habIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A03A80A9E2721331B8853E1 /* Pods_habIt.framework */; };
+		1EEC49FF26131BCD0029F750 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1EEC49FD26131BCC0029F750 /* Lato-Medium.ttf */; };
+		1EEC4A0026131BCD0029F750 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1EEC49FE26131BCD0029F750 /* Lato-Regular.ttf */; };
 		BB0D35412606A5A800A9988E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0D35402606A5A800A9988E /* AppDelegate.swift */; };
 		BB0D35432606A5A800A9988E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0D35422606A5A800A9988E /* SceneDelegate.swift */; };
 		BB0D35452606A5A800A9988E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0D35442606A5A800A9988E /* ViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1EEC49FD26131BCC0029F750 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
+		1EEC49FE26131BCD0029F750 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		1F6EC0874D69E8D56FAA2E7F /* Pods-habIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-habIt.release.xcconfig"; path = "Target Support Files/Pods-habIt/Pods-habIt.release.xcconfig"; sourceTree = "<group>"; };
 		3461CEAED8B291ACDE46234F /* Pods-habIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-habIt.debug.xcconfig"; path = "Target Support Files/Pods-habIt/Pods-habIt.debug.xcconfig"; sourceTree = "<group>"; };
 		8A03A80A9E2721331B8853E1 /* Pods_habIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_habIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +48,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EEC49FC26131B700029F750 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1EEC49FD26131BCC0029F750 /* Lato-Medium.ttf */,
+				1EEC49FE26131BCD0029F750 /* Lato-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		3FDCC6AE271126044DD9D3FE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +87,7 @@
 		BB0D353F2606A5A800A9988E /* habIt */ = {
 			isa = PBXGroup;
 			children = (
+				1EEC49FC26131B700029F750 /* Fonts */,
 				BBD9E62A2606A7E400A89C24 /* GoogleService-Info.plist */,
 				BB0D35402606A5A800A9988E /* AppDelegate.swift */,
 				BB0D35422606A5A800A9988E /* SceneDelegate.swift */,
@@ -153,6 +167,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EEC49FF26131BCD0029F750 /* Lato-Medium.ttf in Resources */,
+				1EEC4A0026131BCD0029F750 /* Lato-Regular.ttf in Resources */,
 				BB0D354D2606A5A900A9988E /* LaunchScreen.storyboard in Resources */,
 				BBD9E62B2606A7E400A89C24 /* GoogleService-Info.plist in Resources */,
 				BB0D354A2606A5A900A9988E /* Assets.xcassets in Resources */,

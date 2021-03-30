@@ -16,23 +16,35 @@ class ViewController: UIViewController {
     private let passwordField = UITextField()
     private let loginButton = UIButton()
     private let signupButton = UIButton()
-    
     private let signoutButton = UIButton()
+    private let emailboxImage1 = UIImageView()  // Овальная штуковина за надписью Email
+    private let emailboxImage2 = UIImageView()
+    private let forgotlabel = UILabel()  //Забыли пароль?
+
     
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginButton.layer.cornerRadius = 8
-        loginButton.layer.masksToBounds = true
-        loginButton.setTitle("Log in", for: .normal)
-        loginButton.backgroundColor = .black
+        view.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 255/255, alpha: 1)
         
-        signoutButton.layer.cornerRadius = 8
-        signoutButton.layer.masksToBounds = true
-        signoutButton.setTitle("Log out", for: .normal)
-        signoutButton.backgroundColor = .black
+        loginButton.layer.cornerRadius = 25
+        loginButton.layer.masksToBounds = true
+        loginButton.setTitle("Создать аккаунт", for: .normal)
+        loginButton.backgroundColor = UIColor(red: 134/255, green: 213/255, blue: 238/255, alpha: 1)
+        loginButton.setTitleColor(UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1), for: .normal)
+        loginButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 18)
+        
+        
+        signupButton.layer.cornerRadius = 25
+        signupButton.layer.masksToBounds = true
+        signupButton.setTitle("Еще нет аккаунта?", for: .normal)
+        signupButton.setTitleColor(UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1), for: .normal)
+        signupButton.layer.borderWidth = 3
+        signupButton.layer.borderColor = CGColor(red: 77/255, green: 185/255, blue: 219/255, alpha: 1)
+        signupButton.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 255/255, alpha: 1)
+        signupButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 18)
         
         
         loginButton.addTarget(self, action: #selector(didTapActionButton), for: .touchUpInside)
@@ -45,43 +57,38 @@ class ViewController: UIViewController {
             
             view.addSubview(signoutButton)
             signoutButton.addTarget(self, action: #selector(logoutTapped), for: .touchUpInside)
-            
-            
-            
-            
         }
         
         
-        signupButton.layer.cornerRadius = 8
-        signupButton.layer.masksToBounds = true
-        signupButton.setTitle("Sign up", for: .normal)
-        signupButton.backgroundColor = .black
+        forgotlabel.text = "Забыли пароль?"
+        forgotlabel.font = .systemFont(ofSize: 15)
+        forgotlabel.textColor = UIColor(red: 123/255, green: 124/255, blue: 124/255, alpha: 1)
+        forgotlabel.font = UIFont(name: "Lato-Regular", size: 15)
         
         
+        labelLogIn.text = "Вход"
+        labelLogIn.font = .systemFont(ofSize: 30)
+        labelLogIn.font = UIFont(name: "Lato-Regular", size: 30)
         
-        
-        
-        
-        labelLogIn.text = "Log in"
-        labelLogIn.font = .systemFont(ofSize: 28)
         
         emailField.placeholder = "Email"
-        emailField.layer.borderWidth = 2
-        emailField.backgroundColor = .lightGray
         emailField.autocapitalizationType = .none
         emailField.leftViewMode = .always
-        emailField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
+        emailField.textColor = UIColor(red: 42/255, green: 43/255, blue: 43/255, alpha: 1)
+        emailField.font = UIFont(name: "Lato-Regular", size: 18)
         
         
-        passwordField.placeholder = "Password"
-        passwordField.layer.borderWidth = 2
-        passwordField.backgroundColor = .lightGray
+        emailboxImage1.image = UIImage(named: "TypingBox")
+        emailboxImage2.image = UIImage(named: "TypingBox")
+        
+        
+        passwordField.placeholder = "Пароль"
         passwordField.autocapitalizationType = .none
         passwordField.leftViewMode = .always
-        passwordField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
+        passwordField.font = UIFont(name: "Lato-Regular", size: 18)
         
     
-        [emailField, labelLogIn, passwordField, loginButton, signupButton].forEach { view.addSubview($0) }
+        [emailField, labelLogIn, passwordField, loginButton, signupButton, emailboxImage1, emailboxImage2, forgotlabel].forEach { view.addSubview($0) }
         
     }
     
@@ -145,35 +152,58 @@ class ViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         labelLogIn.pin
-            .center()
+            .hCenter()
+            .bottom(541)
             .sizeToFit()
         
         emailField.pin
-            .below(of: labelLogIn, aligned: .center)
-            .width(80%)
+            .hCenter()
+            .bottom(461)
+            .width(245)
             .height(50)
+        
+        emailboxImage1.pin
+            .width(280)
+            .height(50)
+            .hCenter()
+            .bottom(461)
+        
+        emailboxImage2.pin
+            .width(280)
+            .height(50)
+            .hCenter()
+            .bottom(391)
         
         passwordField.pin
-            .below(of: emailField, aligned: .center)
-            .marginTop(5)
-            .width(of: emailField)
+            .hCenter()
+            .bottom(391)
+            .width(245)
             .height(50)
         
+        forgotlabel.pin
+            .bottom(358)
+            .hCenter()
+            .sizeToFit()
+
         loginButton.pin
-            .bottom(view.pin.safeArea.bottom + 16)
-            .horizontally(16)
-            .height(48)
-        
-        signoutButton.pin
-            .bottom(view.pin.safeArea.bottom + 16)
-            .horizontally(16)
-            .height(48)
+            .hCenter()
+            .bottom(278)
+            .width(220)
+            .height(50)
         
         signupButton.pin
-            .above(of: loginButton)
-            .marginBottom(15)
-            .horizontally(16)
-            .height(48)
+            .bottom(138)
+            .hCenter()
+            .height(50)
+            .width(290)
+        
+
+//        signoutButton.pin
+//            .bottom(view.pin.safeArea.bottom + 16)
+//            .horizontally(16)
+//            .height(48)
+//
+
 
     }
     func createAccount(email: String, password: String) {
