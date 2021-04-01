@@ -8,6 +8,7 @@
 import UIKit
 import PinLayout
 import FirebaseAuth
+import Foundation
 
 class LogInViewController: UIViewController {
     private let containerView = UIView()
@@ -221,6 +222,7 @@ class LogInViewController: UIViewController {
     
     //переход на экран регистрации при нажатии кнопки
     @objc func toSignupButtonPressed() {
+        //let signUpVC = MainView()
         let signUpVC = SignUpViewController()
         signUpVC.modalPresentationStyle = .fullScreen
         present(signUpVC, animated: true, completion: nil)
