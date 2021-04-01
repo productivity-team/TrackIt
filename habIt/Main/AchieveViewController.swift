@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class achievementsVC: UIViewController {
+class AchieveViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 255/255, alpha: 1)

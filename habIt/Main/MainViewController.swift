@@ -14,19 +14,16 @@ class MainView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let menu = UINavigationController(rootViewController: menuVC())
-        let stats = UINavigationController(rootViewController: statsVC())
-        let achievements = UINavigationController(rootViewController: achievementsVC())
-        let settings = UINavigationController(rootViewController: settingsVC())
+        let menu = UINavigationController(rootViewController: MenuViewController())
+        let stats = UINavigationController(rootViewController: StatsViewController())
+        let achievements = UINavigationController(rootViewController: AchieveViewController())
+        let settings = UINavigationController(rootViewController: SettingsViewController())
         menu.title = "Меню"
         stats.title = "Статистика"
         achievements.title = "Достижения"
         settings.title = "Настройки"
         
-        
-        
-        
-        
+
         tabBar.setViewControllers([menu, stats, achievements, settings], animated: false)
         guard let items = tabBar.tabBar.items else {
             return

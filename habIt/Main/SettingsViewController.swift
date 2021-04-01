@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-class settingsVC: UIViewController {
+class SettingsViewController: UIViewController {
     private let logOutButton = UIButton()
     override func viewDidLoad() {
         super.viewDidLoad()

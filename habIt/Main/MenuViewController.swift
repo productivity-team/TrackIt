@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class menuVC: UIViewController {
+class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 255/255, alpha: 1)
