@@ -5,8 +5,9 @@
 //  Created by kjhfsjdgfhk on 02.04.2021.
 //
 
-import Foundation
-import SwiftUI
+import UIKit
+import PinLayout
+import Firebase
 
 
 class SettingsViewController: UIViewController {
@@ -23,6 +24,7 @@ class SettingsViewController: UIViewController {
         logOutButton.backgroundColor = .red
         logOutButton.setTitleColor(.white, for: .normal)
         logOutButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 20)
+        logOutButton.addTarget(self, action: #selector(logOutButtonPressed), for: .touchUpInside)
         
         view.addSubview(logOutButton)
         
@@ -34,6 +36,21 @@ class SettingsViewController: UIViewController {
             .height(46)
             .horizontally(16)
             .bottom(view.pin.safeArea.bottom + 16)
+    }
+    
+    
+    //выход из аккаунта и переход на начальный экран 
+    @objc
+    private func logOutButtonPressed() {
+        do {
+            try Auth.auth().signOut()
+            let helloVC = HelloViewController()
+            helloVC.modalPresentationStyle = .fullScreen
+            self.present(helloVC, animated: false, completion: nil)
+            
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
     }
     
 }

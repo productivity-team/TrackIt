@@ -5,11 +5,10 @@
 //  Created by kjhfsjdgfhk on 31.03.2021.
 //
 
-import Foundation
-import SwiftUI
+import UIKit
 import PinLayout
 
-class MainView: UIViewController {
+class MainViewController: UIViewController {
     private let tabBar = UITabBarController()
     
     override func viewDidLoad() {

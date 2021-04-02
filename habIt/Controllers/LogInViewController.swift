@@ -17,7 +17,6 @@ class LogInViewController: UIViewController {
     private let passwordField = UITextField()
     private let loginButton = UIButton()
     private let signupButton = UIButton()
-    private let signoutButton = UIButton() 
     private let emailboxImage1 = UIImageView()  // Овальная штуковина за надписью Email
     private let emailboxImage2 = UIImageView()
     private let forgotlabel = UILabel()  //Забыли пароль?
@@ -34,7 +33,7 @@ class LogInViewController: UIViewController {
         loginButton.backgroundColor = UIColor(red: 134/255, green: 213/255, blue: 238/255, alpha: 1)
         loginButton.setTitleColor(UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1), for: .normal)
         loginButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 18)
-        
+        loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         
         signupButton.layer.cornerRadius = 25
         signupButton.layer.masksToBounds = true
@@ -45,18 +44,7 @@ class LogInViewController: UIViewController {
         signupButton.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 255/255, alpha: 1)
         signupButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 18)
         signupButton.addTarget(self, action: #selector(toSignupButtonPressed), for: .touchUpInside)
-        
-        loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
-        if FirebaseAuth.Auth.auth().currentUser != nil {
-            labelLogIn.isHidden = true
-            emailField.isHidden = true
-            passwordField.isHidden = true
-            signupButton.isHidden = true
-            loginButton.isHidden = true
-            
-            view.addSubview(signoutButton)
-            signoutButton.addTarget(self, action: #selector(logoutTapped), for: .touchUpInside)
-        }
+
         
         
         forgotlabel.text = "Забыли пароль?"
@@ -85,7 +73,7 @@ class LogInViewController: UIViewController {
         passwordField.autocapitalizationType = .none
         passwordField.leftViewMode = .always
         passwordField.font = UIFont(name: "Lato-Regular", size: 18)
-        
+        passwordField.isSecureTextEntry.toggle() //делает пароль невидимым
         
         [emailField, labelLogIn, passwordField, loginButton, signupButton, emailboxImage1, emailboxImage2, forgotlabel].forEach { view.addSubview($0) }
     }
@@ -140,38 +128,8 @@ class LogInViewController: UIViewController {
     }
     
     
-    //перемещает курсор в поле емэйла чтобы лишний раз туда не тыкать
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if FirebaseAuth.Auth.auth().currentUser != nil {
-            emailField.becomeFirstResponder()
-        }
-    }
-    
-    
-    // выход из профиля (переписать + на главную)
-    @objc
-    private func logoutTapped() {
-        do {
-            try FirebaseAuth.Auth.auth().signOut()
-            
-            labelLogIn.isHidden = false
-            emailField.isHidden = false
-            passwordField.isHidden = false
-            signupButton.isHidden = false
-            loginButton.isHidden = false
-            
-            signoutButton.removeFromSuperview()
-            
-        }
-        catch {
-            print("An error occured")
-        }
-    }
-    
-    
     // функция которая логинит пользователя при нажатии на кнопку войти и выкидывает поп ап при ошибке
-    // !!!!!!!добавить переход на главный экран!!!!!!!
+    // при успешном логине переходит на главную
     @objc
     private func loginButtonPressed() {
         if let email = emailField.text, let password = passwordField.text {
@@ -180,47 +138,16 @@ class LogInViewController: UIViewController {
                     self.showAlert(message: err.localizedDescription)
                 } else {
                     //Navigate to the main view controller
-                    print("You have signed in")
+                    let mainVC = MainViewController()
+                    mainVC.modalPresentationStyle = .fullScreen
+                    self.present(mainVC, animated: true, completion: nil)
                 }
             }
         }
     }
-        
-        
-        
-        
-        //        signoutButton.pin
-        //            .bottom(view.pin.safeArea.bottom + 16)
-        //            .horizontally(16)
-        //            .height(48)
-        //
-        
-        
-        
-        
-        // переписать на экране создания пользователя (создание аккаунта)
-        func createAccount(email: String, password: String) {
-            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: {[weak self] result, error in
-                guard let strongSelf = self else {
-                    print("You don't have an account")
-                    return
-                }
-                
-                guard error == nil else {
-                    print("Account creation failed")
-                    return
-                }
-                print("You have signed in")
-                strongSelf.labelLogIn.isHidden = true
-                strongSelf.emailField.isHidden = true
-                strongSelf.passwordField.isHidden = true
-                strongSelf.loginButton.isHidden = true
-                
-            })
-        }
-        
     
-    //переход на экран регистрации при нажатии кнопки
+    
+    //переход на экран регистрации при нажатии кнопки "Еще нет аккаунта?"
     @objc func toSignupButtonPressed() {
         //let signUpVC = MainView()
         let signUpVC = SignUpViewController()
@@ -228,11 +155,11 @@ class LogInViewController: UIViewController {
         present(signUpVC, animated: true, completion: nil)
     }
     
+    
     //показывает pop up window с ошибкой
     func showAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    
 }

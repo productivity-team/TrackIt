@@ -125,11 +125,11 @@
 		BBA90DBC2616836D00A84A4D /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				BBA90DAE2616834900A84A4D /* AchieveViewController.swift */,
 				BBA90DAF2616834900A84A4D /* MainViewController.swift */,
 				BBA90DB22616834900A84A4D /* MenuViewController.swift */,
-				BBA90DB02616834900A84A4D /* SettingsViewController.swift */,
 				BBA90DB12616834900A84A4D /* StatsViewController.swift */,
+				BBA90DAE2616834900A84A4D /* AchieveViewController.swift */,
+				BBA90DB02616834900A84A4D /* SettingsViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
