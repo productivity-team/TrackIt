@@ -46,11 +46,12 @@ class SignUpViewController: UIViewController {
         emailField.font = UIFont(name: "Lato-Regular", size: 18)
         
         
-        passwordField.placeholder = "Email"
+        passwordField.placeholder = "Пароль"
         passwordField.autocapitalizationType = .none
         passwordField.leftViewMode = .always
         passwordField.textColor = UIColor(red: 42/255, green: 43/255, blue: 43/255, alpha: 1)
         passwordField.font = UIFont(name: "Lato-Regular", size: 18)
+        passwordField.isSecureTextEntry.toggle() //делает пароль невидимым
         
         
         nameboxImage.image = UIImage(named: "TypingBox")
@@ -63,7 +64,7 @@ class SignUpViewController: UIViewController {
         signUpButton.backgroundColor = UIColor(red: 134/255, green: 213/255, blue: 238/255, alpha: 1)
         signUpButton.setTitleColor(UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1), for: .normal)
         signUpButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 18)
-        
+        signUpButton.addTarget(self, action: #selector(signUpButtonPressed), for: .touchUpInside)
         
         logInButton.layer.cornerRadius = 25
         logInButton.layer.masksToBounds = true
@@ -77,8 +78,8 @@ class SignUpViewController: UIViewController {
         
         
         [regLable, nameboxImage, emailField, emailboxImage, passwordboxImage, nameField, passwordField, signUpButton, logInButton].forEach { view.addSubview($0) }
-
     }
+    
     
     override func viewDidLayoutSubviews() {
             super.viewDidLayoutSubviews()
@@ -135,11 +136,40 @@ class SignUpViewController: UIViewController {
             .height(50)
             .width(290)
     }
+    
+    
+    // функция которая регистрирует пользователя при нажатии на кнопку зарегистрироваться и выкидывает поп ап при ошибке
+    // при успешной регистрации переходит на главную
+    @objc
+    private func signUpButtonPressed() {
+        if let email = emailField.text, let password = passwordField.text {
+            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                if let err = error {
+                    self.showAlert(message: err.localizedDescription)
+                } else {
+                    //Navigate to the main view controller
+                    let mainVC = MainViewController()
+                    mainVC.modalPresentationStyle = .fullScreen
+                    self.present(mainVC, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
  
     //переход на экран входа при нажатии кнопки "Уже зарегистрированы?"
     @objc func toLoginButtonPressed() {
-        let signUpVC = LogInViewController()
-        signUpVC.modalPresentationStyle = .fullScreen
-        present(signUpVC, animated: true, completion: nil)
+        let loginVC = LogInViewController()
+        loginVC.modalPresentationStyle = .fullScreen
+        present(loginVC, animated: true, completion: nil)
+    }
+    
+    
+    //показывает pop up window с ошибкой
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
+
