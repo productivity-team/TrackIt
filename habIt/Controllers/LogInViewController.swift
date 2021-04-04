@@ -24,7 +24,9 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround() 
+        
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
         
         view.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 255/255, alpha: 1)
         
@@ -165,14 +167,14 @@ class LogInViewController: UIViewController {
     }
 }
 
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
+//extension UIViewController {
+//    func hideKeyboardWhenTappedAround() {
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+//        tap.cancelsTouchesInView = false
+//        view.addGestureRecognizer(tap)
+//    }
+//
+//    @objc func dismissKeyboard() {
+//        view.endEditing(true)
+//    }
+//}
