@@ -24,6 +24,7 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
         
         view.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 255/255, alpha: 1)
         
