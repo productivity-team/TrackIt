@@ -8,7 +8,6 @@
 import UIKit
 import PinLayout
 import FirebaseAuth
-import Foundation
 
 class LogInViewController: UIViewController {
     private let containerView = UIView()
@@ -141,9 +140,9 @@ class LogInViewController: UIViewController {
                     self.showAlert(message: err.localizedDescription)
                 } else {
                     //Navigate to the main view controller
-                    let mainVC = MainViewController()
-                    mainVC.modalPresentationStyle = .fullScreen
-                    self.present(mainVC, animated: true, completion: nil)
+                    let homeVC = HomeViewController()
+                    homeVC.modalPresentationStyle = .fullScreen
+                    self.present(homeVC, animated: true, completion: nil)
                 }
             }
         }
@@ -166,15 +165,3 @@ class LogInViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 }
-
-//extension UIViewController {
-//    func hideKeyboardWhenTappedAround() {
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-//        tap.cancelsTouchesInView = false
-//        view.addGestureRecognizer(tap)
-//    }
-//
-//    @objc func dismissKeyboard() {
-//        view.endEditing(true)
-//    }
-//}

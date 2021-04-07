@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,7 +18,7 @@
 		BB0D354A2606A5A900A9988E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB0D35492606A5A900A9988E /* Assets.xcassets */; };
 		BB0D354D2606A5A900A9988E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB0D354B2606A5A900A9988E /* LaunchScreen.storyboard */; };
 		BBA90DB32616834900A84A4D /* AchieveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA90DAE2616834900A84A4D /* AchieveViewController.swift */; };
-		BBA90DB42616834900A84A4D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA90DAF2616834900A84A4D /* MainViewController.swift */; };
+		BBA90DB42616834900A84A4D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA90DAF2616834900A84A4D /* HomeViewController.swift */; };
 		BBA90DB52616834900A84A4D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA90DB02616834900A84A4D /* SettingsViewController.swift */; };
 		BBA90DB62616834900A84A4D /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA90DB12616834900A84A4D /* StatsViewController.swift */; };
 		BBA90DB72616834900A84A4D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA90DB22616834900A84A4D /* MenuViewController.swift */; };
@@ -41,7 +41,7 @@
 		BB0D354C2606A5A900A9988E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB0D354E2606A5A900A9988E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBA90DAE2616834900A84A4D /* AchieveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AchieveViewController.swift; path = habIt/Main/AchieveViewController.swift; sourceTree = SOURCE_ROOT; };
-		BBA90DAF2616834900A84A4D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = habIt/Main/MainViewController.swift; sourceTree = SOURCE_ROOT; };
+		BBA90DAF2616834900A84A4D /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = habIt/Main/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		BBA90DB02616834900A84A4D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = habIt/Main/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
 		BBA90DB12616834900A84A4D /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsViewController.swift; path = habIt/Main/StatsViewController.swift; sourceTree = SOURCE_ROOT; };
 		BBA90DB22616834900A84A4D /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = habIt/Main/MenuViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -125,7 +125,7 @@
 		BBA90DBC2616836D00A84A4D /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				BBA90DAF2616834900A84A4D /* MainViewController.swift */,
+				BBA90DAF2616834900A84A4D /* HomeViewController.swift */,
 				BBA90DB22616834900A84A4D /* MenuViewController.swift */,
 				BBA90DB12616834900A84A4D /* StatsViewController.swift */,
 				BBA90DAE2616834900A84A4D /* AchieveViewController.swift */,
@@ -179,7 +179,7 @@
 				};
 			};
 			buildConfigurationList = BB0D35382606A5A800A9988E /* Build configuration list for PBXProject "habIt" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -258,7 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBA90DB42616834900A84A4D /* MainViewController.swift in Sources */,
+				BBA90DB42616834900A84A4D /* HomeViewController.swift in Sources */,
 				BBA90DB72616834900A84A4D /* MenuViewController.swift in Sources */,
 				BBA90DB32616834900A84A4D /* AchieveViewController.swift in Sources */,
 				BB0D35452606A5A800A9988E /* LogInViewController.swift in Sources */,
@@ -336,7 +336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -391,7 +391,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -8,6 +8,7 @@
 import UIKit
 import PinLayout
 import FirebaseAuth
+import Firebase
 
 class SignUpViewController: UIViewController {
     
@@ -141,22 +142,59 @@ class SignUpViewController: UIViewController {
     }
     
     
-    // функция которая регистрирует пользователя при нажатии на кнопку зарегистрироваться и выкидывает поп ап при ошибке
-    // при успешной регистрации переходит на главную
+    func validateFields() -> String? {
+        
+        //Chech that all fields are filled in
+        if nameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            passwordField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            return "Пожалуйста заполните все поля"
+        }
+        
+        return nil
+    }
+    
+    
+    
+    // Функция регистрирует пользователя при нажатии на кнопку зарегистрироваться
+    // Выкидывает поп ап при ошибке
+    // При успешной регистрации сохраняет имя и uid пользователя в базу и переходит на главную
     @objc
     private func signUpButtonPressed() {
-        if let email = emailField.text, let password = passwordField.text {
+        
+        let er = validateFields()
+        guard er == nil else { return showAlert(message: "Ошибка при создании пользователя") }
+        
+        //create clened versions of the data
+        let username = nameField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let email = emailField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        
+        //create the user
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                
                 if let err = error {
                     self.showAlert(message: err.localizedDescription)
                 } else {
-                    //Navigate to the main view controller
-                    let mainVC = MainViewController()
-                    mainVC.modalPresentationStyle = .fullScreen
-                    self.present(mainVC, animated: true, completion: nil)
+                    
+                    //successfully created user, now store the user's name
+                    let db = Firestore.firestore()
+                    
+                    db.collection("users").addDocument(data: ["username":username, "uid":authResult!.user.uid]) { (error) in
+                        
+                        if error != nil {
+                            self.showAlert(message: "Не удалось сохранить данные пользователя")
+                        }
+                    }
+                    
+                    //Navigate to the home screen
+                    
+                    let homeVC = HomeViewController()
+                    homeVC.modalPresentationStyle = .fullScreen
+                    self.present(homeVC, animated: true, completion: nil)
                 }
             }
-        }
     }
     
  
@@ -166,6 +204,7 @@ class SignUpViewController: UIViewController {
         loginVC.modalPresentationStyle = .fullScreen
         present(loginVC, animated: true, completion: nil)
     }
+    
     
     
     //показывает pop up window с ошибкой

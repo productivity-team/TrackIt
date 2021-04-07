@@ -8,7 +8,7 @@
 import UIKit
 import PinLayout
 
-class MainViewController: UIViewController {
+class HomeViewController: UIViewController {
     private let tabBar = UITabBarController()
     
     override func viewDidLoad() {

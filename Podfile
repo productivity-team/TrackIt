@@ -7,6 +7,7 @@ target 'habIt' do
 pod 'Firebase/Analytics'
 pod 'PinLayout'
 pod 'Firebase/Core'
-pod 'Firebase/Auth'	 
+pod 'Firebase/Auth'
+pod 'Firebase/Firestore'
 
 end
