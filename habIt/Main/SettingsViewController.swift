@@ -44,9 +44,9 @@ class SettingsViewController: UIViewController {
     private func logOutButtonPressed() {
         do {
             try Auth.auth().signOut()
-            let helloVC = HelloViewController()
-            helloVC.modalPresentationStyle = .fullScreen
-            self.present(helloVC, animated: false, completion: nil)
+            let welcomeVC = WelcomeContainer.assemble(with: WelcomeContext()).viewController
+            welcomeVC.modalPresentationStyle = .fullScreen
+            self.present(welcomeVC, animated: false, completion: nil)
             
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)

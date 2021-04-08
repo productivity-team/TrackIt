@@ -1,23 +1,34 @@
 //
-//  HelloViewController.swift
+//  WelcomeViewController.swift
 //  habIt
 //
-//  Created by Maria Pecheritsyna on 01.04.2021.
+//  Created by Maria Pecheritsyna on 07.04.2021.
+//  
 //
 
 import UIKit
 import PinLayout
 
-class HelloViewController: UIViewController {
+final class WelcomeViewController: UIViewController {
+    private let output: WelcomeViewOutput
     
     private let greetingLabel = UILabel()
     private let habLabel = UILabel()
     private let signUpButton = UIButton()
     private let loginButton = UIButton()
     
+    init(output: WelcomeViewOutput) {
+        self.output = output
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         view.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 255/255, alpha: 1)
         
@@ -37,7 +48,7 @@ class HelloViewController: UIViewController {
         loginButton.layer.borderColor = CGColor(red: 77/255, green: 185/255, blue: 219/255, alpha: 1)
         loginButton.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 255/255, alpha: 1)
         loginButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 18)
-        loginButton.addTarget(self, action: #selector(toLoginButtonPressed), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(toLogInButtonPressed), for: .touchUpInside)
         
         
         signUpButton.layer.cornerRadius = 25
@@ -77,18 +88,17 @@ class HelloViewController: UIViewController {
             .bottom(258)
     }
     
-    //переход на экран входа при нажатии кнопки
-    @objc func toLoginButtonPressed() {
-        let loginVC = LogInViewController()
-        loginVC.modalPresentationStyle = .fullScreen
-        present(loginVC, animated: true, completion: nil)
+    @objc
+    private func toLogInButtonPressed() {
+        output.toLogInButtonPressed()
     }
     
-    //переход на экран регистрации при нажатии кнопки
-    @objc func toSignUpButtonPressed() {
-        let signUpVC = SignUpViewController()
-        signUpVC.modalPresentationStyle = .fullScreen
-        present(signUpVC, animated: true, completion: nil)
+    @objc
+    private func toSignUpButtonPressed() {
+        output.toSignUpButtonPressed()
     }
+    
 }
 
+extension WelcomeViewController: WelcomeViewInput {
+}
