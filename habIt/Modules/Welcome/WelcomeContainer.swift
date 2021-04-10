@@ -18,12 +18,9 @@ final class WelcomeContainer {
         let interactor = WelcomeInteractor()
         let presenter = WelcomePresenter(router: router, interactor: interactor)
 		let viewController = WelcomeViewController(output: presenter)
-
+        
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
-        
-        
-        router.sourceViewController = viewController
         
         
 		interactor.output = presenter

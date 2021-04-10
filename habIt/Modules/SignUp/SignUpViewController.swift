@@ -2,15 +2,14 @@
 //  SignUpViewController.swift
 //  habIt
 //
-//  Created by Maria Pecheritsyna on 01.04.2021.
+//  Created by Maria Pecheritsyna on 10.04.2021.
+//  
 //
 
 import UIKit
-import PinLayout
-import FirebaseAuth
-import Firebase
 
-class SignUpViewController: UIViewController {
+final class SignUpViewController: UIViewController {
+	private let output: SignUpViewOutput
     
     private let regLable = UILabel()
     private let emailField = UITextField()
@@ -21,10 +20,20 @@ class SignUpViewController: UIViewController {
     private let passwordboxImage = UIImageView()
     private let signUpButton = UIButton()
     private let logInButton = UIButton()
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+
+    init(output: SignUpViewOutput) {
+        self.output = output
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
         
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
@@ -141,77 +150,17 @@ class SignUpViewController: UIViewController {
             .width(290)
     }
     
-    
-    func validateFields() -> String? {
-        
-        //Chech that all fields are filled in
-        if nameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            passwordField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            return "Пожалуйста заполните все поля"
-        }
-        
-        return nil
-    }
-    
-    
-    
-    // Функция регистрирует пользователя при нажатии на кнопку зарегистрироваться
-    // Выкидывает поп ап при ошибке
-    // При успешной регистрации сохраняет имя и uid пользователя в базу и переходит на главную
     @objc
     private func signUpButtonPressed() {
-        
-        let er = validateFields()
-        guard er == nil else { return showAlert(message: "Ошибка при создании пользователя") }
-        
-        //create clened versions of the data
-        let username = nameField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let email = emailField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let password = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        
-        //create the user
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                
-                if let err = error {
-                    self.showAlert(message: err.localizedDescription)
-                } else {
-                    
-                    //successfully created user, now store the user's name
-                    let db = Firestore.firestore()
-                    
-                    db.collection("users").addDocument(data: ["username":username, "uid":authResult!.user.uid]) { (error) in
-                        
-                        if error != nil {
-                            self.showAlert(message: "Не удалось сохранить данные пользователя")
-                        }
-                    }
-                    
-                    //Navigate to the home screen
-                    
-                    let homeVC = HomeViewController()
-                    homeVC.modalPresentationStyle = .fullScreen
-                    self.present(homeVC, animated: true, completion: nil)
-                }
-            }
+        output.signUpButtonPressed()
+    }
+
+    @objc
+    private func toLoginButtonPressed() {
+        output.toLoginButtonPressed()
     }
     
- 
-    //переход на экран входа при нажатии кнопки "Уже зарегистрированы?"
-    @objc func toLoginButtonPressed() {
-        let loginVC = LogInViewController()
-        loginVC.modalPresentationStyle = .fullScreen
-        present(loginVC, animated: true, completion: nil)
-    }
-    
-    
-    
-    //показывает pop up window с ошибкой
-    func showAlert(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
 }
 
+extension SignUpViewController: SignUpViewInput {
+}

@@ -1,15 +1,17 @@
 //
-//  ViewController.swift
+//  LogInViewController.swift
 //  habIt
 //
-//  Created by kjhfsjdgfhk on 21.03.2021.
+//  Created by Maria Pecheritsyna on 08.04.2021.
+//  
 //
 
 import UIKit
 import PinLayout
-import FirebaseAuth
 
-class LogInViewController: UIViewController {
+final class LogInViewController: UIViewController {
+	private let output: LogInViewOutput
+    
     private let containerView = UIView()
     private let labelLogIn = UILabel()
     private let emailField = UITextField()
@@ -20,9 +22,20 @@ class LogInViewController: UIViewController {
     private let passwordboxImage = UIImageView()
     private let forgotlabel = UILabel()  //Забыли пароль?
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+
+    init(output: LogInViewOutput) {
+        self.output = output
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
         
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
@@ -35,7 +48,7 @@ class LogInViewController: UIViewController {
         loginButton.backgroundColor = UIColor(red: 134/255, green: 213/255, blue: 238/255, alpha: 1)
         loginButton.setTitleColor(UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1), for: .normal)
         loginButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 18)
-        loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(logInButtonPressed), for: .touchUpInside)
         
         signupButton.layer.cornerRadius = 25
         signupButton.layer.masksToBounds = true
@@ -45,7 +58,7 @@ class LogInViewController: UIViewController {
         signupButton.layer.borderColor = CGColor(red: 77/255, green: 185/255, blue: 219/255, alpha: 1)
         signupButton.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 255/255, alpha: 1)
         signupButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 18)
-        signupButton.addTarget(self, action: #selector(toSignupButtonPressed), for: .touchUpInside)
+        signupButton.addTarget(self, action: #selector(toSignUpButtonPressed), for: .touchUpInside)
 
         
         
@@ -129,39 +142,18 @@ class LogInViewController: UIViewController {
             .width(290)
     }
     
-    
-    // функция которая логинит пользователя при нажатии на кнопку войти и выкидывает поп ап при ошибке
-    // при успешном логине переходит на главную
     @objc
-    private func loginButtonPressed() {
-        if let email = emailField.text, let password = passwordField.text {
-            Auth.auth().signIn(withEmail: email, password: password) { authResult,error in
-                if let err = error {
-                    self.showAlert(message: err.localizedDescription)
-                } else {
-                    //Navigate to the main view controller
-                    let homeVC = HomeViewController()
-                    homeVC.modalPresentationStyle = .fullScreen
-                    self.present(homeVC, animated: true, completion: nil)
-                }
-            }
-        }
+    private func logInButtonPressed() {
+        output.logInButtonPressed()
     }
     
-    
-    //переход на экран регистрации при нажатии кнопки "Еще нет аккаунта?"
-    @objc func toSignupButtonPressed() {
-        //let signUpVC = MainView()
-        let signUpVC = SignUpViewController()
-        signUpVC.modalPresentationStyle = .fullScreen
-        present(signUpVC, animated: true, completion: nil)
+    @objc
+    private func toSignUpButtonPressed() {
+        output.toSignUpButtonPressed()
     }
+}
+
+
+extension LogInViewController: LogInViewInput {
     
-    
-    //показывает pop up window с ошибкой
-    func showAlert(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
 }

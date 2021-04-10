@@ -19,10 +19,8 @@ protocol WelcomeViewInput: class {
 }
 
 protocol WelcomeViewOutput: class {
-    
     func toLogInButtonPressed()
     func toSignUpButtonPressed()
-    
 }
 
 protocol WelcomeInteractorInput: class {

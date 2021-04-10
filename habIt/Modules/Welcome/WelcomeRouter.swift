@@ -9,22 +9,19 @@
 import UIKit
 
 final class WelcomeRouter {
+    weak var viewController: UIViewController?
 }
 
 extension WelcomeRouter: WelcomeRouterInput {
     
+    //переход к экрану входа
     func openLogIn() {
-//        let loginVC = LogInViewController()
-//        loginVC.modalPresentationStyle = .fullScreen
-//        loginVC.present(loginVC, animated: true, completion: nil)
         
     }
     
+    //переход к экрану регистрации
     func openSignUp() {
-//
-//        let signUpVC = SignUpViewController()
-//        signUpVC.modalPresentationStyle = .fullScreen
-//        signUpVC.present(signUpVC, animated: true, completion: nil)
+
     }
     
 }
