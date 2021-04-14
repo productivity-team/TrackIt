@@ -22,6 +22,9 @@
 		6B61EB00262190260009C24B /* SignUpProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B61EAFA262190260009C24B /* SignUpProtocols.swift */; };
 		6B61EB01262190260009C24B /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B61EAFB262190260009C24B /* SignUpInteractor.swift */; };
 		6B61EB02262190260009C24B /* SignUpContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B61EAFC262190260009C24B /* SignUpContainer.swift */; };
+		6B94DC5A262636A800FC279F /* HabitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B94DC59262636A800FC279F /* HabitTableViewCell.swift */; };
+		6B94DC5F2626372D00FC279F /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B94DC5E2626372D00FC279F /* HabitViewModel.swift */; };
+		6B94DC7426271AAB00FC279F /* TestHabits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B94DC7326271AAB00FC279F /* TestHabits.swift */; };
 		6BA9FD362616520C009A7AF9 /* OldSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA9FD352616520C009A7AF9 /* OldSignUpViewController.swift */; };
 		6BB7E874261E2E71008ABB41 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7E86E261E2E71008ABB41 /* WelcomePresenter.swift */; };
 		6BB7E875261E2E71008ABB41 /* WelcomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7E86F261E2E71008ABB41 /* WelcomeRouter.swift */; };
@@ -64,11 +67,6 @@
 		BB847E0B2623040C006AF2B6 /* TabBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB847DED2623040C006AF2B6 /* TabBarContainer.swift */; };
 		BB847E0C2623040C006AF2B6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB847DEE2623040C006AF2B6 /* TabBarViewController.swift */; };
 		BB847E0D2623040C006AF2B6 /* TabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB847DEF2623040C006AF2B6 /* TabBarInteractor.swift */; };
-		BBA90DB32616834900A84A4D /* AchieveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA90DAE2616834900A84A4D /* AchieveViewController.swift */; };
-		BBA90DB42616834900A84A4D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA90DAF2616834900A84A4D /* HomeViewController.swift */; };
-		BBA90DB52616834900A84A4D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA90DB02616834900A84A4D /* SettingsViewController.swift */; };
-		BBA90DB62616834900A84A4D /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA90DB12616834900A84A4D /* StatsViewController.swift */; };
-		BBA90DB72616834900A84A4D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA90DB22616834900A84A4D /* MenuViewController.swift */; };
 		BBD9E62B2606A7E400A89C24 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBD9E62A2606A7E400A89C24 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +87,9 @@
 		6B61EAFA262190260009C24B /* SignUpProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProtocols.swift; sourceTree = "<group>"; };
 		6B61EAFB262190260009C24B /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 		6B61EAFC262190260009C24B /* SignUpContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContainer.swift; sourceTree = "<group>"; };
+		6B94DC59262636A800FC279F /* HabitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTableViewCell.swift; sourceTree = "<group>"; };
+		6B94DC5E2626372D00FC279F /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
+		6B94DC7326271AAB00FC279F /* TestHabits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHabits.swift; sourceTree = "<group>"; };
 		6BA9FD352616520C009A7AF9 /* OldSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldSignUpViewController.swift; sourceTree = "<group>"; };
 		6BB7E86E261E2E71008ABB41 /* WelcomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
 		6BB7E86F261E2E71008ABB41 /* WelcomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRouter.swift; sourceTree = "<group>"; };
@@ -134,11 +135,6 @@
 		BB847DED2623040C006AF2B6 /* TabBarContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarContainer.swift; sourceTree = "<group>"; };
 		BB847DEE2623040C006AF2B6 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		BB847DEF2623040C006AF2B6 /* TabBarInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarInteractor.swift; sourceTree = "<group>"; };
-		BBA90DAE2616834900A84A4D /* AchieveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AchieveViewController.swift; path = habIt/Main/AchieveViewController.swift; sourceTree = SOURCE_ROOT; };
-		BBA90DAF2616834900A84A4D /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = habIt/Main/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
-		BBA90DB02616834900A84A4D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = habIt/Main/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
-		BBA90DB12616834900A84A4D /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsViewController.swift; path = habIt/Main/StatsViewController.swift; sourceTree = SOURCE_ROOT; };
-		BBA90DB22616834900A84A4D /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = habIt/Main/MenuViewController.swift; sourceTree = SOURCE_ROOT; };
 		BBD9E62A2606A7E400A89C24 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,6 +194,48 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		6B61EB1A26244F580009C24B /* MainModules */ = {
+			isa = PBXGroup;
+			children = (
+				BB847DCD2623040B006AF2B6 /* TabBar */,
+				BB847DE62623040C006AF2B6 /* Menu */,
+				BB847DCE2623040B006AF2B6 /* Statistics */,
+				BB847DD52623040B006AF2B6 /* Settings */,
+				BB847DDC2623040B006AF2B6 /* Achievement */,
+			);
+			path = MainModules;
+			sourceTree = "<group>";
+		};
+		6B61EB1B26244FBD0009C24B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BB0D35402606A5A800A9988E /* AppDelegate.swift */,
+				BB0D35422606A5A800A9988E /* SceneDelegate.swift */,
+				BB0D35492606A5A900A9988E /* Assets.xcassets */,
+				BB0D354B2606A5A900A9988E /* LaunchScreen.storyboard */,
+				BBD9E62A2606A7E400A89C24 /* GoogleService-Info.plist */,
+				1EEC49FC26131B700029F750 /* Fonts */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6B94DC582626367A00FC279F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6B94DC59262636A800FC279F /* HabitTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		6B94DC5D262636EB00FC279F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6B94DC5E2626372D00FC279F /* HabitViewModel.swift */,
+				6B94DC7326271AAB00FC279F /* TestHabits.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		6BA9FD33261650D1009A7AF9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,15 +258,14 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
-		6BB7E88A261E2ECA008ABB41 /* Modules */ = {
+		6BB7E88A261E2ECA008ABB41 /* AuthModules */ = {
 			isa = PBXGroup;
 			children = (
-				BB847DCD2623040B006AF2B6 /* TabBar */,
 				6BB7E86D261E2E4A008ABB41 /* Welcome */,
 				6B61EAE5261F8C460009C24B /* LogIn */,
 				6B61EAF626218F690009C24B /* SignUp */,
 			);
-			path = Modules;
+			path = AuthModules;
 			sourceTree = "<group>";
 		};
 		BB0D35342606A5A800A9988E = {
@@ -252,15 +289,10 @@
 		BB0D353F2606A5A800A9988E /* habIt */ = {
 			isa = PBXGroup;
 			children = (
-				6BB7E88A261E2ECA008ABB41 /* Modules */,
-				1EEC49FC26131B700029F750 /* Fonts */,
-				BBD9E62A2606A7E400A89C24 /* GoogleService-Info.plist */,
-				BB0D35402606A5A800A9988E /* AppDelegate.swift */,
-				BB0D35422606A5A800A9988E /* SceneDelegate.swift */,
-				BBA90DBC2616836D00A84A4D /* Main */,
+				6BB7E88A261E2ECA008ABB41 /* AuthModules */,
+				6B61EB1A26244F580009C24B /* MainModules */,
+				6B61EB1B26244FBD0009C24B /* Supporting Files */,
 				6BA9FD33261650D1009A7AF9 /* Controllers */,
-				BB0D35492606A5A900A9988E /* Assets.xcassets */,
-				BB0D354B2606A5A900A9988E /* LaunchScreen.storyboard */,
 				BB0D354E2606A5A900A9988E /* Info.plist */,
 			);
 			path = habIt;
@@ -269,16 +301,12 @@
 		BB847DCD2623040B006AF2B6 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				BB847DE62623040C006AF2B6 /* Menu */,
-				BB847DCE2623040B006AF2B6 /* Statistics */,
-				BB847DD52623040B006AF2B6 /* Settings */,
-				BB847DDC2623040B006AF2B6 /* Achievement */,
-				BB847DE32623040C006AF2B6 /* TabBarPresenter.swift */,
 				BB847DE42623040C006AF2B6 /* TabBarProtocols.swift */,
-				BB847DE52623040C006AF2B6 /* TabBarRouter.swift */,
-				BB847DED2623040C006AF2B6 /* TabBarContainer.swift */,
 				BB847DEE2623040C006AF2B6 /* TabBarViewController.swift */,
+				BB847DE32623040C006AF2B6 /* TabBarPresenter.swift */,
 				BB847DEF2623040C006AF2B6 /* TabBarInteractor.swift */,
+				BB847DED2623040C006AF2B6 /* TabBarContainer.swift */,
+				BB847DE52623040C006AF2B6 /* TabBarRouter.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -286,12 +314,12 @@
 		BB847DCE2623040B006AF2B6 /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
-				BB847DCF2623040B006AF2B6 /* StatsInteractor.swift */,
-				BB847DD02623040B006AF2B6 /* StatsRouter.swift */,
-				BB847DD12623040B006AF2B6 /* StatsContainer.swift */,
-				BB847DD22623040B006AF2B6 /* StatsViewController.swift */,
 				BB847DD32623040B006AF2B6 /* StatsProtocols.swift */,
+				BB847DD22623040B006AF2B6 /* StatsViewController.swift */,
 				BB847DD42623040B006AF2B6 /* StatsPresenter.swift */,
+				BB847DCF2623040B006AF2B6 /* StatsInteractor.swift */,
+				BB847DD12623040B006AF2B6 /* StatsContainer.swift */,
+				BB847DD02623040B006AF2B6 /* StatsRouter.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -299,12 +327,12 @@
 		BB847DD52623040B006AF2B6 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				BB847DD62623040B006AF2B6 /* SettingsRouter.swift */,
+				BB847DD92623040B006AF2B6 /* SettingsProtocols.swift */,
+				BB847DDB2623040B006AF2B6 /* SettingsViewController.swift */,
+				BB847DDA2623040B006AF2B6 /* SettingsPresenter.swift */,
 				BB847DD72623040B006AF2B6 /* SettingsInteractor.swift */,
 				BB847DD82623040B006AF2B6 /* SettingsContainer.swift */,
-				BB847DD92623040B006AF2B6 /* SettingsProtocols.swift */,
-				BB847DDA2623040B006AF2B6 /* SettingsPresenter.swift */,
-				BB847DDB2623040B006AF2B6 /* SettingsViewController.swift */,
+				BB847DD62623040B006AF2B6 /* SettingsRouter.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -312,12 +340,12 @@
 		BB847DDC2623040B006AF2B6 /* Achievement */ = {
 			isa = PBXGroup;
 			children = (
-				BB847DDD2623040B006AF2B6 /* AchievementsPresenter.swift */,
-				BB847DDE2623040B006AF2B6 /* AchievementsViewController.swift */,
 				BB847DDF2623040B006AF2B6 /* AchievementsProtocols.swift */,
-				BB847DE02623040B006AF2B6 /* AchievementsRouter.swift */,
+				BB847DDE2623040B006AF2B6 /* AchievementsViewController.swift */,
+				BB847DDD2623040B006AF2B6 /* AchievementsPresenter.swift */,
 				BB847DE12623040C006AF2B6 /* AchievementsInteractor.swift */,
 				BB847DE22623040C006AF2B6 /* AchievementsContainer.swift */,
+				BB847DE02623040B006AF2B6 /* AchievementsRouter.swift */,
 			);
 			path = Achievement;
 			sourceTree = "<group>";
@@ -325,26 +353,16 @@
 		BB847DE62623040C006AF2B6 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				BB847DE72623040C006AF2B6 /* MenuRouter.swift */,
-				BB847DE82623040C006AF2B6 /* MenuContainer.swift */,
-				BB847DE92623040C006AF2B6 /* MenuPresenter.swift */,
+				6B94DC5D262636EB00FC279F /* Models */,
+				6B94DC582626367A00FC279F /* Cells */,
 				BB847DEA2623040C006AF2B6 /* MenuProtocols.swift */,
-				BB847DEB2623040C006AF2B6 /* MenuInteractor.swift */,
 				BB847DEC2623040C006AF2B6 /* MenuViewController.swift */,
+				BB847DE92623040C006AF2B6 /* MenuPresenter.swift */,
+				BB847DEB2623040C006AF2B6 /* MenuInteractor.swift */,
+				BB847DE82623040C006AF2B6 /* MenuContainer.swift */,
+				BB847DE72623040C006AF2B6 /* MenuRouter.swift */,
 			);
 			path = Menu;
-			sourceTree = "<group>";
-		};
-		BBA90DBC2616836D00A84A4D /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				BBA90DAF2616834900A84A4D /* HomeViewController.swift */,
-				BBA90DB22616834900A84A4D /* MenuViewController.swift */,
-				BBA90DB12616834900A84A4D /* StatsViewController.swift */,
-				BBA90DAE2616834900A84A4D /* AchieveViewController.swift */,
-				BBA90DB02616834900A84A4D /* SettingsViewController.swift */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		F387F0ED6C9883A1B1DFB477 /* Frameworks */ = {
@@ -482,13 +500,12 @@
 				BB847E082623040C006AF2B6 /* MenuProtocols.swift in Sources */,
 				BB847E072623040C006AF2B6 /* MenuPresenter.swift in Sources */,
 				6B61EAFE262190260009C24B /* SignUpRouter.swift in Sources */,
+				6B94DC7426271AAB00FC279F /* TestHabits.swift in Sources */,
 				6B61EAEE261F8C680009C24B /* LogInViewController.swift in Sources */,
 				BB847E032623040C006AF2B6 /* TabBarProtocols.swift in Sources */,
-				BBA90DB42616834900A84A4D /* HomeViewController.swift in Sources */,
-				BBA90DB72616834900A84A4D /* MenuViewController.swift in Sources */,
-				BBA90DB32616834900A84A4D /* AchieveViewController.swift in Sources */,
 				6B61EAF1261F8C680009C24B /* LogInContainer.swift in Sources */,
 				BB847DFF2623040C006AF2B6 /* AchievementsRouter.swift in Sources */,
+				6B94DC5F2626372D00FC279F /* HabitViewModel.swift in Sources */,
 				6BB7E875261E2E71008ABB41 /* WelcomeRouter.swift in Sources */,
 				BB0D35452606A5A800A9988E /* OldLogInViewController.swift in Sources */,
 				6BB7E874261E2E71008ABB41 /* WelcomePresenter.swift in Sources */,
@@ -509,7 +526,6 @@
 				BB847DFB2623040C006AF2B6 /* SettingsViewController.swift in Sources */,
 				BB847E052623040C006AF2B6 /* MenuRouter.swift in Sources */,
 				6BA9FD362616520C009A7AF9 /* OldSignUpViewController.swift in Sources */,
-				BBA90DB62616834900A84A4D /* StatsViewController.swift in Sources */,
 				BB847E022623040C006AF2B6 /* TabBarPresenter.swift in Sources */,
 				BB847DF22623040C006AF2B6 /* StatsContainer.swift in Sources */,
 				BB847DFE2623040C006AF2B6 /* AchievementsProtocols.swift in Sources */,
@@ -518,8 +534,8 @@
 				BB847DF92623040C006AF2B6 /* SettingsProtocols.swift in Sources */,
 				6B61EAF0261F8C680009C24B /* LogInInteractor.swift in Sources */,
 				6BB7E877261E2E71008ABB41 /* WelcomeProtocols.swift in Sources */,
-				BBA90DB52616834900A84A4D /* SettingsViewController.swift in Sources */,
 				BB847DF82623040C006AF2B6 /* SettingsContainer.swift in Sources */,
+				6B94DC5A262636A800FC279F /* HabitTableViewCell.swift in Sources */,
 				BB847E002623040C006AF2B6 /* AchievementsInteractor.swift in Sources */,
 				BB847E042623040C006AF2B6 /* TabBarRouter.swift in Sources */,
 				6B61EB00262190260009C24B /* SignUpProtocols.swift in Sources */,

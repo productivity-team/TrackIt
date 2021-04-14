@@ -19,6 +19,7 @@ protocol MenuViewInput: class {
 }
 
 protocol MenuViewOutput: class {
+//    var habitsViewModels: [HabitViewModel] { get }
     func didTapAddButton()
 }
 

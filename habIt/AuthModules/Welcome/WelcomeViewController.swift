@@ -27,6 +27,7 @@ final class WelcomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,6 +50,7 @@ final class WelcomeViewController: UIViewController {
         loginButton.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 255/255, alpha: 1)
         loginButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 18)
         loginButton.addTarget(self, action: #selector(toLogInButtonPressed), for: .touchUpInside)
+        
         
         
         signUpButton.layer.cornerRadius = 25
@@ -101,4 +103,5 @@ final class WelcomeViewController: UIViewController {
 }
 
 extension WelcomeViewController: WelcomeViewInput {
+    
 }

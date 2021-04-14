@@ -19,6 +19,9 @@ final class MenuPresenter {
         self.router = router
         self.interactor = interactor
     }
+    
+//    private (set) var citiesViewModels: [CityViewModel] = []
+    
 }
 
 extension MenuPresenter: MenuModuleInput {
@@ -33,3 +36,4 @@ extension MenuPresenter: MenuViewOutput {
 
 extension MenuPresenter: MenuInteractorOutput {
 }
+
