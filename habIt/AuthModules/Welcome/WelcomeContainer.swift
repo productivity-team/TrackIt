@@ -21,6 +21,7 @@ final class WelcomeContainer {
         
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
+        router.sourceViewController = viewController // теперь в sourceViewController? не будет .nil
         
         
 		interactor.output = presenter

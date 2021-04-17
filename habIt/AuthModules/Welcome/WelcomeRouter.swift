@@ -10,7 +10,7 @@ import UIKit
 
 final class WelcomeRouter {
     
-    weak var sourceViewController: UIViewController!
+    weak var sourceViewController: UIViewController?
 
 }
 
@@ -20,7 +20,11 @@ extension WelcomeRouter: WelcomeRouterInput {
     func openLogIn() {
 
         let container = LogInContainer.assemble(with: LogInContext())
-        sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+        let viewController = container.viewController
+        
+        //let navigationController = UINavigationController(rootViewController: viewController)
+        viewController.modalPresentationStyle = .fullScreen
+        sourceViewController?.present(viewController, animated: true, completion: nil)
 
     }
 
@@ -28,7 +32,11 @@ extension WelcomeRouter: WelcomeRouterInput {
     func openSignUp() {
 
         let container = SignUpContainer.assemble(with: SignUpContext())
-        sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+        let viewController = container.viewController
+        
+        // если захочется обернуть в навигейшон контроллер let navigationController = UINavigationController(rootViewController: viewController)
+        viewController.modalPresentationStyle = .fullScreen
+        sourceViewController?.present(viewController, animated: true, completion: nil)
 
     }
     

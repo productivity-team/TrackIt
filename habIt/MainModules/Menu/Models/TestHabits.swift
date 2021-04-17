@@ -7,8 +7,8 @@
 
 struct TestHabits {
     let habits = [
-        HabitViewModel(title: "Бег", imageName: "figure.walk", target: 5, numbOfCompletions: 1, units: "км"),
-        HabitViewModel(title: "Вода", imageName: "drop", target: 3, numbOfCompletions: nil, units: "стакан")
+        HabitViewModel(title: "Бег", imageName: "figure.walk", target: 5, numberOfCompletions: 1, units: "км"),
+        HabitViewModel(title: "Вода", imageName: "drop", target: 3, numberOfCompletions: nil, units: "стакан")
     ]
 }
 

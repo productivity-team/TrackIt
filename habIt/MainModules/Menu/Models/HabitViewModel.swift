@@ -14,11 +14,11 @@ struct HabitViewModel {
         return "\(numberOfCompletions ?? 0)/\(target)" }
     let units: String
     
-    init(title: String, imageName: String, target: Int, numbOfCompletions: Int?, units: String) {
+    init(title: String, imageName: String, target: Int, numberOfCompletions: Int?, units: String) {
         self.title = title
         self.systemImageName = imageName
         self.target = target
-        self.numberOfCompletions = numbOfCompletions
+        self.numberOfCompletions = numberOfCompletions
         self.units = units
     }
     

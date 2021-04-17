@@ -13,14 +13,14 @@ final class TabBarContainer {
 	let viewController: UIViewController
 	private(set) weak var router: TabBarRouterInput!
 
-	class func assemble() -> TabBarContainer {            //with context: TabBarContext
+	class func assemble(with context: TabBarContext) -> TabBarContainer {
         let router = TabBarRouter()
         let interactor = TabBarInteractor()
         let presenter = TabBarPresenter(router: router, interactor: interactor)
 		let viewController = TabBarViewController(output: presenter)
 
 		presenter.view = viewController
-		//presenter.moduleOutput = context.moduleOutput
+		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
         return TabBarContainer(view: viewController, input: presenter, router: router)

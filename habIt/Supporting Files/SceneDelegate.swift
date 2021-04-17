@@ -20,12 +20,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        
-        let container = TabBarContainer.assemble()
+
+        let container = TabBarContainer.assemble(with: TabBarContext())//WelcomeContainer.assemble(with: WelcomeContext())
         let viewController = container.viewController
         
-        window?.rootViewController = UINavigationController(rootViewController: viewController)
-        
+        window?.rootViewController = viewController//UINavigationController(rootViewController: viewController)
         window?.makeKeyAndVisible()
 
         
