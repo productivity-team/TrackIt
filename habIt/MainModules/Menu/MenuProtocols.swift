@@ -21,12 +21,16 @@ protocol MenuViewInput: class {
 protocol MenuViewOutput: class {
 //    var habitsViewModels: [HabitViewModel] { get }
     func didTapAddButton()
+    func countHabits() -> Int
+    func getCellByIndentifier(id: Int) -> HabitViewModel
 }
 
 protocol MenuInteractorInput: class {
+    func getHabits() -> [HabitViewModel]
 }
 
 protocol MenuInteractorOutput: class {
+    
 }
 
 protocol MenuRouterInput: class {

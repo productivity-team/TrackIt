@@ -32,6 +32,7 @@
 		6BB7E877261E2E71008ABB41 /* WelcomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7E871261E2E71008ABB41 /* WelcomeProtocols.swift */; };
 		6BB7E878261E2E71008ABB41 /* WelcomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7E872261E2E71008ABB41 /* WelcomeInteractor.swift */; };
 		6BB7E879261E2E71008ABB41 /* WelcomeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7E873261E2E71008ABB41 /* WelcomeContainer.swift */; };
+		B6CF97B0262B4B24003F5632 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF97AF262B4B24003F5632 /* Habit.swift */; };
 		BB0D35412606A5A800A9988E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0D35402606A5A800A9988E /* AppDelegate.swift */; };
 		BB0D35432606A5A800A9988E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0D35422606A5A800A9988E /* SceneDelegate.swift */; };
 		BB0D35452606A5A800A9988E /* OldLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0D35442606A5A800A9988E /* OldLogInViewController.swift */; };
@@ -98,6 +99,7 @@
 		6BB7E872261E2E71008ABB41 /* WelcomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInteractor.swift; sourceTree = "<group>"; };
 		6BB7E873261E2E71008ABB41 /* WelcomeContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeContainer.swift; sourceTree = "<group>"; };
 		8A03A80A9E2721331B8853E1 /* Pods_habIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_habIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6CF97AF262B4B24003F5632 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		BB0D353D2606A5A800A9988E /* habIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = habIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB0D35402606A5A800A9988E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB0D35422606A5A800A9988E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			children = (
 				6B94DC5E2626372D00FC279F /* HabitViewModel.swift */,
 				6B94DC7326271AAB00FC279F /* TestHabits.swift */,
+				B6CF97AF262B4B24003F5632 /* Habit.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				BB847E052623040C006AF2B6 /* MenuRouter.swift in Sources */,
 				6BA9FD362616520C009A7AF9 /* OldSignUpViewController.swift in Sources */,
 				BB847E022623040C006AF2B6 /* TabBarPresenter.swift in Sources */,
+				B6CF97B0262B4B24003F5632 /* Habit.swift in Sources */,
 				BB847DF22623040C006AF2B6 /* StatsContainer.swift in Sources */,
 				BB847DFE2623040C006AF2B6 /* AchievementsProtocols.swift in Sources */,
 				6B61EAFF262190260009C24B /* SignUpViewController.swift in Sources */,

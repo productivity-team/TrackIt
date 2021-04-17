@@ -12,7 +12,6 @@ final class MenuViewController: UIViewController {
     private let output: MenuViewOutput
     private let tableView = UITableView()
     
-    var testHabits = TestHabits()
     
     init(output: MenuViewOutput) {
         self.output = output
@@ -55,38 +54,21 @@ final class MenuViewController: UIViewController {
 
 
 extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testHabits.habits.count
+        return output.countHabits()
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "HabitTableViewCell", for: indexPath) as? HabitTableViewCell else {
             return .init()
         }
-        
-        cell.configure(with: testHabits.habits[indexPath.row])
+        cell.configure(with: output.getCellByIndentifier(id: indexPath.row))
         return cell
     }
-    
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
     
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let habit = testHabits.habits[indexPath.row]
-        let viewController = UIViewController()
-        viewController.title = habit.title
-        viewController.view.backgroundColor = .systemBackground
-        
-        let navigationController = UINavigationController(rootViewController: viewController)
-        
-        present(navigationController, animated: true, completion: nil)
-    }
 }
 
 extension MenuViewController: MenuViewInput {

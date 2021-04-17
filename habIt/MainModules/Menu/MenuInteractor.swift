@@ -10,7 +10,14 @@ import Foundation
 
 final class MenuInteractor {
 	weak var output: MenuInteractorOutput?
+    var testHabits = TestHabits()
 }
 
 extension MenuInteractor: MenuInteractorInput {
+    func getHabits() -> [HabitViewModel] {
+        return testHabits.habits
+    }
+    
+
+    
 }
