@@ -10,7 +10,7 @@ import UIKit
 import PinLayout
 
 final class LogInViewController: UIViewController {
-	private let output: LogInViewOutput
+    private let output: LogInViewOutput
     
     private let containerView = UIView()
     private let labelLogIn = UILabel()
@@ -22,20 +22,20 @@ final class LogInViewController: UIViewController {
     private let passwordboxImage = UIImageView()
     private let forgotlabel = UILabel()  //Забыли пароль?
     
-
+    
     init(output: LogInViewOutput) {
         self.output = output
-
+        
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
@@ -59,7 +59,7 @@ final class LogInViewController: UIViewController {
         signupButton.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 255/255, alpha: 1)
         signupButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 18)
         signupButton.addTarget(self, action: #selector(toSignUpButtonPressed), for: .touchUpInside)
-
+        
         
         
         forgotlabel.text = "Забыли пароль?"
@@ -144,7 +144,11 @@ final class LogInViewController: UIViewController {
     
     @objc
     private func logInButtonPressed() {
-        output.logInButtonPressed()
+
+            let email = emailField.text
+            let password = passwordField.text
+
+        output.logInButtonPressed(email: email, password: password)
     }
     
     @objc

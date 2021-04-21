@@ -21,7 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
 
-        let container = TabBarContainer.assemble(with: TabBarContext())//WelcomeContainer.assemble(with: WelcomeContext())
+        let container = WelcomeContainer.assemble(with: WelcomeContext())
+//            TabBarContainer.assemble(with: TabBarContext())
         let viewController = container.viewController
         
         window?.rootViewController = viewController//UINavigationController(rootViewController: viewController)

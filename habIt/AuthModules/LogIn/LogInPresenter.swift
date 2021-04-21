@@ -25,17 +25,27 @@ extension LogInPresenter: LogInModuleInput {
 }
 
 extension LogInPresenter: LogInViewOutput {
-    
+
+    //переход на экран регистрации
     func toSignUpButtonPressed() {
         router.openSignUp()
     }
     
-    func logInButtonPressed() {
-        interactor.logInUser()
+    //вход в аккаунт
+    func logInButtonPressed(email: String?, password: String?) {
+        interactor.logInUser(email: email, password: password)
     }
     
 }
 
 extension LogInPresenter: LogInInteractorOutput {
+    
+    func showAlert(message: String?) {
+        router.showAlert(message: message)
+    }
+    
+    func toMenu() {
+        router.openMenu()
+    }
     
 }

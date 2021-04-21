@@ -26,7 +26,7 @@ extension SettingsPresenter: SettingsModuleInput {
 
 extension SettingsPresenter: SettingsViewOutput {
     func logOutButtonPressed() {
-        self.router.logOut()
+        router.logOut()
     }
     
 }

@@ -20,16 +20,20 @@ protocol LogInViewInput: class {
 
 protocol LogInViewOutput: class {
     func toSignUpButtonPressed()
-    func logInButtonPressed()
+    func logInButtonPressed(email: String?, password: String?)
 }
 
 protocol LogInInteractorInput: class {
-    func logInUser()
+    func logInUser(email: String?, password: String?)
 }
 
 protocol LogInInteractorOutput: class {
+    func showAlert(message: String?)
+    func toMenu()
 }
 
 protocol LogInRouterInput: class {
+    func openMenu()
     func openSignUp()
+    func showAlert(message: String?)
 }

@@ -15,20 +15,21 @@ final class LogInInteractor {
 
 extension LogInInteractor: LogInInteractorInput {
     
-    func logInUser() {
+    
+    //вход в аккаунт
+    func logInUser(email: String?, password: String?) {
         
-//        if let email = emailField.text, let password = passwordField.text {
-//            Auth.auth().signIn(withEmail: email, password: password) { authResult,error in
-//                if let err = error {
-//                    self.showAlert(message: err.localizedDescription)
-//                } else {
-//                    //Navigate to the main view controller
-//                    let homeVC = HomeViewController()
-//                    homeVC.modalPresentationStyle = .fullScreen
-//                    self.present(homeVC, animated: true, completion: nil)
-//                }
-//            }
-//        }
+        Auth.auth().signIn(withEmail: email!, password: password!) { authResult,error in
+            if let err = error {
+                //вызываем поп ап с ошибкой
+                let message = err.localizedDescription
+                self.output?.showAlert(message: message)
+                
+            } else {
+                //Navigate to the main view controller
+                self.output?.toMenu()
+            }
+        }
         
     }
     
