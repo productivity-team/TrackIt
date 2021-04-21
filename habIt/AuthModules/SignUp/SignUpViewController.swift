@@ -152,7 +152,12 @@ final class SignUpViewController: UIViewController {
     
     @objc
     private func signUpButtonPressed() {
-        output.signUpButtonPressed()
+        
+        let name = nameField.text
+        let email = emailField.text
+        let password = passwordField.text
+        
+        output.signUpButtonPressed(name: name, email: email, password: password)
     }
 
     @objc

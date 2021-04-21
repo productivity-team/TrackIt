@@ -26,15 +26,26 @@ extension SignUpPresenter: SignUpModuleInput {
 
 extension SignUpPresenter: SignUpViewOutput {
 
-    func signUpButtonPressed() {
-        interactor.SignUpUser()
-    }
-    
+    //переход на экран входа
     func toLoginButtonPressed() {
         router.openLogIn()
+    }
+    
+    //регистрация аккаунта
+    func signUpButtonPressed(name:String?, email: String?, password: String?) {
+        interactor.SignUpUser(name: name, email: email, password: password)
     }
     
 }
 
 extension SignUpPresenter: SignUpInteractorOutput {
+    
+    func showAlert(message: String?) {
+        router.showAlert(message: message)
+    }
+    
+    func toMenu() {
+        router.openMenu()
+    }
+    
 }

@@ -5,17 +5,6 @@
 //  Created by Maria Pecheritsyna on 13.04.2021.
 //
 
-
-
-
-
-
-
-
-
-
-
-
 struct HabitViewModel {
     let title: String
     let systemImageName: String

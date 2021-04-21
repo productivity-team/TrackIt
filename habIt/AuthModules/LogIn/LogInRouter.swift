@@ -22,7 +22,6 @@ extension LogInRouter: LogInRouterInput {
         sourceViewController?.present(viewController, animated: true, completion: nil)
     }
     
-    
     //переход к экрану регистрации
     func openSignUp() {
         let container = SignUpContainer.assemble(with: SignUpContext())

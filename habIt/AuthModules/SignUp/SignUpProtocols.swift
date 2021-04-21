@@ -19,17 +19,21 @@ protocol SignUpViewInput: class {
 }
 
 protocol SignUpViewOutput: class {
-    func signUpButtonPressed()
+    func signUpButtonPressed(name: String?, email: String?, password: String?)
     func toLoginButtonPressed()
 }
 
 protocol SignUpInteractorInput: class {
-    func SignUpUser()
+    func SignUpUser(name: String?, email: String?, password: String?)
 }
 
 protocol SignUpInteractorOutput: class {
+    func showAlert(message: String?)
+    func toMenu()
 }
 
 protocol SignUpRouterInput: class {
+    func openMenu()
     func openLogIn()
+    func showAlert(message: String?)
 }
