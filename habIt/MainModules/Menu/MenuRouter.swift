@@ -33,10 +33,8 @@ extension MenuRouter: MenuRouterInput {
         let container = CreateHabitContainer.assemble(with: CreateHabitContext())
         let viewController = container.viewController
         
-        viewController.title = "Создание привычки"
-        viewController.view.backgroundColor = .systemBackground
-        
         let navigationController = UINavigationController(rootViewController: viewController)
         sourceViewController?.present(navigationController, animated: true, completion: nil)
+        navigationController.navigationBar.isHidden = true
     }
 }

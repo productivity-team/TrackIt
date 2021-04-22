@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1819D183E29074265C7600E6 /* Pods_habIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A03A80A9E2721331B8853E1 /* Pods_habIt.framework */; };
+		1EE0BDE02632415C0080EDD4 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1EE0BDDF2632415C0080EDD4 /* Lato-Bold.ttf */; };
 		1EEC49FF26131BCD0029F750 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1EEC49FD26131BCC0029F750 /* Lato-Medium.ttf */; };
 		1EEC4A0026131BCD0029F750 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1EEC49FE26131BCD0029F750 /* Lato-Regular.ttf */; };
 		6B61EAEC261F8C680009C24B /* LogInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B61EAE6261F8C680009C24B /* LogInPresenter.swift */; };
@@ -82,6 +83,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1EE0BDDF2632415C0080EDD4 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		1EEC49FD26131BCC0029F750 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
 		1EEC49FE26131BCD0029F750 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		1F6EC0874D69E8D56FAA2E7F /* Pods-habIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-habIt.release.xcconfig"; path = "Target Support Files/Pods-habIt/Pods-habIt.release.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		1EEC49FC26131B700029F750 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				1EE0BDDF2632415C0080EDD4 /* Lato-Bold.ttf */,
 				1EEC49FD26131BCC0029F750 /* Lato-Medium.ttf */,
 				1EEC49FE26131BCD0029F750 /* Lato-Regular.ttf */,
 			);
@@ -474,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EEC49FF26131BCD0029F750 /* Lato-Medium.ttf in Resources */,
+				1EE0BDE02632415C0080EDD4 /* Lato-Bold.ttf in Resources */,
 				1EEC4A0026131BCD0029F750 /* Lato-Regular.ttf in Resources */,
 				BB0D354D2606A5A900A9988E /* LaunchScreen.storyboard in Resources */,
 				BBD9E62B2606A7E400A89C24 /* GoogleService-Info.plist in Resources */,
