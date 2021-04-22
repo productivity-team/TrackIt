@@ -35,7 +35,7 @@ final class TabBarViewController: UIViewController {
         super.viewDidAppear(animated)
         tabBar.modalPresentationStyle = .fullScreen
         
-        present(tabBar, animated: true, completion: nil)
+        present(tabBar, animated: false, completion: nil)
     }
 }
 

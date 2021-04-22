@@ -14,10 +14,9 @@ final class MenuInteractor {
 }
 
 extension MenuInteractor: MenuInteractorInput {
+    
     func getHabits() -> [HabitViewModel] {
         return testHabits.habits
     }
-    
 
-    
 }

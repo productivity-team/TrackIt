@@ -19,7 +19,7 @@ extension TabBarRouter: TabBarRouterInput {
         
         
         return [StatsContainer.assemble().viewController,
-                MenuContainer.assemble().viewController,
+                MenuContainer.assemble(with: MenuContext()).viewController,
                 SettingsContainer.assemble(with: SettingsContext()).viewController]
             .map { UINavigationController(rootViewController: $0) }
         

@@ -65,8 +65,13 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(with: output.getCellByIndentifier(id: indexPath.row))
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        output.didSelectItem(at: indexPath.row)
     }
     
 }

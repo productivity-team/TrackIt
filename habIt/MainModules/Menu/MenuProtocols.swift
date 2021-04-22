@@ -23,6 +23,7 @@ protocol MenuViewOutput: class {
     func didTapAddButton()
     func countHabits() -> Int
     func getCellByIndentifier(id: Int) -> HabitViewModel
+    func didSelectItem(at index: Int)
 }
 
 protocol MenuInteractorInput: class {
@@ -35,4 +36,5 @@ protocol MenuInteractorOutput: class {
 
 protocol MenuRouterInput: class {
     func openAddScreen()
+    func showHabit(model: HabitViewModel)
 }

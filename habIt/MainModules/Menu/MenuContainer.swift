@@ -13,14 +13,15 @@ final class MenuContainer {
 	let viewController: UIViewController
 	private(set) weak var router: MenuRouterInput!
 
-	class func assemble() -> MenuContainer { //with context: MenuContext
+	class func assemble(with context: MenuContext) -> MenuContainer {
         let router = MenuRouter()
         let interactor = MenuInteractor()
         let presenter = MenuPresenter(router: router, interactor: interactor)
 		let viewController = MenuViewController(output: presenter)
 
 		presenter.view = viewController
-		//presenter.moduleOutput = context.moduleOutput
+        presenter.moduleOutput = context.moduleOutput
+        router.sourceViewController = viewController
 
 		interactor.output = presenter
 
