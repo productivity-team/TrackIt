@@ -38,7 +38,7 @@ final class SignUpViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
         
-        view.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 255/255, alpha: 1)
+        view.backgroundColor = UIColor(named: "Background1")
         
         regLable.text = "Регистрация"
         regLable.font = .systemFont(ofSize: 30)

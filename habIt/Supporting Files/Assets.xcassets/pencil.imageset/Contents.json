@@ -1,0 +1,24 @@
+{
+  "images" : [
+    {
+      "filename" : "pencil-striped-symbol-for-interface-edit-buttons_icon-icons.com_56782.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
+  }
+}

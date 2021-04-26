@@ -49,7 +49,7 @@ final class CreateHabitViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 255/255, alpha: 1)
+        view.backgroundColor = UIColor(named: "Background1")
         
         [goalSwitch, untilSwitch].forEach{
             $0.tintColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
