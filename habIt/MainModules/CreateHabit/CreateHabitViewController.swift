@@ -101,6 +101,7 @@ final class CreateHabitViewController: UIViewController {
         
         colorchangeButton.backgroundColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
         colorchangeButton.layer.cornerRadius = 5
+        colorchangeButton.addTarget(self, action: #selector(colorchangeButtonPressed), for: .touchUpInside)
         
         goalLable.text = "Цель"
         goalLable.font = UIFont(name: "Lato-Medium", size: 20)
@@ -110,6 +111,7 @@ final class CreateHabitViewController: UIViewController {
         
         timelimitLable.text = "Период выполнения"
         timelimitLable.font = UIFont(name: "Lato-Medium", size: 20)
+    
         
         [untilSwitch, createButton, timelimitLable, untilBoxImage, untilLable, mondayButton, untilField, tuesdayButton, wednesdayButton, thursdayButton, fridayButton, saturdayButton, sundayButton, goalBoxImage, weekLable, goalLable, colorchangeButton, iconchangeButton ,nameBoxImage, upperLable, nameField, goalField, calendarImage, goalSwitch].forEach {view.addSubview($0)}
 	}
@@ -230,8 +232,15 @@ final class CreateHabitViewController: UIViewController {
             .hCenter()
             .below(of: untilBoxImage).margin(89)
     }
-
+    
+    @objc
+    private func colorchangeButtonPressed() {
+        output.colorchangeButtonPressed()
+    }
+    
 }
 
 extension CreateHabitViewController: CreateHabitViewInput {
 }
+
+
