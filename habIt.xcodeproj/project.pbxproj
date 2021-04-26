@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1819D183E29074265C7600E6 /* Pods_habIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A03A80A9E2721331B8853E1 /* Pods_habIt.framework */; };
+		1E1CB3A22635910D00ACD799 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E1CB3A12635910D00ACD799 /* Colors.xcassets */; };
 		1EE0BDE02632415C0080EDD4 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1EE0BDDF2632415C0080EDD4 /* Lato-Bold.ttf */; };
 		1EEC49FF26131BCD0029F750 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1EEC49FD26131BCC0029F750 /* Lato-Medium.ttf */; };
 		1EEC4A0026131BCD0029F750 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1EEC49FE26131BCD0029F750 /* Lato-Regular.ttf */; };
@@ -83,6 +84,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E1CB3A12635910D00ACD799 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		1EE0BDDF2632415C0080EDD4 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		1EEC49FD26131BCC0029F750 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
 		1EEC49FE26131BCD0029F750 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				BB0D35402606A5A800A9988E /* AppDelegate.swift */,
 				BB0D35422606A5A800A9988E /* SceneDelegate.swift */,
 				BB0D35492606A5A900A9988E /* Assets.xcassets */,
+				1E1CB3A12635910D00ACD799 /* Colors.xcassets */,
 				BB0D354B2606A5A900A9988E /* LaunchScreen.storyboard */,
 				BBD9E62A2606A7E400A89C24 /* GoogleService-Info.plist */,
 				1EEC49FC26131B700029F750 /* Fonts */,
@@ -482,6 +485,7 @@
 				BB0D354D2606A5A900A9988E /* LaunchScreen.storyboard in Resources */,
 				BBD9E62B2606A7E400A89C24 /* GoogleService-Info.plist in Resources */,
 				BB0D354A2606A5A900A9988E /* Assets.xcassets in Resources */,
+				1E1CB3A22635910D00ACD799 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
