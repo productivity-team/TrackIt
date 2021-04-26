@@ -20,8 +20,8 @@ final class HabitViewController: UIViewController {
     private let iconImage = UIImageView()
     private let settingsiconButton = UIButton()
     private let subtrButton = UIButton()
-    private let closeButton = UIButton()
-    private let saveButton = UIButton()
+//    private let closeButton = UIButton()
+//    private let saveButton = UIButton()
     private let pr10Button = UIButton()
     private let pr25Button = UIButton()
     private let pr50Button = UIButton()
@@ -103,19 +103,29 @@ final class HabitViewController: UIViewController {
         iconImage.tintColor = UIColor(named: "Green")   //Подкачивается из базы, лучше использовать переменную
         iconImage.image = UIImage(named: "watericon")   //Подкачивается из базы
         
-        saveButton.setTitle(" Сохранить  ", for: .normal)
-        saveButton.titleLabel?.font = UIFont(name: "Lato-Medium", size: 18)
-        saveButton.setTitleColor(UIColor(named: "Text"), for: .normal)
-        
-        closeButton.setTitle("  Закрыть", for: .normal)
-        closeButton.titleLabel?.font = UIFont(name: "Lato-Medium", size: 18)
-        closeButton.setTitleColor(UIColor(named: "Text"), for: .normal)
+//        saveButton.setTitle(" Сохранить  ", for: .normal)
+//        saveButton.titleLabel?.font = UIFont(name: "Lato-Medium", size: 18)
+//        saveButton.setTitleColor(UIColor(named: "Text"), for: .normal)
+//
+//        closeButton.setTitle("  Закрыть", for: .normal)
+//        closeButton.titleLabel?.font = UIFont(name: "Lato-Medium", size: 18)
+//        closeButton.setTitleColor(UIColor(named: "Text"), for: .normal)
         
         habitnameLable.text = "Имя"    //Должно подкачиваться из базы
         habitnameLable.font = UIFont(name: "Lato-Medium", size: 18)
         habitnameLable.textColor = UIColor(named: "Text")
         
-        [topbarImage, habitnameLable, closeButton, saveButton, iconImage, progressLable, progressbarPView, unitsLable, addLable, unitsboxImage, unitsField, addButton, subtrButton, pr10Button, pr25Button, pr50Button, pr75Button, journalLable, journalField, settingsiconButton].forEach{view.addSubview($0)}
+        
+        let backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(toMenuButtonPressed))
+        backBarButtonItem.tintColor = UIColor(named: "Text")
+        self.navigationItem.leftBarButtonItem  = backBarButtonItem
+        
+        let saveBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .done, target: self, action: #selector(saveHabitButtonPressed))
+        saveBarButtonItem.tintColor = UIColor(named: "Text")
+        self.navigationItem.rightBarButtonItem  = saveBarButtonItem
+        
+        
+        [topbarImage, habitnameLable, iconImage, progressLable, progressbarPView, unitsLable, addLable, unitsboxImage, unitsField, addButton, subtrButton, pr10Button, pr25Button, pr50Button, pr75Button, journalLable, journalField, settingsiconButton].forEach{view.addSubview($0)}
 	}
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -158,17 +168,17 @@ final class HabitViewController: UIViewController {
             .sizeToFit()
             .hCenter()
         
-        closeButton.pin
-            .left(11)
-            .height(35)
-            .width(84)
-            .top(46)
-        
-        saveButton.pin
-            .right(12)
-            .height(35)
-            .width(101)
-            .top(46)
+//        closeButton.pin
+//            .left(11)
+//            .height(35)
+//            .width(84)
+//            .top(46)
+//
+//        saveButton.pin
+//            .right(12)
+//            .height(35)
+//            .width(101)
+//            .top(46)
         
         iconImage.pin
             .below(of: topbarImage).marginVertical(40)
