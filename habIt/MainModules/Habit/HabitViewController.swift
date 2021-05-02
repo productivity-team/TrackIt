@@ -9,7 +9,7 @@
 import UIKit
 
 final class HabitViewController: UIViewController {
-	private let output: HabitViewOutput
+    private let output: HabitViewOutput
     private let habitnameLable = UILabel()
     private let progressLable = UILabel()
     private let journalLable = UILabel()
@@ -20,8 +20,6 @@ final class HabitViewController: UIViewController {
     private let iconImage = UIImageView()
     private let settingsiconButton = UIButton()
     private let subtrButton = UIButton()
-//    private let closeButton = UIButton()
-//    private let saveButton = UIButton()
     private let pr10Button = UIButton()
     private let pr25Button = UIButton()
     private let pr50Button = UIButton()
@@ -31,20 +29,21 @@ final class HabitViewController: UIViewController {
     private let unitsField = UITextField()
     private let journalField = UITextView()
     private var placeholder = "Запиши сюда свои наблюдения"
-
+    
     init(output: HabitViewOutput) {
         self.output = output
-
+        
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         view.backgroundColor = UIColor(named: "Background1")
         
         settingsiconButton.setImage(UIImage(named: "pencil"), for: .normal)
@@ -103,14 +102,6 @@ final class HabitViewController: UIViewController {
         iconImage.tintColor = UIColor(named: "Green")   //Подкачивается из базы, лучше использовать переменную
         iconImage.image = UIImage(named: "watericon")   //Подкачивается из базы
         
-//        saveButton.setTitle(" Сохранить  ", for: .normal)
-//        saveButton.titleLabel?.font = UIFont(name: "Lato-Medium", size: 18)
-//        saveButton.setTitleColor(UIColor(named: "Text"), for: .normal)
-//
-//        closeButton.setTitle("  Закрыть", for: .normal)
-//        closeButton.titleLabel?.font = UIFont(name: "Lato-Medium", size: 18)
-//        closeButton.setTitleColor(UIColor(named: "Text"), for: .normal)
-        
         habitnameLable.text = "Имя"    //Должно подкачиваться из базы
         habitnameLable.font = UIFont(name: "Lato-Medium", size: 18)
         habitnameLable.textColor = UIColor(named: "Text")
@@ -126,36 +117,42 @@ final class HabitViewController: UIViewController {
         
         
         [topbarImage, habitnameLable, iconImage, progressLable, progressbarPView, unitsLable, addLable, unitsboxImage, unitsField, addButton, subtrButton, pr10Button, pr25Button, pr50Button, pr75Button, journalLable, journalField, settingsiconButton].forEach{view.addSubview($0)}
-	}
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if journalField.textColor == .lightGray {
-            journalField.text = ""
-            journalField.textColor = .black
-        }
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if journalField.text.isEmpty {
-            journalField.text = "Запиши сюда свои наблюдения"
-            journalField.textColor = UIColor.lightGray
-            placeholder = ""
-        }
-        else{
-            placeholder = journalField.text
-        }
-    }
     
-    func textViewDidChange(_ textView: UITextView) {
-        placeholder = journalField.text
-    }
+
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-    return ((journalField.text.count) > 180 && journalField.frame.size.height > 100.0) ? false : true
-    }
+//    func textViewDidBeginEditing(_ textView: UITextView) {
+//        if journalField.textColor == .lightGray {
+//            journalField.text = ""
+//            journalField.textColor = .black
+//        }
+//    }
+//
+//    func textViewDidEndEditing(_ textView: UITextView) {
+//        if journalField.text.isEmpty {
+//            journalField.text = "Запиши сюда свои наблюдения"
+//            journalField.textColor = UIColor.lightGray
+//            placeholder = ""
+//        }
+//        else{
+//            placeholder = journalField.text
+//        }
+//    }
+//
+//    func textViewDidChange(_ textView: UITextView) {
+//        placeholder = journalField.text
+//    }
+//
+//    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+//        return ((journalField.text.count) > 180 && journalField.frame.size.height > 100.0) ? false : true
+//    }
+    
+    
+    
     
     override func viewDidLayoutSubviews() {
-            super.viewDidLayoutSubviews()
+        super.viewDidLayoutSubviews()
         
         topbarImage.pin
             .top()
@@ -167,18 +164,6 @@ final class HabitViewController: UIViewController {
             .top(52)
             .sizeToFit()
             .hCenter()
-        
-//        closeButton.pin
-//            .left(11)
-//            .height(35)
-//            .width(84)
-//            .top(46)
-//
-//        saveButton.pin
-//            .right(12)
-//            .height(35)
-//            .width(101)
-//            .top(46)
         
         iconImage.pin
             .below(of: topbarImage).marginVertical(40)

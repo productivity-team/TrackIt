@@ -328,6 +328,7 @@ PODS:
   - GTMSessionFetcher/Core (1.5.0)
   - IGColorPicker (0.4.3):
     - M13Checkbox
+  - IQKeyboardManagerSwift (6.5.6)
   - leveldb-library (1.22.1)
   - M13Checkbox (3.4.0)
   - nanopb (2.30907.0):
@@ -345,6 +346,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
   - IGColorPicker
+  - IQKeyboardManagerSwift
   - PinLayout
 
 SPEC REPOS:
@@ -366,6 +368,7 @@ SPEC REPOS:
     - gRPC-Core
     - GTMSessionFetcher
     - IGColorPicker
+    - IQKeyboardManagerSwift
     - leveldb-library
     - M13Checkbox
     - nanopb
@@ -390,12 +393,13 @@ SPEC CHECKSUMS:
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   IGColorPicker: f6034f8629aa90cce308a76ecc0fdf2afed0bf34
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   M13Checkbox: 6f59404540ac98ba83a3d1afac335895a40c6a5d
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PinLayout: 4d8733121f8687edcc8f00c19bf1379d12808767
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: 7082fa74b513cf4ef10f364d98bd118c07f7c5c7
+PODFILE CHECKSUM: eeb29e3855efa6bf7b3f5bf782759e9f3c1a5819
 
 COCOAPODS: 1.10.1
