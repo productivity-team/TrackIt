@@ -11,5 +11,6 @@ pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'IGColorPicker'
 pod 'EzPopup'
+pod 'IQKeyboardManagerSwift'
 
 end
