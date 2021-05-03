@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
+
+
+
 
 final class MenuViewController: UIViewController {
     private let output: MenuViewOutput
@@ -32,9 +37,28 @@ final class MenuViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(didPullRefesh), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        
+        
+        
+        
+        
         tableView.register(HabitTableViewCell.self, forCellReuseIdentifier: "HabitTableViewCell")
         
+        
+        
+        
+        
+        
+        
+        
         view.addSubview(tableView)
+        output.didLoadView()
+     
         
     }
     
@@ -49,6 +73,10 @@ final class MenuViewController: UIViewController {
     private func didTapAddButton() {
         output.didTapAddButton()
     }
+    @objc
+        private func didPullRefesh() {
+            output.didPullRefesh()
+        }
     
 }
 
@@ -71,10 +99,15 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         output.didSelectItem(at: indexPath.row)
     }
     
 }
 
 extension MenuViewController: MenuViewInput {
+    func reloadData() {                            
+            self.tableView.refreshControl?.endRefreshing()
+            self.tableView.reloadData()
+        }
 }

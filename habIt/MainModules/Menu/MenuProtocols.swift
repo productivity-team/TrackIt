@@ -16,6 +16,7 @@ protocol MenuModuleOutput: class {
 }
 
 protocol MenuViewInput: class {
+    func reloadData()
 }
 
 protocol MenuViewOutput: class {
@@ -24,13 +25,17 @@ protocol MenuViewOutput: class {
     func countHabits() -> Int
     func getCellByIndentifier(id: Int) -> HabitViewModel
     func didSelectItem(at index: Int)
+    func didLoadView()
+    func didPullRefesh()
 }
 
 protocol MenuInteractorInput: class {
-    func getHabits() -> [HabitViewModel]
+    func observeItems()
 }
 
 protocol MenuInteractorOutput: class {
+    func didLoad(habits: [Habit])
+    func didRecieve(error: Error)
     
 }
 
