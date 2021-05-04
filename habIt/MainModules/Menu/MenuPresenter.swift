@@ -9,15 +9,15 @@
 import Foundation
 
 final class MenuPresenter {
-	weak var view: MenuViewInput?
+    weak var view: MenuViewInput?
     weak var moduleOutput: MenuModuleOutput?
-
-	private let router: MenuRouterInput
-	private let interactor: MenuInteractorInput
+    
+    private let router: MenuRouterInput
+    private let interactor: MenuInteractorInput
     
     var items: [HabitViewModel] = []
     
-
+    
     init(router: MenuRouterInput, interactor: MenuInteractorInput) {
         self.router = router
         self.interactor = interactor

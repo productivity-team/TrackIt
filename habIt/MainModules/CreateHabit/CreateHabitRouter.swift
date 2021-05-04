@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EzPopup
 
 final class CreateHabitRouter {
     weak var sourceViewController: UIViewController?
@@ -18,10 +19,9 @@ extension CreateHabitRouter: CreateHabitRouterInput {
         let container = ColorPickerContainer.assemble(with: ColorPickerContext())
         let viewController = container.viewController
         
-        let navigationController = UINavigationController(rootViewController: viewController)
-        viewController.modalPresentationStyle = .fullScreen
-        sourceViewController?.present(navigationController, animated: true, completion: nil)
-        navigationController.navigationBar.isHidden = true
+        let popupVC = PopupViewController(contentController: viewController, popupWidth: 300, popupHeight: 400)
+        popupVC.cornerRadius = 20
+        sourceViewController?.present(popupVC, animated: true, completion: nil)
     }
     
 }

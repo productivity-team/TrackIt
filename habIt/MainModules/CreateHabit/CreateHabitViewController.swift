@@ -9,15 +9,17 @@
 import UIKit
 
 final class CreateHabitViewController: UIViewController {
-	private let output: CreateHabitViewOutput
+    private let output: CreateHabitViewOutput
     
     private let nameBoxImage = UIImageView(image: UIImage(named: "namebox"))
     private let goalBoxImage = UIImageView(image: UIImage(named: "goalbox"))
+    private let unitsBoxImage = UIImageView(image: UIImage(named: "goalbox"))
     private let untilBoxImage = UIImageView(image: UIImage(named: "goalbox"))
     private let calendarImage = UIImageView(image: UIImage(named: "calendar"))
     private let nameField = UITextField()
-    private let goalField = UITextField()
-    private let untilField = UITextField()
+    private let unitsField = UITextField() // units
+    private let goalField = UITextField() // target
+    private let untilField = UIDatePicker()
     private let upperLable = UILabel()
     private let goalLable = UILabel()
     private let weekLable = UILabel()
@@ -33,30 +35,27 @@ final class CreateHabitViewController: UIViewController {
     private let saturdayButton = UIButton()
     private let sundayButton = UIButton()
     private let createButton = UIButton()
-    private let goalSwitch = UISwitch()
     private let untilSwitch = UISwitch()
-
+    
     init(output: CreateHabitViewOutput) {
         self.output = output
-
+        
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = UIColor(named: "Background1")
         
-        [goalSwitch, untilSwitch].forEach{
-            $0.tintColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
-            $0.onTintColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
-            $0.backgroundColor = UIColor(red: 234/255, green: 246/255, blue: 252/255, alpha: 1)
-            $0.layer.cornerRadius = 16
-        }
+        untilSwitch.tintColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
+        untilSwitch.onTintColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
+        untilSwitch.backgroundColor = UIColor(red: 234/255, green: 246/255, blue: 252/255, alpha: 1)
+        untilSwitch.layer.cornerRadius = 16
         
         upperLable.text = "Создание привычки"
         upperLable.font = UIFont(name: "Lato-Bold", size: 20)
@@ -90,11 +89,16 @@ final class CreateHabitViewController: UIViewController {
         createButton.layer.cornerRadius = 10
         createButton.setTitleColor(UIColor(red: 48/255, green: 48/255, blue: 48/255, alpha: 1), for: .normal)
         
-        goalField.placeholder = "0"
-        goalField.font = UIFont(name: "Lato-Regular", size: 18)
+        unitsField.placeholder = "Ед. измерения"
+        unitsField.font = UIFont(name: "Lato-Regular", size: 18)
         
-        untilField.placeholder = "ДД.ММ.ГГ"
-        untilField.font = UIFont(name: "Lato-Regular", size: 18)
+        goalField.placeholder = "Количество"
+        goalField.font = UIFont(name: "Lato-Regular", size: 18)
+        goalField.keyboardType = .numberPad
+        
+        untilField.timeZone = NSTimeZone.local
+        untilField.datePickerMode = .date
+        untilField.tintColor = UIColor.black
         
         iconchangeButton.backgroundColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
         iconchangeButton.layer.cornerRadius = 5
@@ -111,13 +115,13 @@ final class CreateHabitViewController: UIViewController {
         
         timelimitLable.text = "Период выполнения"
         timelimitLable.font = UIFont(name: "Lato-Medium", size: 20)
-    
         
-        [untilSwitch, createButton, timelimitLable, untilBoxImage, untilLable, mondayButton, untilField, tuesdayButton, wednesdayButton, thursdayButton, fridayButton, saturdayButton, sundayButton, goalBoxImage, weekLable, goalLable, colorchangeButton, iconchangeButton ,nameBoxImage, upperLable, nameField, goalField, calendarImage, goalSwitch].forEach {view.addSubview($0)}
-	}
-
+        
+        [untilSwitch, createButton, timelimitLable, untilBoxImage, untilLable, mondayButton, untilField, tuesdayButton, wednesdayButton, thursdayButton, fridayButton, saturdayButton, sundayButton, goalBoxImage, unitsBoxImage, weekLable, goalLable, colorchangeButton, iconchangeButton ,nameBoxImage, upperLable, nameField, unitsField, goalField, calendarImage].forEach {view.addSubview($0)}
+    }
+    
     override func viewDidLayoutSubviews() {
-            super.viewDidLayoutSubviews()
+        super.viewDidLayoutSubviews()
         
         upperLable.pin
             .top(33)
@@ -153,20 +157,28 @@ final class CreateHabitViewController: UIViewController {
             .before(of: iconchangeButton).marginHorizontal(15)
             .sizeToFit()
         
-        goalSwitch.pin
-            .after(of: goalLable).margin(15)
-            .below(of: iconchangeButton).marginVertical(32)
-        
         goalBoxImage.pin
             .height(50)
             .width(160)
-            .right(47)
+            .right(40)
             .below(of: goalLable).marginVertical(25)
         
         goalField.pin
             .height(50)
             .width(130)
             .right(62)
+            .below(of: goalLable).marginVertical(25)
+        
+        unitsBoxImage.pin
+            .height(50)
+            .width(160)
+            .left(40)
+            .below(of: goalLable).marginVertical(25)
+        
+        unitsField.pin
+            .height(50)
+            .width(130)
+            .left(47)
             .below(of: goalLable).marginVertical(25)
         
         weekLable.pin
@@ -218,7 +230,7 @@ final class CreateHabitViewController: UIViewController {
             .height(50)
             .width(130)
             .below(of: timelimitLable).marginVertical(25)
-            .after(of: untilLable).marginLeft(35)
+            .after(of: untilLable).marginLeft(25)
         
         calendarImage.pin
             .below(of: untilBoxImage).margin(-37)
