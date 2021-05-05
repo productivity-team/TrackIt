@@ -75,6 +75,7 @@ final class ColorPickerViewController: UIViewController {
     @objc
     private func selectedColorButtonPressed() {
         output.selectedColorButtonPressed()
+        CreateHabitViewController.colorcircleView.backgroundColor = ColorPickerViewController.habitColor
     }
     
 }
@@ -90,7 +91,6 @@ extension ColorPickerViewController: ColorPickerViewDelegate {
         ColorPickerViewController.rgbColor = colorPickerView.colors[indexPath.item].cgColor.components!
         ColorPickerViewController.habitColor = UIColor(red: ColorPickerViewController.rgbColor[0], green: ColorPickerViewController.rgbColor[1], blue: ColorPickerViewController.rgbColor[2], alpha: ColorPickerViewController.rgbColor[3])
         saveButton.backgroundColor = ColorPickerViewController.habitColor
-        CreateHabitViewController.colorchangeButton.backgroundColor = ColorPickerViewController.habitColor
         
         print(ColorPickerViewController.rgbColor)
         print(ColorPickerViewController.habitColor)

@@ -6,13 +6,13 @@
 //
 
 struct HabitViewModel {
-    let title: String
-    let systemImageName: String
-    let target: Int
-    var numberOfCompletions: Int
+    let title: String //название
+    let systemImageName: String //иконка
+    let target: Int //цель (не выводится)
+    var numberOfCompletions: Int //кол-во выполненного (не выводится)
     var progress: String {
-        return "\(numberOfCompletions)/\(target)" }
-    let units: String
+        return "\(numberOfCompletions)/\(target)" } //прогресс (выводится на основе target и numberOfCompletions)
+    let units: String //единицы измерения
     
     init(title: String, imageName: String, target: Int, numberOfCompletions: Int, units: String) {
         self.title = title

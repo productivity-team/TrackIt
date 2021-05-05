@@ -26,7 +26,8 @@ final class CreateHabitViewController: UIViewController {
     private let timelimitLable = UILabel()      //"Период выполнения"
     private let untilLable = UILabel()      //"До"
     private let iconchangeButton = UIButton()
-    static let colorchangeButton = UIButton()
+    static let colorcircleView = UIImageView()
+    private let colorchangeButton = UIButton()
     private let mondayButton = UIButton()
     private let tuesdayButton = UIButton()
     private let wednesdayButton = UIButton()
@@ -56,6 +57,9 @@ final class CreateHabitViewController: UIViewController {
         untilSwitch.onTintColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
         untilSwitch.backgroundColor = UIColor(red: 234/255, green: 246/255, blue: 252/255, alpha: 1)
         untilSwitch.layer.cornerRadius = 16
+        untilSwitch.isOn = true
+        untilSwitch.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+        
         
         upperLable.text = "Создание привычки"
         upperLable.font = UIFont(name: "Lato-Bold", size: 20)
@@ -105,9 +109,12 @@ final class CreateHabitViewController: UIViewController {
         iconchangeButton.addTarget(self, action: #selector(iconchangeButtonPressed), for: .touchUpInside)
         
         
-        CreateHabitViewController.colorchangeButton.backgroundColor = ColorPickerViewController.habitColor
-        CreateHabitViewController.colorchangeButton.layer.cornerRadius = 5
-        CreateHabitViewController.colorchangeButton.addTarget(self, action: #selector(colorchangeButtonPressed), for: .touchUpInside)
+        colorchangeButton.backgroundColor = ColorPickerViewController.habitColor
+        colorchangeButton.layer.cornerRadius = 5
+        colorchangeButton.addTarget(self, action: #selector(colorchangeButtonPressed), for: .touchUpInside)
+        
+        CreateHabitViewController.colorcircleView.backgroundColor = .orange
+        CreateHabitViewController.colorcircleView.layer.cornerRadius = 18
         
         goalLable.text = "Цель"
         goalLable.font = UIFont(name: "Lato-Medium", size: 20)
@@ -119,11 +126,13 @@ final class CreateHabitViewController: UIViewController {
         timelimitLable.font = UIFont(name: "Lato-Medium", size: 20)
         
         
-        [untilSwitch, createButton, timelimitLable, untilBoxImage, untilLable, mondayButton, untilField, tuesdayButton, wednesdayButton, thursdayButton, fridayButton, saturdayButton, sundayButton, goalBoxImage, unitsBoxImage, weekLable, goalLable, CreateHabitViewController.colorchangeButton, iconchangeButton ,nameBoxImage, upperLable, nameField, unitsField, goalField, calendarImage].forEach {view.addSubview($0)}
+        
+        [untilSwitch, createButton, timelimitLable, untilBoxImage, untilLable, mondayButton, untilField, tuesdayButton, wednesdayButton, thursdayButton, fridayButton, saturdayButton, sundayButton, goalBoxImage, unitsBoxImage, weekLable, goalLable, colorchangeButton, CreateHabitViewController.colorcircleView, iconchangeButton ,nameBoxImage, upperLable, nameField, unitsField, goalField, calendarImage].forEach {view.addSubview($0)}
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         
         upperLable.pin
             .top(33)
@@ -142,11 +151,17 @@ final class CreateHabitViewController: UIViewController {
             .below(of: upperLable).marginVertical(25)
             .hCenter()
         
-        CreateHabitViewController.colorchangeButton.pin
+        colorchangeButton.pin
             .height(60)
             .width(60)
             .below(of: nameBoxImage).marginVertical(35)
             .right(97)
+        
+        CreateHabitViewController.colorcircleView.pin
+            .height(36)
+            .width(36)
+            .before(of: colorchangeButton).marginHorizontal(-48)
+            .above(of: colorchangeButton).marginVertical(-48)
         
         iconchangeButton.pin
             .height(60)
@@ -245,6 +260,22 @@ final class CreateHabitViewController: UIViewController {
             .width(160)
             .hCenter()
             .below(of: untilBoxImage).margin(89)
+    }
+    
+    @objc
+    private func switchChanged() {
+        if untilSwitch.isOn {
+            untilLable.isHidden = false
+            untilField.isHidden = false
+            untilBoxImage.isHidden = false
+            calendarImage.isHidden = false
+            
+        } else {
+            untilLable.isHidden = true
+            untilField.isHidden = true
+            untilBoxImage.isHidden = true
+            calendarImage.isHidden = true
+        }
     }
     
     @objc
