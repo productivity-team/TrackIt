@@ -25,10 +25,14 @@ extension CreateHabitPresenter: CreateHabitModuleInput {
 }
 
 extension CreateHabitPresenter: CreateHabitViewOutput {
+    func iconchangeButtonPressed() {
+        router.toIconPicker()
+    }
     
     func colorchangeButtonPressed() {
         router.toColorPicker()
     }
+    
 }
 
 extension CreateHabitPresenter: CreateHabitInteractorOutput {

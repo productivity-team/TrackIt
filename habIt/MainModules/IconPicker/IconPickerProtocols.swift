@@ -19,6 +19,7 @@ protocol IconPickerViewInput: class {
 }
 
 protocol IconPickerViewOutput: class {
+    func selectedIconButtonPressed()
 }
 
 protocol IconPickerInteractorInput: class {
@@ -28,4 +29,5 @@ protocol IconPickerInteractorOutput: class {
 }
 
 protocol IconPickerRouterInput: class {
+    func toCreateHabit()
 }

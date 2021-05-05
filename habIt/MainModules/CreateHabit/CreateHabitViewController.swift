@@ -102,6 +102,8 @@ final class CreateHabitViewController: UIViewController {
         
         iconchangeButton.backgroundColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
         iconchangeButton.layer.cornerRadius = 5
+        iconchangeButton.addTarget(self, action: #selector(iconchangeButtonPressed), for: .touchUpInside)
+        
         
         CreateHabitViewController.colorchangeButton.backgroundColor = ColorPickerViewController.habitColor
         CreateHabitViewController.colorchangeButton.layer.cornerRadius = 5
@@ -248,6 +250,11 @@ final class CreateHabitViewController: UIViewController {
     @objc
     private func colorchangeButtonPressed() {
         output.colorchangeButtonPressed()
+    }
+    
+    @objc
+    private func iconchangeButtonPressed() {
+        output.iconchangeButtonPressed()
     }
     
 }

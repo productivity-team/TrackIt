@@ -25,6 +25,9 @@ extension IconPickerPresenter: IconPickerModuleInput {
 }
 
 extension IconPickerPresenter: IconPickerViewOutput {
+    func selectedIconButtonPressed() {
+        router.toCreateHabit()
+    }
 }
 
 extension IconPickerPresenter: IconPickerInteractorOutput {

@@ -278,12 +278,12 @@
 		6B73360A2642C35C000232E9 /* IconPicker */ = {
 			isa = PBXGroup;
 			children = (
-				6B73360B2642C38D000232E9 /* IconPickerPresenter.swift */,
-				6B73360C2642C38D000232E9 /* IconPickerRouter.swift */,
-				6B73360D2642C38D000232E9 /* IconPickerViewController.swift */,
 				6B73360E2642C38D000232E9 /* IconPickerProtocols.swift */,
+				6B73360D2642C38D000232E9 /* IconPickerViewController.swift */,
+				6B73360B2642C38D000232E9 /* IconPickerPresenter.swift */,
 				6B73360F2642C38D000232E9 /* IconPickerInteractor.swift */,
 				6B7336102642C38D000232E9 /* IconPickerContainer.swift */,
+				6B73360C2642C38D000232E9 /* IconPickerRouter.swift */,
 			);
 			path = IconPicker;
 			sourceTree = "<group>";
