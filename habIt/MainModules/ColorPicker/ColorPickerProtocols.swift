@@ -19,6 +19,7 @@ protocol ColorPickerViewInput: class {
 }
 
 protocol ColorPickerViewOutput: class {
+    func selectedColorButtonPressed()
 }
 
 protocol ColorPickerInteractorInput: class {
@@ -28,4 +29,5 @@ protocol ColorPickerInteractorOutput: class {
 }
 
 protocol ColorPickerRouterInput: class {
+    func toCreateHabit()
 }

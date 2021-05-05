@@ -25,6 +25,9 @@ extension ColorPickerPresenter: ColorPickerModuleInput {
 }
 
 extension ColorPickerPresenter: ColorPickerViewOutput {
+    func selectedColorButtonPressed() {
+        router.toCreateHabit()
+    }
 }
 
 extension ColorPickerPresenter: ColorPickerInteractorOutput {

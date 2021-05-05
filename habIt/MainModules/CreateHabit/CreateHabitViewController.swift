@@ -26,7 +26,7 @@ final class CreateHabitViewController: UIViewController {
     private let timelimitLable = UILabel()      //"Период выполнения"
     private let untilLable = UILabel()      //"До"
     private let iconchangeButton = UIButton()
-    private let colorchangeButton = UIButton()
+    static let colorchangeButton = UIButton()
     private let mondayButton = UIButton()
     private let tuesdayButton = UIButton()
     private let wednesdayButton = UIButton()
@@ -103,9 +103,9 @@ final class CreateHabitViewController: UIViewController {
         iconchangeButton.backgroundColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
         iconchangeButton.layer.cornerRadius = 5
         
-        colorchangeButton.backgroundColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
-        colorchangeButton.layer.cornerRadius = 5
-        colorchangeButton.addTarget(self, action: #selector(colorchangeButtonPressed), for: .touchUpInside)
+        CreateHabitViewController.colorchangeButton.backgroundColor = ColorPickerViewController.habitColor
+        CreateHabitViewController.colorchangeButton.layer.cornerRadius = 5
+        CreateHabitViewController.colorchangeButton.addTarget(self, action: #selector(colorchangeButtonPressed), for: .touchUpInside)
         
         goalLable.text = "Цель"
         goalLable.font = UIFont(name: "Lato-Medium", size: 20)
@@ -117,7 +117,7 @@ final class CreateHabitViewController: UIViewController {
         timelimitLable.font = UIFont(name: "Lato-Medium", size: 20)
         
         
-        [untilSwitch, createButton, timelimitLable, untilBoxImage, untilLable, mondayButton, untilField, tuesdayButton, wednesdayButton, thursdayButton, fridayButton, saturdayButton, sundayButton, goalBoxImage, unitsBoxImage, weekLable, goalLable, colorchangeButton, iconchangeButton ,nameBoxImage, upperLable, nameField, unitsField, goalField, calendarImage].forEach {view.addSubview($0)}
+        [untilSwitch, createButton, timelimitLable, untilBoxImage, untilLable, mondayButton, untilField, tuesdayButton, wednesdayButton, thursdayButton, fridayButton, saturdayButton, sundayButton, goalBoxImage, unitsBoxImage, weekLable, goalLable, CreateHabitViewController.colorchangeButton, iconchangeButton ,nameBoxImage, upperLable, nameField, unitsField, goalField, calendarImage].forEach {view.addSubview($0)}
     }
     
     override func viewDidLayoutSubviews() {
@@ -140,7 +140,7 @@ final class CreateHabitViewController: UIViewController {
             .below(of: upperLable).marginVertical(25)
             .hCenter()
         
-        colorchangeButton.pin
+        CreateHabitViewController.colorchangeButton.pin
             .height(60)
             .width(60)
             .below(of: nameBoxImage).marginVertical(35)

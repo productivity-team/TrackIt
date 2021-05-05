@@ -24,6 +24,12 @@
 		6B61EB00262190260009C24B /* SignUpProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B61EAFA262190260009C24B /* SignUpProtocols.swift */; };
 		6B61EB01262190260009C24B /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B61EAFB262190260009C24B /* SignUpInteractor.swift */; };
 		6B61EB02262190260009C24B /* SignUpContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B61EAFC262190260009C24B /* SignUpContainer.swift */; };
+		6B7336112642C38D000232E9 /* IconPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B73360B2642C38D000232E9 /* IconPickerPresenter.swift */; };
+		6B7336122642C38D000232E9 /* IconPickerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B73360C2642C38D000232E9 /* IconPickerRouter.swift */; };
+		6B7336132642C38D000232E9 /* IconPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B73360D2642C38D000232E9 /* IconPickerViewController.swift */; };
+		6B7336142642C38D000232E9 /* IconPickerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B73360E2642C38D000232E9 /* IconPickerProtocols.swift */; };
+		6B7336152642C38D000232E9 /* IconPickerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B73360F2642C38D000232E9 /* IconPickerInteractor.swift */; };
+		6B7336162642C38D000232E9 /* IconPickerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7336102642C38D000232E9 /* IconPickerContainer.swift */; };
 		6B94DC5A262636A800FC279F /* HabitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B94DC59262636A800FC279F /* HabitTableViewCell.swift */; };
 		6B94DC5F2626372D00FC279F /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B94DC5E2626372D00FC279F /* HabitViewModel.swift */; };
 		6B94DC7426271AAB00FC279F /* Habits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B94DC7326271AAB00FC279F /* Habits.swift */; };
@@ -108,6 +114,12 @@
 		6B61EAFA262190260009C24B /* SignUpProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProtocols.swift; sourceTree = "<group>"; };
 		6B61EAFB262190260009C24B /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 		6B61EAFC262190260009C24B /* SignUpContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContainer.swift; sourceTree = "<group>"; };
+		6B73360B2642C38D000232E9 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
+		6B73360C2642C38D000232E9 /* IconPickerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerRouter.swift; sourceTree = "<group>"; };
+		6B73360D2642C38D000232E9 /* IconPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerViewController.swift; sourceTree = "<group>"; };
+		6B73360E2642C38D000232E9 /* IconPickerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerProtocols.swift; sourceTree = "<group>"; };
+		6B73360F2642C38D000232E9 /* IconPickerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerInteractor.swift; sourceTree = "<group>"; };
+		6B7336102642C38D000232E9 /* IconPickerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerContainer.swift; sourceTree = "<group>"; };
 		6B94DC59262636A800FC279F /* HabitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTableViewCell.swift; sourceTree = "<group>"; };
 		6B94DC5E2626372D00FC279F /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
 		6B94DC7326271AAB00FC279F /* Habits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habits.swift; sourceTree = "<group>"; };
@@ -238,6 +250,7 @@
 			children = (
 				6B94DCA22631E1C400FC279F /* CreateHabit */,
 				6BCE6A5A2635AFA2006D5601 /* ColorPicker */,
+				6B73360A2642C35C000232E9 /* IconPicker */,
 				6B94DCA02631DE6E00FC279F /* Habit */,
 				BB847DCD2623040B006AF2B6 /* TabBar */,
 				BB847DE62623040C006AF2B6 /* Menu */,
@@ -260,6 +273,19 @@
 				1EEC49FC26131B700029F750 /* Fonts */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6B73360A2642C35C000232E9 /* IconPicker */ = {
+			isa = PBXGroup;
+			children = (
+				6B73360B2642C38D000232E9 /* IconPickerPresenter.swift */,
+				6B73360C2642C38D000232E9 /* IconPickerRouter.swift */,
+				6B73360D2642C38D000232E9 /* IconPickerViewController.swift */,
+				6B73360E2642C38D000232E9 /* IconPickerProtocols.swift */,
+				6B73360F2642C38D000232E9 /* IconPickerInteractor.swift */,
+				6B7336102642C38D000232E9 /* IconPickerContainer.swift */,
+			);
+			path = IconPicker;
 			sourceTree = "<group>";
 		};
 		6B94DC582626367A00FC279F /* Cells */ = {
@@ -575,6 +601,7 @@
 				6BB7E879261E2E71008ABB41 /* WelcomeContainer.swift in Sources */,
 				BB847DF32623040C006AF2B6 /* StatsViewController.swift in Sources */,
 				BB847E082623040C006AF2B6 /* MenuProtocols.swift in Sources */,
+				6B7336112642C38D000232E9 /* IconPickerPresenter.swift in Sources */,
 				BB847E072623040C006AF2B6 /* MenuPresenter.swift in Sources */,
 				6B61EAFE262190260009C24B /* SignUpRouter.swift in Sources */,
 				6B94DC7426271AAB00FC279F /* Habits.swift in Sources */,
@@ -585,6 +612,7 @@
 				BB847DFF2623040C006AF2B6 /* AchievementsRouter.swift in Sources */,
 				6BCE6A642635AFCF006D5601 /* ColorPickerProtocols.swift in Sources */,
 				6B94DC5F2626372D00FC279F /* HabitViewModel.swift in Sources */,
+				6B7336162642C38D000232E9 /* IconPickerContainer.swift in Sources */,
 				6BB7E875261E2E71008ABB41 /* WelcomeRouter.swift in Sources */,
 				6B94DC992631DE0000FC279F /* HabitPresenter.swift in Sources */,
 				6B94DCA92631E1E800FC279F /* CreateHabitPresenter.swift in Sources */,
@@ -596,6 +624,8 @@
 				6BCE6A652635AFCF006D5601 /* ColorPickerInteractor.swift in Sources */,
 				6B94DCAD2631E1E800FC279F /* CreateHabitInteractor.swift in Sources */,
 				BB847E012623040C006AF2B6 /* AchievementsContainer.swift in Sources */,
+				6B7336152642C38D000232E9 /* IconPickerInteractor.swift in Sources */,
+				6B7336122642C38D000232E9 /* IconPickerRouter.swift in Sources */,
 				BB847DFC2623040C006AF2B6 /* AchievementsPresenter.swift in Sources */,
 				BB0D35412606A5A800A9988E /* AppDelegate.swift in Sources */,
 				6B61EB02262190260009C24B /* SignUpContainer.swift in Sources */,
@@ -610,6 +640,7 @@
 				BB847DFB2623040C006AF2B6 /* SettingsViewController.swift in Sources */,
 				BB847E052623040C006AF2B6 /* MenuRouter.swift in Sources */,
 				6B94DCAB2631E1E800FC279F /* CreateHabitViewController.swift in Sources */,
+				6B7336132642C38D000232E9 /* IconPickerViewController.swift in Sources */,
 				6B94DC9E2631DE0000FC279F /* HabitContainer.swift in Sources */,
 				6BCE6A622635AFCF006D5601 /* ColorPickerRouter.swift in Sources */,
 				BB847E022623040C006AF2B6 /* TabBarPresenter.swift in Sources */,
@@ -621,6 +652,7 @@
 				6B94DCAA2631E1E800FC279F /* CreateHabitRouter.swift in Sources */,
 				6B61EAF0261F8C680009C24B /* LogInInteractor.swift in Sources */,
 				6BB7E877261E2E71008ABB41 /* WelcomeProtocols.swift in Sources */,
+				6B7336142642C38D000232E9 /* IconPickerProtocols.swift in Sources */,
 				BB847DF82623040C006AF2B6 /* SettingsContainer.swift in Sources */,
 				6B94DC5A262636A800FC279F /* HabitTableViewCell.swift in Sources */,
 				BB847E002623040C006AF2B6 /* AchievementsInteractor.swift in Sources */,
