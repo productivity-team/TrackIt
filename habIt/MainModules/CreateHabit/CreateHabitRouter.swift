@@ -19,7 +19,7 @@ extension CreateHabitRouter: CreateHabitRouterInput {
         let container = IconPickerContainer.assemble(with: IconPickerContext())
         let viewController = container.viewController
         
-        let popupVC = PopupViewController(contentController: viewController, popupWidth: 334, popupHeight: 550)
+        let popupVC = PopupViewController(contentController: viewController, popupWidth: 348, popupHeight: 534)
         popupVC.cornerRadius = 20
         sourceViewController?.present(popupVC, animated: true, completion: nil)
     }

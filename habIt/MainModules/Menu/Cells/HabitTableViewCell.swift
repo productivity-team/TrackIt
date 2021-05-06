@@ -59,8 +59,8 @@ class HabitTableViewCell: UITableViewCell {
         
         diaryImageView.pin
                     .size(20)
-                    .right(10)
-                    .top(10)
+                    .after(of: (progressLabel)).marginHorizontal(-22)
+                    .above(of: (progressLabel)).marginVertical(11)
 
     }
     

@@ -100,7 +100,7 @@ final class HabitViewController: UIViewController {
         progressLable.font = UIFont(name: "Lato-Bold", size: 20)
         
         iconImage.tintColor = UIColor(named: "Green")   //Подкачивается из базы, лучше использовать переменную
-        iconImage.image = UIImage(named: "watericon")   //Подкачивается из базы
+        iconImage.image = UIImage(named: "water")   //Подкачивается из базы
         
         habitnameLable.text = "Имя"    //Должно подкачиваться из базы
         habitnameLable.font = UIFont(name: "Lato-Medium", size: 18)
