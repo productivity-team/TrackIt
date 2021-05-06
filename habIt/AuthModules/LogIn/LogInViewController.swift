@@ -61,7 +61,6 @@ final class LogInViewController: UIViewController {
         signupButton.addTarget(self, action: #selector(toSignUpButtonPressed), for: .touchUpInside)
         
         
-        
         forgotlabel.text = "Забыли пароль?"
         forgotlabel.font = .systemFont(ofSize: 15)
         forgotlabel.textColor = UIColor(red: 123/255, green: 124/255, blue: 124/255, alpha: 1)

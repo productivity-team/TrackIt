@@ -28,13 +28,15 @@ final class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 255/255, alpha: 1)
+
         title = "Меню"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        
+        tableView.backgroundColor = UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(didPullRefesh), for: .valueChanged)
@@ -75,6 +77,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
             return .init()
         }
         cell.configure(with: output.getCellByIndentifier(id: indexPath.row))
+        cell.backgroundColor = UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
         return cell
     }
     

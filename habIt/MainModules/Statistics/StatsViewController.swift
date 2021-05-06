@@ -24,7 +24,7 @@ final class StatsViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 249/255, green: 255/255, blue: 255/255, alpha: 1)
+        view.backgroundColor = UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
         title = "Статистика"
 	}
 }

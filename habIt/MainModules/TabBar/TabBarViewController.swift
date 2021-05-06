@@ -27,6 +27,7 @@ final class TabBarViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        view.backgroundColor = UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
         output.didLoadView()
         tabBar.selectedIndex = 1
         
