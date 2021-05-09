@@ -15,7 +15,7 @@ final class ColorPickerViewController: UIViewController {
     
     private var colorPickerView: ColorPickerView!
     private let saveButton = UIButton()
-    static var rgbColor: [CGFloat] = [0.7, 0.9, 1.0, 1.0]
+    static var rgbColor: [CGFloat] = [254/255, 194/255, 76/255, 1.0]
     static var habitColor = UIColor(red: rgbColor[0], green: rgbColor[1], blue: rgbColor[2], alpha: rgbColor[3])
     
     init(output: ColorPickerViewOutput) {
@@ -46,7 +46,15 @@ final class ColorPickerViewController: UIViewController {
         
         colorPickerView = ColorPickerView(frame: CGRect(x: 0.0, y: 0.0, width: 230, height: 210))
         
-        colorPickerView.colors = [UIColor.red, UIColor.yellow, UIColor.green, UIColor.magenta, UIColor.cyan, UIColor.blue, UIColor.brown, UIColor.orange, UIColor.purple]
+        colorPickerView.colors = [UIColor(red: 244/255, green: 54/255, blue: 54/255, alpha: 1),
+                                  UIColor(red: 238/255, green: 117/255, blue: 117/255, alpha: 1),
+                                  UIColor(red: 254/255, green: 194/255, blue: 76/255, alpha: 1),
+                                  UIColor(red: 107/255, green: 220/255, blue: 227/255, alpha: 1),
+                                  UIColor(red: 0/255, green: 230/255, blue: 190/255, alpha: 1),
+                                  UIColor(red: 70/255, green: 206/255, blue: 75/255, alpha: 1),
+                                  UIColor(red: 85/255, green: 158/255, blue: 225/255, alpha: 1),
+                                  UIColor(red: 232/255, green: 124/255, blue: 221/255, alpha: 1),
+                                  UIColor(red: 183/255, green: 92/255, blue: 255/255, alpha: 1)]
         
         [saveButton, colorPickerView].forEach {view.addSubview($0)}
         
@@ -69,13 +77,13 @@ final class ColorPickerViewController: UIViewController {
             .above(of: saveButton).margin(50)
             .hCenter()
             .vCenter()
-        
     }
     
     @objc
     private func selectedColorButtonPressed() {
         output.selectedColorButtonPressed()
         CreateHabitViewController.colorcircleView.backgroundColor = ColorPickerViewController.habitColor
+        CreateHabitViewController.iconView.tintColor = ColorPickerViewController.habitColor
     }
     
 }
@@ -92,9 +100,6 @@ extension ColorPickerViewController: ColorPickerViewDelegate {
         ColorPickerViewController.habitColor = UIColor(red: ColorPickerViewController.rgbColor[0], green: ColorPickerViewController.rgbColor[1], blue: ColorPickerViewController.rgbColor[2], alpha: ColorPickerViewController.rgbColor[3])
         saveButton.backgroundColor = ColorPickerViewController.habitColor
         
-        print(ColorPickerViewController.rgbColor)
-        print(ColorPickerViewController.habitColor)
-        
     }
     
     // This is an optional method
@@ -104,15 +109,6 @@ extension ColorPickerViewController: ColorPickerViewDelegate {
 }
 
 extension ColorPickerViewController: ColorPickerViewDelegateFlowLayout {
-    
-    // ------------------------------------------------------------------
-    // All these methods are optionals, your are not to implement them 🖖🏻
-    // ------------------------------------------------------------------
-    
-    //  func colorPickerView(_ colorPickerView: ColorPickerView, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    //    // The size for each cell
-    //    // 👉🏻 WIDTH AND HEIGHT MUST BE EQUALS!
-    //  }
     
     func colorPickerView(_ colorPickerView: ColorPickerView, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         // Space between cells

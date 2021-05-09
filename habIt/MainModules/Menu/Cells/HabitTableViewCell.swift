@@ -36,7 +36,6 @@ class HabitTableViewCell: UITableViewCell {
                     .top(10)
                     .height(19)
                     .sizeToFit(.height)
-                    .vCenter()
                     .hCenter()
         
         iconImageView.pin

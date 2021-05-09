@@ -12,5 +12,6 @@ pod 'Firebase/Firestore'
 pod 'IGColorPicker'
 pod 'EzPopup'
 pod 'IQKeyboardManagerSwift'
+pod 'M13Checkbox'
 
 end
