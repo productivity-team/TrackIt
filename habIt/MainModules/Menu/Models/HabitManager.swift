@@ -59,8 +59,8 @@ final class HabitConverter {
         guard let dict = document.data(),
               let title = dict[Key.title.rawValue] as? String,
               let systemImageName = dict[Key.imageName.rawValue] as? String,
-              let target = dict[Key.target.rawValue] as? Int,
-              let numberOfCompletions = dict[Key.numberOfCompletions.rawValue] as? Int?,
+              let target = dict[Key.target.rawValue] as? String,
+              let numberOfCompletions = dict[Key.numberOfCompletions.rawValue] as? String?,
               let units = dict[Key.units.rawValue] as? String
         else {
             return nil

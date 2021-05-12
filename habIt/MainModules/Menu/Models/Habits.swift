@@ -15,12 +15,12 @@
 struct Habit {
     let title: String
     let systemImageName: String
-    let target: Int
-    var numberOfCompletions: Int?
+    let target: String
+    var numberOfCompletions: String?
     let units: String
     let identifier: String
     
-    init(title: String, imageName: String, target: Int, numberOfCompletions: Int?, units: String, identifier: String) {
+    init(title: String, imageName: String, target: String, numberOfCompletions: String?, units: String, identifier: String) {
         self.title = title
         self.systemImageName = imageName
         self.target = target

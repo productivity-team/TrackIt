@@ -14,6 +14,8 @@ class HabitTableViewCell: UITableViewCell {
     private let progressLabel = UILabel()
     private let unitsLabel = UILabel()
     private let diaryImageView = UIImageView()
+    private let completionsLabel = UILabel()
+    private let targetLabel = UILabel()
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -42,14 +44,19 @@ class HabitTableViewCell: UITableViewCell {
                     .size(50)
                     .left(20)
                     .vCenter()
-
                 
-        progressLabel.pin
+        targetLabel.pin
                     .right(15)
                     .bottom(33)
                     .height(20)
                     .sizeToFit(.height)
-                
+        
+        completionsLabel.pin
+                    .before(of: targetLabel).margin(1)
+                    .bottom(33)
+                    .height(20)
+                    .sizeToFit(.height)
+        
         unitsLabel.pin
                     .right(15)
                     .bottom(15)
@@ -58,15 +65,16 @@ class HabitTableViewCell: UITableViewCell {
         
         diaryImageView.pin
                     .size(20)
-                    .after(of: (progressLabel)).marginHorizontal(-22)
-                    .above(of: (progressLabel)).marginVertical(11)
+                    .after(of: (targetLabel)).marginHorizontal(-22)
+                    .above(of: (targetLabel)).marginVertical(11)
 
     }
     
     private func setup() {
         titleLabel.font = UIFont(name: "Lato-Regular", size: 16)
         unitsLabel.font = UIFont(name: "Lato-Regular", size: 15)
-        progressLabel.font = UIFont(name: "Lato-Bold", size: 20)
+        targetLabel.font = UIFont(name: "Lato-Bold", size: 20)
+        completionsLabel.font = UIFont(name: "Lato-Bold", size: 20)
         
         
         backgroundColor = UIColor.white
@@ -79,14 +87,15 @@ class HabitTableViewCell: UITableViewCell {
         contentView.backgroundColor = UIColor.white
                 
                 selectionStyle = .none
-        [titleLabel, iconImageView, progressLabel, unitsLabel, diaryImageView].forEach {
+        [titleLabel, iconImageView, completionsLabel, targetLabel, unitsLabel, diaryImageView].forEach {
             contentView.addSubview($0) }
     }
     
     func configure(with model: HabitViewModel) {
         titleLabel.text = model.title
         iconImageView.image = UIImage(named: model.systemImageName)
-        progressLabel.text = model.progress
+        completionsLabel.text = "\(model.numberOfCompletions) "
+        targetLabel.text = "/ \(model.target)"
         unitsLabel.text = model.units
         diaryImageView.image = UIImage(named: "diary")
     }

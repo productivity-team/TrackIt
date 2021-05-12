@@ -40,6 +40,8 @@ final class CreateHabitViewController: UIViewController {
     private let untilSwitch = UISwitch()
     
     private var days = ["monday":true, "tuesday":true, "wednesday":true, "thursday":true, "friday":true, "saturday":true, "sunday":true]
+    private var habitDays: [String] = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+    
     private var creationDate = Date()
     private var untilDate = Date()
     
@@ -330,14 +332,11 @@ final class CreateHabitViewController: UIViewController {
             sender.backgroundColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
         }
         
-        
         switch sender {
         case mondayButton:
             saveDay(day: "monday")
-            print(days)
         case tuesdayButton:
             saveDay(day: "tuesday")
-            print(days)
         case wednesdayButton:
             saveDay(day: "wednesday")
         case thursdayButton:
@@ -348,7 +347,6 @@ final class CreateHabitViewController: UIViewController {
             saveDay(day: "saturday")
         case sundayButton:
             saveDay(day: "sunday")
-        print(days)
         default:
             print("all buttions selected")
         }
@@ -358,8 +356,10 @@ final class CreateHabitViewController: UIViewController {
     func saveDay(day: String) {
         if days[day] == true {
             days[day] = false
+            habitDays = habitDays.filter{$0 != day}
         } else {
             days[day] = true
+            habitDays.append(day)
         }
     }
     

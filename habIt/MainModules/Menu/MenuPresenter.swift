@@ -23,7 +23,7 @@ final class MenuPresenter {
         self.interactor = interactor
     }
     private func viewModel(from habit: Habit) -> HabitViewModel {
-        let numberOfCompletions = (habit.numberOfCompletions ?? 0)
+        let numberOfCompletions = (habit.numberOfCompletions ?? "0")
         return HabitViewModel(title: habit.title,
                               imageName: habit.systemImageName,
                               target: habit.target,
