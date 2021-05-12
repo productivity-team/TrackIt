@@ -30,7 +30,9 @@ extension SignUpInteractor: SignUpInteractorInput {
                 //successfully created user, now store the user's name
                 let db = Firestore.firestore()
                 
-                db.collection("users").addDocument(data: ["username": name ?? "User", "uid": authResult!.user.uid]) { (error) in
+                let uid = authResult!.user.uid
+                
+                db.collection("users").document(uid).setData(["username": name ?? "User", "uid": uid]) { (error) in
                     
                     if error != nil {
                         self.output?.showAlert(message: "Не удалось сохранить данные пользователя")
