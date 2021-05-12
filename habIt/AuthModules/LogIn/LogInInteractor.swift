@@ -28,6 +28,7 @@ extension LogInInteractor: LogInInteractorInput {
             } else {
                 //Navigate to the main view controller
                 self.output?.toMenu()
+                UserDefaults.standard.set(true, forKey: "LoggedIn")
             }
         }
         

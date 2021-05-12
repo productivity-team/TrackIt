@@ -18,6 +18,8 @@ extension SettingsRouter: SettingsRouterInput {
         let viewController = container.viewController
         viewController.modalPresentationStyle = .fullScreen
         sourceViewController?.present(viewController, animated: true, completion: nil)
+        
+        UserDefaults.standard.set(false, forKey: "LoggedIn")
     }
     
 }

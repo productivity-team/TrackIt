@@ -7,6 +7,7 @@
 
 import UIKit
 import M13Checkbox
+import PinLayout
 
 class IconPickerCell: UICollectionViewCell {
 

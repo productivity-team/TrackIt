@@ -38,6 +38,8 @@ extension SignUpInteractor: SignUpInteractorInput {
                 }
                 //Navigate to the menu screen
                 self.output?.toMenu()
+                
+                UserDefaults.standard.set(true, forKey: "LoggedIn")
             }
         }
         

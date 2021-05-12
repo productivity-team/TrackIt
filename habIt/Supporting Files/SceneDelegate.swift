@@ -21,11 +21,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         
-        let container =
-//WelcomeContainer.assemble(with: WelcomeContext())
-                TabBarContainer.assemble(with: TabBarContext())
+        let isAuth: Bool = UserDefaults.standard.bool(forKey: "LoggedIn")
         
-        let viewController = container.viewController
+        let viewController: UIViewController
+        
+        
+        if isAuth {
+            viewController = TabBarContainer.assemble(with: TabBarContext()).viewController
+        } else {
+            viewController = WelcomeContainer.assemble(with: WelcomeContext()).viewController
+        }
+        
+//
+//        let container =
+////WelcomeContainer.assemble(with: WelcomeContext())
+//                TabBarContainer.assemble(with: TabBarContext())
+//
+//        let viewController = container.viewController
         
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()

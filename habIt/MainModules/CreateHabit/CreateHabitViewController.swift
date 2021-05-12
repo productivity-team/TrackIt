@@ -39,6 +39,10 @@ final class CreateHabitViewController: UIViewController {
     private let createButton = UIButton()
     private let untilSwitch = UISwitch()
     
+    private var days = ["monday":true, "tuesday":true, "wednesday":true, "thursday":true, "friday":true, "saturday":true, "sunday":true]
+    private var creationDate = Date()
+    private var untilDate = Date()
+    
     init(output: CreateHabitViewOutput) {
         self.output = output
         
@@ -52,6 +56,10 @@ final class CreateHabitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        creationDate = Date()
+        untilDate = Date()
+        
         view.backgroundColor = UIColor(named: "Background1")
         
         untilSwitch.tintColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
@@ -81,12 +89,26 @@ final class CreateHabitViewController: UIViewController {
         }
         
         mondayButton.setTitle("Пн", for: .normal)
+        mondayButton.addTarget(self, action: #selector(dayButtonPressed), for: .touchUpInside)
+        
         tuesdayButton.setTitle("Вт", for: .normal)
+        tuesdayButton.addTarget(self, action: #selector(dayButtonPressed), for: .touchUpInside)
+        
         wednesdayButton.setTitle("Ср", for: .normal)
+        wednesdayButton.addTarget(self, action: #selector(dayButtonPressed), for: .touchUpInside)
+        
         thursdayButton.setTitle("Чт", for: .normal)
+        thursdayButton.addTarget(self, action: #selector(dayButtonPressed), for: .touchUpInside)
+        
         fridayButton.setTitle("Пт", for: .normal)
+        fridayButton.addTarget(self, action: #selector(dayButtonPressed), for: .touchUpInside)
+        
         saturdayButton.setTitle("Сб", for: .normal)
+        saturdayButton.addTarget(self, action: #selector(dayButtonPressed), for: .touchUpInside)
+        
         sundayButton.setTitle("Вс", for: .normal)
+        sundayButton.addTarget(self, action: #selector(dayButtonPressed), for: .touchUpInside)
+
         
         createButton.setTitle("Создать", for: .normal)
         createButton.titleLabel?.font = UIFont(name: "Lato-Medium", size: 20)
@@ -104,6 +126,7 @@ final class CreateHabitViewController: UIViewController {
         untilField.timeZone = NSTimeZone.local
         untilField.datePickerMode = .date
         untilField.tintColor = UIColor.black
+        untilField.addTarget(self, action: #selector(untilDateChanged), for: .valueChanged)
         
         iconchangeButton.backgroundColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
         iconchangeButton.layer.cornerRadius = 5
@@ -123,7 +146,7 @@ final class CreateHabitViewController: UIViewController {
         goalLable.text = "Цель"
         goalLable.font = UIFont(name: "Lato-Medium", size: 20)
         
-        weekLable.text = "Частота"
+        weekLable.text = "Дни выполнения"
         weekLable.font = UIFont(name: "Lato-Medium", size: 20)
         
         timelimitLable.text = "Период выполнения"
@@ -286,6 +309,7 @@ final class CreateHabitViewController: UIViewController {
             untilBoxImage.isHidden = true
             calendarImage.isHidden = true
         }
+        
     }
     
     @objc
@@ -297,6 +321,54 @@ final class CreateHabitViewController: UIViewController {
     private func iconchangeButtonPressed() {
         output.iconchangeButtonPressed()
     }
+    
+    @objc
+    private func dayButtonPressed (_ sender: UIButton) {
+        if sender.backgroundColor == UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1) {
+            sender.backgroundColor = UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
+        } else {
+            sender.backgroundColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
+        }
+        
+        
+        switch sender {
+        case mondayButton:
+            saveDay(day: "monday")
+            print(days)
+        case tuesdayButton:
+            saveDay(day: "tuesday")
+            print(days)
+        case wednesdayButton:
+            saveDay(day: "wednesday")
+        case thursdayButton:
+            saveDay(day: "thursday")
+        case fridayButton:
+            saveDay(day: "friday")
+        case saturdayButton:
+            saveDay(day: "saturday")
+        case sundayButton:
+            saveDay(day: "sunday")
+        print(days)
+        default:
+            print("all buttions selected")
+        }
+        
+    }
+    
+    func saveDay(day: String) {
+        if days[day] == true {
+            days[day] = false
+        } else {
+            days[day] = true
+        }
+    }
+    
+    
+    @objc
+    private func untilDateChanged(_ sender: UIDatePicker) {
+        untilDate = sender.date
+    }
+    
     
 }
 
