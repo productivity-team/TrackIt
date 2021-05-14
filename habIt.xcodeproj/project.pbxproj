@@ -59,8 +59,8 @@
 		6BCE6A652635AFCF006D5601 /* ColorPickerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCE6A5F2635AFCF006D5601 /* ColorPickerInteractor.swift */; };
 		6BCE6A662635AFCF006D5601 /* ColorPickerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCE6A602635AFCF006D5601 /* ColorPickerContainer.swift */; };
 		9831CD23264C90CB00F9857B /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9831CD22264C90CB00F9857B /* CalendarCollectionViewCell.swift */; };
-		9831CD27264C91ED00F9857B /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9831CD26264C91ED00F9857B /* Roboto-Bold.ttf */; };
-		9831CD2A264D7CA900F9857B /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9831CD29264D7CA900F9857B /* Roboto-Regular.ttf */; };
+		9831CD2F264E9E5700F9857B /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9831CD2E264E9E5700F9857B /* Roboto-Bold.ttf */; };
+		9831CD32264E9E7000F9857B /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9831CD31264E9E7000F9857B /* Roboto-Regular.ttf */; };
 		B68CAC59263E9AB600D62D5C /* HabitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68CAC58263E9AB600D62D5C /* HabitManager.swift */; };
 		BB0D35412606A5A800A9988E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0D35402606A5A800A9988E /* AppDelegate.swift */; };
 		BB0D35432606A5A800A9988E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0D35422606A5A800A9988E /* SceneDelegate.swift */; };
@@ -154,8 +154,8 @@
 		6BCE6A602635AFCF006D5601 /* ColorPickerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerContainer.swift; sourceTree = "<group>"; };
 		8A03A80A9E2721331B8853E1 /* Pods_habIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_habIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9831CD22264C90CB00F9857B /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
-		9831CD26264C91ED00F9857B /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "../../../../Downloads/roboto/Roboto-Bold.ttf"; sourceTree = "<group>"; };
-		9831CD29264D7CA900F9857B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "../../../../Downloads/roboto/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		9831CD2E264E9E5700F9857B /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		9831CD31264E9E7000F9857B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		B68CAC58263E9AB600D62D5C /* HabitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManager.swift; sourceTree = "<group>"; };
 		BB0D353D2606A5A800A9988E /* habIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = habIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB0D35402606A5A800A9988E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -211,10 +211,10 @@
 		1EEC49FC26131B700029F750 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				9831CD29264D7CA900F9857B /* Roboto-Regular.ttf */,
+				9831CD31264E9E7000F9857B /* Roboto-Regular.ttf */,
+				9831CD2E264E9E5700F9857B /* Roboto-Bold.ttf */,
 				1EE0BDDF2632415C0080EDD4 /* Lato-Bold.ttf */,
 				1EEC49FD26131BCC0029F750 /* Lato-Medium.ttf */,
-				9831CD26264C91ED00F9857B /* Roboto-Bold.ttf */,
 				1EEC49FE26131BCD0029F750 /* Lato-Regular.ttf */,
 			);
 			path = Fonts;
@@ -549,8 +549,8 @@
 				BB0D354D2606A5A900A9988E /* LaunchScreen.storyboard in Resources */,
 				BBD9E62B2606A7E400A89C24 /* GoogleService-Info.plist in Resources */,
 				BB0D354A2606A5A900A9988E /* Assets.xcassets in Resources */,
-				9831CD2A264D7CA900F9857B /* Roboto-Regular.ttf in Resources */,
-				9831CD27264C91ED00F9857B /* Roboto-Bold.ttf in Resources */,
+				9831CD32264E9E7000F9857B /* Roboto-Regular.ttf in Resources */,
+				9831CD2F264E9E5700F9857B /* Roboto-Bold.ttf in Resources */,
 				1E1CB3A22635910D00ACD799 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
