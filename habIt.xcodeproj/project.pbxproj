@@ -58,6 +58,9 @@
 		6BCE6A642635AFCF006D5601 /* ColorPickerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCE6A5E2635AFCF006D5601 /* ColorPickerProtocols.swift */; };
 		6BCE6A652635AFCF006D5601 /* ColorPickerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCE6A5F2635AFCF006D5601 /* ColorPickerInteractor.swift */; };
 		6BCE6A662635AFCF006D5601 /* ColorPickerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCE6A602635AFCF006D5601 /* ColorPickerContainer.swift */; };
+		9831CD23264C90CB00F9857B /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9831CD22264C90CB00F9857B /* CalendarCollectionViewCell.swift */; };
+		9831CD27264C91ED00F9857B /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9831CD26264C91ED00F9857B /* Roboto-Bold.ttf */; };
+		9831CD2A264D7CA900F9857B /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9831CD29264D7CA900F9857B /* Roboto-Regular.ttf */; };
 		B68CAC59263E9AB600D62D5C /* HabitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68CAC58263E9AB600D62D5C /* HabitManager.swift */; };
 		BB0D35412606A5A800A9988E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0D35402606A5A800A9988E /* AppDelegate.swift */; };
 		BB0D35432606A5A800A9988E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0D35422606A5A800A9988E /* SceneDelegate.swift */; };
@@ -150,6 +153,9 @@
 		6BCE6A5F2635AFCF006D5601 /* ColorPickerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerInteractor.swift; sourceTree = "<group>"; };
 		6BCE6A602635AFCF006D5601 /* ColorPickerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerContainer.swift; sourceTree = "<group>"; };
 		8A03A80A9E2721331B8853E1 /* Pods_habIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_habIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9831CD22264C90CB00F9857B /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		9831CD26264C91ED00F9857B /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "../../../../Downloads/roboto/Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		9831CD29264D7CA900F9857B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "../../../../Downloads/roboto/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		B68CAC58263E9AB600D62D5C /* HabitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManager.swift; sourceTree = "<group>"; };
 		BB0D353D2606A5A800A9988E /* habIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = habIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB0D35402606A5A800A9988E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -205,8 +211,10 @@
 		1EEC49FC26131B700029F750 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				9831CD29264D7CA900F9857B /* Roboto-Regular.ttf */,
 				1EE0BDDF2632415C0080EDD4 /* Lato-Bold.ttf */,
 				1EEC49FD26131BCC0029F750 /* Lato-Medium.ttf */,
+				9831CD26264C91ED00F9857B /* Roboto-Bold.ttf */,
 				1EEC49FE26131BCD0029F750 /* Lato-Regular.ttf */,
 			);
 			path = Fonts;
@@ -295,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				6B94DC59262636A800FC279F /* HabitTableViewCell.swift */,
+				9831CD22264C90CB00F9857B /* CalendarCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -540,6 +549,8 @@
 				BB0D354D2606A5A900A9988E /* LaunchScreen.storyboard in Resources */,
 				BBD9E62B2606A7E400A89C24 /* GoogleService-Info.plist in Resources */,
 				BB0D354A2606A5A900A9988E /* Assets.xcassets in Resources */,
+				9831CD2A264D7CA900F9857B /* Roboto-Regular.ttf in Resources */,
+				9831CD27264C91ED00F9857B /* Roboto-Bold.ttf in Resources */,
 				1E1CB3A22635910D00ACD799 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,6 +628,7 @@
 				6B94DC5F2626372D00FC279F /* HabitViewModel.swift in Sources */,
 				6B7336162642C38D000232E9 /* IconPickerContainer.swift in Sources */,
 				6BB7E875261E2E71008ABB41 /* WelcomeRouter.swift in Sources */,
+				9831CD23264C90CB00F9857B /* CalendarCollectionViewCell.swift in Sources */,
 				6B94DC992631DE0000FC279F /* HabitPresenter.swift in Sources */,
 				6B94DCA92631E1E800FC279F /* CreateHabitPresenter.swift in Sources */,
 				6BB7E874261E2E71008ABB41 /* WelcomePresenter.swift in Sources */,

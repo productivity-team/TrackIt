@@ -27,6 +27,8 @@ protocol MenuViewOutput: class {
     func didSelectItem(at index: Int)
     func didLoadView()
     func didPullRefesh()
+    func configureCollectionViewCell(cell: CalendarCollectionViewCell, addedDays: Int) -> CalendarCollectionViewCell
+    func scrollToDate(date: Date) -> IndexPath
 }
 
 protocol MenuInteractorInput: class {

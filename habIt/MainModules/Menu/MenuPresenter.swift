@@ -36,6 +36,52 @@ extension MenuPresenter: MenuModuleInput {
 }
 
 extension MenuPresenter: MenuViewOutput {
+    func scrollToDate(date: Date) -> IndexPath {
+        var firstMondayIndexPath = IndexPath()
+            if let numberOfDays = calendar.dateComponents([.day], from: startDate, to: date).day {
+                let extraDays: Int = numberOfDays % 7 // will = 0 for Mondays, 1 for Tuesday, etc ..
+                let scrolledNumberOfDays = numberOfDays-extraDays
+                firstMondayIndexPath = IndexPath(row: scrolledNumberOfDays, section: 0)
+            }
+        return (firstMondayIndexPath)
+    }
+    
+    func configureCollectionViewCell(cell: CalendarCollectionViewCell, addedDays: Int) -> CalendarCollectionViewCell {
+        
+        func getNameOfDayFromNumber(weekday: Int) -> String {
+            switch weekday {
+            case 1:
+                return ("Вс")
+            case 2:
+                return ("Пн")
+            case 3:
+                return ("Вт")
+            case 4:
+                return ("Ср")
+            case 5:
+                return ("Чт")
+            case 6:
+                return ("Пт")
+            case 7:
+                return ("Сб")
+            default:
+               return("Error. Impossible to get date")
+            }
+        }
+        
+        var addedDaysDateComp = DateComponents()
+        addedDaysDateComp.day = addedDays
+        let currentCellDate = Calendar.current.date(byAdding: addedDaysDateComp, to: startDate)
+        if let cellDate = currentCellDate {
+            cell.date = cellDate
+            let dayNumber = Calendar.current.component(.day, from: cellDate)
+            let dayName = Calendar.current.component(.weekday, from: cellDate)
+            cell.configure(with: dayNumber, weekday: getNameOfDayFromNumber(weekday: dayName))
+            
+    }
+        return cell
+    
+    }
     func didPullRefesh() {
         interactor.observeItems()
     }
@@ -63,6 +109,7 @@ extension MenuPresenter: MenuViewOutput {
     }
     
 }
+    
 
 extension MenuPresenter: MenuInteractorOutput {
     func didRecieve(error: Error) {
@@ -73,4 +120,3 @@ extension MenuPresenter: MenuInteractorOutput {
         self.view?.reloadData()
     }
 }
-
