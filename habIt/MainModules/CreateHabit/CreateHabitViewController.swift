@@ -39,11 +39,12 @@ final class CreateHabitViewController: UIViewController {
     private let createButton = UIButton()
     private let untilSwitch = UISwitch()
     
-    private var days = ["monday":true, "tuesday":true, "wednesday":true, "thursday":true, "friday":true, "saturday":true, "sunday":true]
-    private var habitDays: [String] = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+    // 1-воскресенье, 2-понедельник, 3-вторник и тд
+    private var days = [2:true, 3:true, 4:true, 5:true, 6:true, 7:true, 1:true]
+    private var habitDays: [Int] = [2, 3, 4, 5, 6, 7, 1]
     
-    private var creationDate = Date()
-    private var untilDate = Date()
+    private var creationDate = calendar.dateComponents([.day], from: startDate, to: date).day!
+    private var untilDate = calendar.dateComponents([.day], from: startDate, to: date).day!
     
     init(output: CreateHabitViewOutput) {
         self.output = output
@@ -59,8 +60,8 @@ final class CreateHabitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        creationDate = Date()
-        untilDate = Date()
+        creationDate = calendar.dateComponents([.day], from: startDate, to: date).day!
+        untilDate = creationDate
         
         view.backgroundColor = UIColor(named: "Background1")
         
@@ -117,6 +118,7 @@ final class CreateHabitViewController: UIViewController {
         createButton.backgroundColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
         createButton.layer.cornerRadius = 10
         createButton.setTitleColor(UIColor(red: 48/255, green: 48/255, blue: 48/255, alpha: 1), for: .normal)
+        createButton.addTarget(self, action: #selector(createHabitButtonPressed), for: .touchUpInside)
         
         unitsField.placeholder = "Ед. измерения"
         unitsField.font = UIFont(name: "Lato-Regular", size: 18)
@@ -125,7 +127,7 @@ final class CreateHabitViewController: UIViewController {
         goalField.font = UIFont(name: "Lato-Regular", size: 18)
         goalField.keyboardType = .numberPad
         
-        untilField.timeZone = NSTimeZone.local
+        untilField.timeZone = .current
         untilField.datePickerMode = .date
         untilField.tintColor = UIColor.black
         untilField.addTarget(self, action: #selector(untilDateChanged), for: .valueChanged)
@@ -310,6 +312,8 @@ final class CreateHabitViewController: UIViewController {
             untilField.isHidden = true
             untilBoxImage.isHidden = true
             calendarImage.isHidden = true
+            
+            untilDate = 44193
         }
         
     }
@@ -334,26 +338,26 @@ final class CreateHabitViewController: UIViewController {
         
         switch sender {
         case mondayButton:
-            saveDay(day: "monday")
+            saveDay(day: 2)
         case tuesdayButton:
-            saveDay(day: "tuesday")
+            saveDay(day: 3)
         case wednesdayButton:
-            saveDay(day: "wednesday")
+            saveDay(day: 4)
         case thursdayButton:
-            saveDay(day: "thursday")
+            saveDay(day: 5)
         case fridayButton:
-            saveDay(day: "friday")
+            saveDay(day: 6)
         case saturdayButton:
-            saveDay(day: "saturday")
+            saveDay(day: 7)
         case sundayButton:
-            saveDay(day: "sunday")
+            saveDay(day: 1)
         default:
             print("all buttions selected")
         }
         
     }
     
-    func saveDay(day: String) {
+    func saveDay(day: Int) {
         if days[day] == true {
             days[day] = false
             habitDays = habitDays.filter{$0 != day}
@@ -366,7 +370,31 @@ final class CreateHabitViewController: UIViewController {
     
     @objc
     private func untilDateChanged(_ sender: UIDatePicker) {
-        untilDate = sender.date
+        untilDate = sender.calendar.dateComponents([.day], from: startDate, to: untilField.date).day!
+    }
+    
+    @objc
+    private func createHabitButtonPressed() {
+        
+        if nameField.hasText == false || goalField.hasText == false || unitsField.hasText == false || habitDays.isEmpty == true {
+            print("something is empty")
+            
+            output.showAlert()
+        } else {
+        
+        let creationDate = self.creationDate
+        let untilDate = self.untilDate
+        let title = self.nameField.text! //проверка
+        let imageName = IconPickerViewController.iconName
+        let habitColor = ColorPickerViewController.rgbColor.map {Double($0)}
+        let target = self.goalField.text! //проверка
+        let units = self.unitsField.text! //проверка
+        let numberOfCompletions = "0"
+        let habitDays = self.habitDays //проверка
+        
+            output.createHabitButtonPressed(creationDate: creationDate, untilDate: untilDate, title: title, imageName: imageName, habitColor: habitColor, target: target, units: units, numberOfCompletions: numberOfCompletions, habitDays: habitDays)
+            
+        }
     }
     
     

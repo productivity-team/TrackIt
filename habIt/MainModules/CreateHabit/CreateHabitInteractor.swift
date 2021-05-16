@@ -7,10 +7,42 @@
 //
 
 import Foundation
+import Firebase
 
 final class CreateHabitInteractor {
-	weak var output: CreateHabitInteractorOutput?
+    weak var output: CreateHabitInteractorOutput?
 }
 
+
 extension CreateHabitInteractor: CreateHabitInteractorInput {
+    
+    //сохранение привычки в базу
+    func saveHabit(creationDate: Int, untilDate: Int, title: String, imageName: String, habitColor: [Double], target: String, units: String, numberOfCompletions: String, habitDays: [Int]) {
+        
+        
+        let db = Firestore.firestore()
+        let uid = Auth.auth().currentUser!.uid
+        
+        db.collection("users").document(uid).collection("habits").document(title).setData([
+                                                                                            "creationDate": creationDate,
+                                                                                            "untilDate": untilDate,
+                                                                                            "title": title,
+                                                                                            "imageName": imageName,
+                                                                                            "habitColor": habitColor,
+                                                                                            "target": target,
+                                                                                            "units": units,
+                                                                                            "numberOfCompletions": numberOfCompletions,
+                                                                                            "habitDays": habitDays
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+                self.output?.closeHabitCreation()
+            }
+        }
+
+        
+    }
+
 }

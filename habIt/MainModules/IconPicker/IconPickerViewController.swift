@@ -163,9 +163,6 @@ extension IconPickerViewController: UICollectionViewDelegate, UICollectionViewDa
         if let cell = collectionView.cellForItem(at: indexPath) as? IconPickerCell {
             cell.checkbox.setCheckState(.checked, animated: true)
         }
-        
-        
-            
     }
 
     

@@ -36,6 +36,11 @@ final class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //печатает текущий день недели
+        let currentday = Calendar.current.component(.weekday, from: date)
+        print(currentday)
+        
         let background = UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -123,7 +128,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        output.didSelectItem(at: indexPath.row)
+        output.didSelectHabit(at: indexPath.row)
     }
     
 }

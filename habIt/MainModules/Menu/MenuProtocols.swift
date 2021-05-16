@@ -24,7 +24,7 @@ protocol MenuViewOutput: class {
     func didTapAddButton()
     func countHabits() -> Int
     func getCellByIndentifier(id: Int) -> HabitViewModel
-    func didSelectItem(at index: Int)
+    func didSelectHabit(at index: Int)
     func didLoadView()
     func didPullRefesh()
     func configureCollectionViewCell(cell: CalendarCollectionViewCell, addedDays: Int) -> CalendarCollectionViewCell

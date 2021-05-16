@@ -86,7 +86,7 @@ extension MenuPresenter: MenuViewOutput {
         interactor.observeItems()
     }
     
-    func didSelectItem(at index: Int) {
+    func didSelectHabit(at index: Int) {
         let model = items[index]
         router.showHabit(model: model)
     }
