@@ -37,7 +37,6 @@ final class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let background = UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
- 
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -78,8 +77,16 @@ final class MenuViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        collectionView.pin.top(88).left().right().height(60)
-        tableView.pin.below(of: collectionView).marginVertical(0)
+        viewSafeAreaInsetsDidChange()
+        collectionView.pin
+            .top(view.pin.safeArea)
+            .left()
+            .right()
+            .height(65)
+        
+        tableView.pin
+            .below(of: collectionView)
+            .marginVertical(0)
             .left()
             .right()
             .bottom()
