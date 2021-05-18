@@ -13,7 +13,8 @@ import FirebaseAuth
 let startDate = Date.init(timeIntervalSinceReferenceDate: 0)
 let calendar = Calendar.current
 let date = Date()
-let diffInDays = calendar.dateComponents([.day], from: startDate, to: date).day
+var diffInDays = (calendar.dateComponents([.day], from: startDate, to: date).day!)
+let currentweekday = Calendar.current.component(.weekday, from: date)
 
 final class MenuViewController: UIViewController {
     private let output: MenuViewOutput
@@ -36,11 +37,6 @@ final class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //печатает текущий день недели
-        let currentday = Calendar.current.component(.weekday, from: date)
-        print(currentday)
-        
         let background = UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -142,7 +138,7 @@ extension MenuViewController: MenuViewInput {
 
 extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        9999
+        44193 // 01.01.2001 - 31.12.2121
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -175,5 +171,14 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let dayIndex = indexPath.row
+        diffInDays = dayIndex
+        output.didLoadView()
+        self.tableView.refreshControl?.endRefreshing()
+        self.tableView.reloadData()
+    
     }
 }

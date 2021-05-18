@@ -53,6 +53,9 @@ final class HabitConverter {
         case target
         case numberOfCompletions
         case units
+        case creationDate
+        case untilDate
+        case habitDays
     }
     
     static func habit(from document: DocumentSnapshot) -> Habit? {
@@ -61,10 +64,17 @@ final class HabitConverter {
               let systemImageName = dict[Key.imageName.rawValue] as? String,
               let target = dict[Key.target.rawValue] as? String,
               let numberOfCompletions = dict[Key.numberOfCompletions.rawValue] as? String?,
-              let units = dict[Key.units.rawValue] as? String
+              let units = dict[Key.units.rawValue] as? String,
+              let creationDate = dict[Key.creationDate.rawValue] as? Int,
+              let untilDate = dict[Key.untilDate.rawValue] as? Int,
+              let habitDays = dict[Key.habitDays.rawValue] as? [Int]
         else {
             return nil
         }
-        return Habit(title: title, imageName: systemImageName, target: target, numberOfCompletions: numberOfCompletions, units: units, identifier: document.documentID)
+
+        guard diffInDays >= creationDate && diffInDays <= untilDate && habitDays.contains(currentweekday) else {
+            return nil
+        }
+        return Habit(title: title, imageName: systemImageName, target: target, numberOfCompletions: numberOfCompletions, units: units, identifier: document.documentID,creationDate: creationDate,untilDate: untilDate, habitDays: habitDays)
     }
 }

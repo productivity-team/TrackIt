@@ -28,7 +28,10 @@ final class MenuPresenter {
                               imageName: habit.systemImageName,
                               target: habit.target,
                               numberOfCompletions: numberOfCompletions,
-                              units: habit.units)
+                              units: habit.units,
+                              creationDate: habit.creationDate,
+                              untilDate: habit.creationDate,
+                              habitDays: habit.habitDays)
     }
 }
 
