@@ -11,7 +11,6 @@ import PinLayout
 class HabitTableViewCell: UITableViewCell {
     private let titleLabel = UILabel()
     private let iconImageView = UIImageView()
-    private let progressLabel = UILabel()
     private let unitsLabel = UILabel()
     private let diaryImageView = UIImageView()
     private let completionsLabel = UILabel()

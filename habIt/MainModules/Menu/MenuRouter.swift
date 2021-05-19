@@ -20,7 +20,6 @@ extension MenuRouter: MenuRouterInput {
         let container = HabitContainer.assemble(with: HabitContext())
         let viewController = container.viewController
         
-        viewController.title = model.title
         viewController.view.backgroundColor = .systemBackground
         
         let navigationController = UINavigationController(rootViewController: viewController)

@@ -10,11 +10,13 @@ import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 
-let startDate = Date.init(timeIntervalSinceReferenceDate: 0)
+let startDate = Date.init(timeIntervalSinceReferenceDate: 0) //01.01.2001 00:00
 let calendar = Calendar.current
-let date = Date()
-var diffInDays = (calendar.dateComponents([.day], from: startDate, to: date).day!)
-let currentweekday = Calendar.current.component(.weekday, from: date)
+let dateGMT = Date() // текущая дата в часовом поясе +0
+var addTime = TimeZone.current.secondsFromGMT()//время в секундах между часовым поясом +0 и часовым поясом на устройстве
+var date = Date.init(timeInterval: TimeInterval(addTime), since: dateGMT) //текущая дата с часовым поясом как на устройстве
+var diffInDays = calendar.dateComponents([.day], from: startDate, to: date).day! //разница между текущим днем и 01.01.2001
+var currentweekday = calendar.component(.weekday, from: dateGMT) // текущий день недели
 
 final class MenuViewController: UIViewController {
     private let output: MenuViewOutput
@@ -74,8 +76,17 @@ final class MenuViewController: UIViewController {
         super.viewDidAppear(false)
         let firstMondayIndexPath = output.scrollToDate(date: Date())
         collectionView.scrollToItem(at: firstMondayIndexPath, at: .left, animated: false)
+        
     }
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(false)
+        diffInDays = calendar.dateComponents([.day], from: startDate, to: date).day!
+        currentweekday = Calendar.current.component(.weekday, from: dateGMT)
+        output.didLoadView()
+        reloadData()
+    }
+       
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         viewSafeAreaInsetsDidChange()
@@ -133,6 +144,7 @@ extension MenuViewController: MenuViewInput {
     func reloadData() {
         self.tableView.refreshControl?.endRefreshing()
         self.tableView.reloadData()
+        self.collectionView.reloadData()
     }
 }
 
@@ -174,11 +186,12 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let dayIndex = indexPath.row
-        diffInDays = dayIndex
+        diffInDays = indexPath.row
+        var addedDaysDateComp = DateComponents()
+        addedDaysDateComp.day = diffInDays
+        let currentCellDate = Calendar.current.date(byAdding: addedDaysDateComp, to: startDate)
+        currentweekday = Calendar.current.component(.weekday, from: currentCellDate!)
         output.didLoadView()
-        self.tableView.refreshControl?.endRefreshing()
-        self.tableView.reloadData()
-    
+        reloadData()
     }
 }
