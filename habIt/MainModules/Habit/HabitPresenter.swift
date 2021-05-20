@@ -26,6 +26,11 @@ extension HabitPresenter: HabitModuleInput {
 
 extension HabitPresenter: HabitViewOutput {
     
+    //алерт при обнаружении пустых полей
+    func showAlert() {
+        router.showAlert()
+    }
+    
     //сохранение выполнения привычки/дневника
     func saveHabitButtonPressed() {
     }

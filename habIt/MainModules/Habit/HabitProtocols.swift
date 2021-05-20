@@ -21,6 +21,7 @@ protocol HabitViewInput: class {
 protocol HabitViewOutput: class {
     func toMenuButtonPressed()
     func saveHabitButtonPressed()
+    func showAlert()
 }
 
 protocol HabitInteractorInput: class {
@@ -31,4 +32,5 @@ protocol HabitInteractorOutput: class {
 
 protocol HabitRouterInput: class {
     func openMenu()
+    func showAlert()
 }

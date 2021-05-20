@@ -27,7 +27,7 @@ final class HabitViewController: UIViewController {
     private let screenColor = UIColor(red: 0/255, green: 230/255, blue: 190/255, alpha: 1)
     
     private var numberOfCompletions = 0
-    private let target = 10
+    private let target = 100
 
     
     init(output: HabitViewOutput) {
@@ -54,7 +54,6 @@ final class HabitViewController: UIViewController {
         circularProgress.trackColor = UIColor.lightGray
         circularProgress.tag = 101
         circularProgress.center = self.view.center
-//        self.view.addSubview(circularProgress)
         
         //animate progress
         self.perform(#selector(animateProgress), with: nil, afterDelay: 0.3)
@@ -63,6 +62,8 @@ final class HabitViewController: UIViewController {
         completionsLabel.text = numberOfCompletions.description
         completionsLabel.textColor = screenColor
         completionsLabel.font = UIFont(name: "Lato-Bold", size: 35)
+        completionsLabel.sizeToFit()
+
         
         dividerLabel.text = "из"
         dividerLabel.textColor = screenColor
@@ -77,10 +78,12 @@ final class HabitViewController: UIViewController {
         addButton.backgroundColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
         addButton.layer.cornerRadius = 10
         addButton.setTitleColor(UIColor(red: 48/255, green: 48/255, blue: 48/255, alpha: 1), for: .normal)
+        addButton.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
         
         resetButton.setTitle("Сбросить прогресс", for: .normal)
         resetButton.titleLabel?.font = UIFont(name: "Lato-Medium", size: 15)
         resetButton.setTitleColor(UIColor(red: 123/255, green: 124/255, blue: 124/255, alpha: 1), for: .normal)
+        resetButton.addTarget(self, action: #selector(resetButtonPressed), for: .touchUpInside)
         
         settingsiconButton.setImage(UIImage(named: "pencil"), for: .normal)
         settingsiconButton.tintColor = screenColor
@@ -106,6 +109,12 @@ final class HabitViewController: UIViewController {
         
         
         [topbarImage, habitName, circularProgress, completionsLabel, dividerLabel, targetLabel, unitsLabel, unitsboxImage, unitsField, addButton, resetButton, settingsiconButton].forEach{view.addSubview($0)}
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        let percentCompleted = Float(numberOfCompletions)/Float(target)
+        animateProgress(progress: percentCompleted)
     }
     
     
@@ -179,10 +188,33 @@ final class HabitViewController: UIViewController {
             .width(35)
     }
     
+    @objc func addButtonPressed() {
+        if unitsField.hasText == false {
+            print("field is empty")
+            output.showAlert()
+        } else {
+            numberOfCompletions += Int(unitsField.text!)!
+            completionsLabel.text = numberOfCompletions.description
+            completionsLabel.sizeToFit()
+            let percentCompleted = Float(numberOfCompletions)/Float(target)
+            animateProgress(progress: percentCompleted)
+            unitsField.text = nil
+        }
+    }
     
-    @objc func animateProgress() {
+    
+    @objc func resetButtonPressed() {
+        numberOfCompletions = 0
+        completionsLabel.text = numberOfCompletions.description
+        completionsLabel.sizeToFit()
+        let percentCompleted: Float = 0
+        animateProgress(progress: percentCompleted)
+    }
+    
+    
+    @objc func animateProgress(progress: Float) {
         let cp = self.view.viewWithTag(101) as! CircularProgress
-        cp.setProgressWithAnimation(duration: 1.0, value: 0.8)
+        cp.setProgressWithAnimation(duration: 1.0, value: progress)
     }
     
     
