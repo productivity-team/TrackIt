@@ -14,6 +14,8 @@
 		1EEC4A0026131BCD0029F750 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1EEC49FE26131BCD0029F750 /* Lato-Regular.ttf */; };
 		6B32E3C4264545D700AD4540 /* IconPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B32E3C3264545D700AD4540 /* IconPickerCell.swift */; };
 		6B52C6202656885C004AD98B /* CircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52C61F2656885C004AD98B /* CircularProgress.swift */; };
+		6B52C63C2657094D004AD98B /* HabitProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52C63B2657094C004AD98B /* HabitProgress.swift */; };
+		6B52C63F26570A12004AD98B /* HabitProgressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52C63E26570A12004AD98B /* HabitProgressManager.swift */; };
 		6B61EAEC261F8C680009C24B /* LogInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B61EAE6261F8C680009C24B /* LogInPresenter.swift */; };
 		6B61EAED261F8C680009C24B /* LogInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B61EAE7261F8C680009C24B /* LogInRouter.swift */; };
 		6B61EAEE261F8C680009C24B /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B61EAE8261F8C680009C24B /* LogInViewController.swift */; };
@@ -109,6 +111,8 @@
 		3461CEAED8B291ACDE46234F /* Pods-habIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-habIt.debug.xcconfig"; path = "Target Support Files/Pods-habIt/Pods-habIt.debug.xcconfig"; sourceTree = "<group>"; };
 		6B32E3C3264545D700AD4540 /* IconPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCell.swift; sourceTree = "<group>"; };
 		6B52C61F2656885C004AD98B /* CircularProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgress.swift; sourceTree = "<group>"; };
+		6B52C63B2657094C004AD98B /* HabitProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitProgress.swift; sourceTree = "<group>"; };
+		6B52C63E26570A12004AD98B /* HabitProgressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitProgressManager.swift; sourceTree = "<group>"; };
 		6B61EAE6261F8C680009C24B /* LogInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInPresenter.swift; sourceTree = "<group>"; };
 		6B61EAE7261F8C680009C24B /* LogInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInRouter.swift; sourceTree = "<group>"; };
 		6B61EAE8261F8C680009C24B /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +235,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		6B52C63826570905004AD98B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6B52C63B2657094C004AD98B /* HabitProgress.swift */,
+				6B52C63E26570A12004AD98B /* HabitProgressManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		6B61EAE5261F8C460009C24B /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +336,7 @@
 		6B94DCA02631DE6E00FC279F /* Habit */ = {
 			isa = PBXGroup;
 			children = (
+				6B52C63826570905004AD98B /* Models */,
 				6B94DC962631DE0000FC279F /* HabitProtocols.swift */,
 				6B94DC952631DE0000FC279F /* HabitViewController.swift */,
 				6B94DC932631DE0000FC279F /* HabitPresenter.swift */,
@@ -646,9 +660,11 @@
 				6B7336122642C38D000232E9 /* IconPickerRouter.swift in Sources */,
 				BB847DFC2623040C006AF2B6 /* AchievementsPresenter.swift in Sources */,
 				BB0D35412606A5A800A9988E /* AppDelegate.swift in Sources */,
+				6B52C63C2657094D004AD98B /* HabitProgress.swift in Sources */,
 				6B61EB02262190260009C24B /* SignUpContainer.swift in Sources */,
 				BB847E0D2623040C006AF2B6 /* TabBarInteractor.swift in Sources */,
 				6B94DC9C2631DE0000FC279F /* HabitProtocols.swift in Sources */,
+				6B52C63F26570A12004AD98B /* HabitProgressManager.swift in Sources */,
 				BB847E092623040C006AF2B6 /* MenuInteractor.swift in Sources */,
 				BB0D35432606A5A800A9988E /* SceneDelegate.swift in Sources */,
 				6BCE6A612635AFCF006D5601 /* ColorPickerPresenter.swift in Sources */,

@@ -39,11 +39,8 @@ final class HabitsManager: HabitManagerDescriprion {
                 let habits = documents.compactMap { HabitConverter.habit(from: $0) }
                 completion(.success(habits))
             }
-
         }
     }
-
-
 }
 
 final class HabitConverter {

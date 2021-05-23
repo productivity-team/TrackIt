@@ -41,11 +41,11 @@ extension MenuPresenter: MenuModuleInput {
 extension MenuPresenter: MenuViewOutput {
     func scrollToDate(date: Date) -> IndexPath {
         var firstMondayIndexPath = IndexPath()
-            if let numberOfDays = calendar.dateComponents([.day], from: startDate, to: date).day {
-                let extraDays: Int = numberOfDays % 7 // will = 0 for Mondays, 1 for Tuesday, etc ..
-                let scrolledNumberOfDays = numberOfDays-extraDays
-                firstMondayIndexPath = IndexPath(row: scrolledNumberOfDays, section: 0)
-            }
+        if let numberOfDays = calendar.dateComponents([.day], from: startDate, to: date).day {
+            let extraDays: Int = numberOfDays % 7 // will = 0 for Mondays, 1 for Tuesday, etc ..
+            let scrolledNumberOfDays = numberOfDays-extraDays
+            firstMondayIndexPath = IndexPath(row: scrolledNumberOfDays, section: 0)
+        }
         return (firstMondayIndexPath)
     }
     
@@ -68,7 +68,7 @@ extension MenuPresenter: MenuViewOutput {
             case 7:
                 return ("Сб")
             default:
-               return("Error. Impossible to get date")
+                return("Error. Impossible to get date")
             }
         }
         
@@ -81,10 +81,10 @@ extension MenuPresenter: MenuViewOutput {
             let dayName = Calendar.current.component(.weekday, from: cellDate)
             cell.configure(with: dayNumber, weekday: getNameOfDayFromNumber(weekday: dayName))
             
-    }
+        }
         return cell
-    
     }
+    
     func didPullRefesh() {
         interactor.observeItems()
     }
@@ -96,6 +96,10 @@ extension MenuPresenter: MenuViewOutput {
     
     func getCellByIndentifier(id: Int) -> HabitViewModel {
         return items[id]
+    }
+    
+    func getCellNameByIndentifier(id: Int) -> String {
+        items[id].title
     }
     
     func countHabits() -> Int {
@@ -112,7 +116,7 @@ extension MenuPresenter: MenuViewOutput {
     }
     
 }
-    
+
 
 extension MenuPresenter: MenuInteractorOutput {
     func didRecieve(error: Error) {

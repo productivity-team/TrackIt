@@ -13,4 +13,5 @@ final class HabitInteractor {
 }
 
 extension HabitInteractor: HabitInteractorInput {
+    
 }

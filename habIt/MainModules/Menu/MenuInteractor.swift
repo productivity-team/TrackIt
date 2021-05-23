@@ -10,7 +10,6 @@ import Foundation
 
 final class MenuInteractor {
 	weak var output: MenuInteractorOutput?
-//    var testHabits = TestHabits()
     
     private let habitManager: HabitManagerDescriprion = HabitsManager.shared
 }
@@ -28,7 +27,5 @@ extension MenuInteractor: MenuInteractorInput {
             }
             }
         }
-        
     }
-
 }

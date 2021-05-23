@@ -19,13 +19,12 @@ extension MenuRouter: MenuRouterInput {
         
         let container = HabitContainer.assemble(with: HabitContext())
         let viewController = container.viewController
-        
+
         viewController.view.backgroundColor = .systemBackground
         
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .fullScreen
         sourceViewController?.present(navigationController, animated: true, completion: nil)
-//        navigationController.navigationBar.isHidden = true
     }
     
     //открыть экран создания привычки

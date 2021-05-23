@@ -9,6 +9,7 @@
 
 import UIKit
 
+
 final class HabitViewController: UIViewController {
     private let output: HabitViewOutput
     private let unitsboxImage = UIImageView(image: UIImage(named: "textbox"))
@@ -28,6 +29,8 @@ final class HabitViewController: UIViewController {
     
     private var numberOfCompletions = 0
     private let target = 100
+    
+    static var tappedHabitName = ""
 
     
     init(output: HabitViewOutput) {

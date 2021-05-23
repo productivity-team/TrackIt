@@ -135,6 +135,8 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        HabitViewController.tappedHabitName = output.getCellNameByIndentifier(id:indexPath.row)
         output.didSelectHabit(at: indexPath.row)
     }
     
