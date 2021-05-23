@@ -410,6 +410,9 @@ final class CreateHabitViewController: UIViewController {
             output.createHabitButtonPressed(creationDate: creationDate, untilDate: untilDate, title: title, imageName: imageName, habitColor: habitColor, target: target, units: units, habitDays: habitDays, habitProgress: habitProgress)
             
         }
+        
+        IconPickerViewController.selectedIcon = UIImage(named: "task")
+        ColorPickerViewController.habitColor = UIColor(red: 254/255, green: 194/255, blue: 76/255, alpha: 1)
     }
     
     

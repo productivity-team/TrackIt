@@ -38,7 +38,6 @@ final class ColorPickerViewController: UIViewController {
         saveButton.setTitle("Выбрать", for: .normal)
         saveButton.titleLabel?.font = UIFont(name: "Lato-Medium", size: 20)
         saveButton.backgroundColor = ColorPickerViewController.habitColor
-        //        (red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
         saveButton.layer.cornerRadius = 10
         saveButton.setTitleColor(UIColor(red: 48/255, green: 48/255, blue: 48/255, alpha: 1), for: .normal)
         saveButton.addTarget(self, action: #selector(selectedColorButtonPressed), for: .touchUpInside)
