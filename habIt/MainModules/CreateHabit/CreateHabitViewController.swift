@@ -39,12 +39,15 @@ final class CreateHabitViewController: UIViewController {
     private let createButton = UIButton()
     private let untilSwitch = UISwitch()
     
+    
     // 1-воскресенье, 2-понедельник, 3-вторник и тд
     private var days = [2:true, 3:true, 4:true, 5:true, 6:true, 7:true, 1:true]
     private var habitDays: [Int] = [2, 3, 4, 5, 6, 7, 1]
     
     private var creationDate = calendar.dateComponents([.day], from: startDate, to: date).day!
     private var untilDate = calendar.dateComponents([.day], from: startDate, to: date).day!
+    
+    private var habitProgress = [String: Int]()
     
     init(output: CreateHabitViewOutput) {
         self.output = output
@@ -62,6 +65,10 @@ final class CreateHabitViewController: UIViewController {
         
         creationDate = calendar.dateComponents([.day], from: startDate, to: date).day!
         untilDate = creationDate
+        
+        for day in creationDate...untilDate {
+            habitProgress[String(day)] = 0
+        }
         
         view.backgroundColor = UIColor(named: "Background1")
         
@@ -132,11 +139,11 @@ final class CreateHabitViewController: UIViewController {
         untilField.tintColor = UIColor.black
         untilField.addTarget(self, action: #selector(untilDateChanged), for: .valueChanged)
         
-        iconchangeButton.backgroundColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
+        iconchangeButton.backgroundColor = UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
         iconchangeButton.layer.cornerRadius = 5
         iconchangeButton.addTarget(self, action: #selector(iconchangeButtonPressed), for: .touchUpInside)
         
-        colorchangeButton.backgroundColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
+        colorchangeButton.backgroundColor = UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
         colorchangeButton.layer.cornerRadius = 5
         colorchangeButton.addTarget(self, action: #selector(colorchangeButtonPressed), for: .touchUpInside)
         
@@ -314,6 +321,10 @@ final class CreateHabitViewController: UIViewController {
             calendarImage.isHidden = true
             
             untilDate = 44193
+            
+            for day in creationDate...untilDate {
+                habitProgress[String(day)] = 0
+            }
         }
         
     }
@@ -371,6 +382,10 @@ final class CreateHabitViewController: UIViewController {
     @objc
     private func untilDateChanged(_ sender: UIDatePicker) {
         untilDate = sender.calendar.dateComponents([.day], from: startDate, to: untilField.date).day!
+        
+        for day in creationDate...untilDate {
+            habitProgress[String(day)] = 0
+        }
     }
     
     @objc
@@ -378,21 +393,21 @@ final class CreateHabitViewController: UIViewController {
         
         if nameField.hasText == false || goalField.hasText == false || unitsField.hasText == false || habitDays.isEmpty == true {
             print("something is empty")
-            
             output.showAlert()
+            
         } else {
-        
-        let creationDate = self.creationDate
-        let untilDate = self.untilDate
-        let title = self.nameField.text! //проверка
-        let imageName = IconPickerViewController.iconName
-        let habitColor = ColorPickerViewController.rgbColor.map {Double($0)}
-        let target = self.goalField.text! //проверка
-        let units = self.unitsField.text! //проверка
-        let numberOfCompletions = "0"
-        let habitDays = self.habitDays //проверка
-        
-            output.createHabitButtonPressed(creationDate: creationDate, untilDate: untilDate, title: title, imageName: imageName, habitColor: habitColor, target: target, units: units, numberOfCompletions: numberOfCompletions, habitDays: habitDays)
+            
+            let creationDate = self.creationDate
+            let untilDate = self.untilDate
+            let title = self.nameField.text! //проверка
+            let imageName = IconPickerViewController.iconName
+            let habitColor = ColorPickerViewController.rgbColor.map {Double($0)}
+            let target = self.goalField.text! //проверка
+            let units = self.unitsField.text! //проверка
+            let habitDays = self.habitDays //проверка
+            let habitProgress = self.habitProgress
+            
+            output.createHabitButtonPressed(creationDate: creationDate, untilDate: untilDate, title: title, imageName: imageName, habitColor: habitColor, target: target, units: units, habitDays: habitDays, habitProgress: habitProgress)
             
         }
     }

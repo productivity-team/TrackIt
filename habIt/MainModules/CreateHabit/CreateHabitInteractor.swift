@@ -3,7 +3,7 @@
 //  habIt
 //
 //  Created by Maria Pecheritsyna on 22.04.2021.
-//  
+//
 //
 
 import Foundation
@@ -17,11 +17,12 @@ final class CreateHabitInteractor {
 extension CreateHabitInteractor: CreateHabitInteractorInput {
     
     //сохранение привычки в базу
-    func saveHabit(creationDate: Int, untilDate: Int, title: String, imageName: String, habitColor: [Double], target: String, units: String, numberOfCompletions: String, habitDays: [Int]) {
+    func saveHabit(creationDate: Int, untilDate: Int, title: String, imageName: String, habitColor: [Double], target: String, units: String, habitDays: [Int], habitProgress: [String: Int]) {
         
         
         let db = Firestore.firestore()
         let uid = Auth.auth().currentUser!.uid
+
         
         db.collection("users").document(uid).collection("habits").document(title).setData([
                                                                                             "creationDate": creationDate,
@@ -31,18 +32,17 @@ extension CreateHabitInteractor: CreateHabitInteractorInput {
                                                                                             "habitColor": habitColor,
                                                                                             "target": target,
                                                                                             "units": units,
-                                                                                            "numberOfCompletions": numberOfCompletions,
-                                                                                            "habitDays": habitDays
+                                                                                            "habitDays": habitDays,
+                                                                                            "habitProgress": habitProgress
         ]) { err in
             if let err = err {
-                print("Error writing document: \(err)")
+                print("Error writing document: \(err.localizedDescription)")
             } else {
                 print("Document successfully written!")
                 self.output?.closeHabitCreation()
             }
         }
-
-        
     }
-
 }
+
+

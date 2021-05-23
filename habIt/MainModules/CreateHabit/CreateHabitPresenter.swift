@@ -3,17 +3,17 @@
 //  habIt
 //
 //  Created by Maria Pecheritsyna on 22.04.2021.
-//  
+//
 //
 
 import Foundation
 
 final class CreateHabitPresenter {
-	weak var view: CreateHabitViewInput?
+    weak var view: CreateHabitViewInput?
     weak var moduleOutput: CreateHabitModuleOutput?
 
-	private let router: CreateHabitRouterInput
-	private let interactor: CreateHabitInteractorInput
+    private let router: CreateHabitRouterInput
+    private let interactor: CreateHabitInteractorInput
 
     init(router: CreateHabitRouterInput, interactor: CreateHabitInteractorInput) {
         self.router = router
@@ -26,8 +26,8 @@ extension CreateHabitPresenter: CreateHabitModuleInput {
 
 extension CreateHabitPresenter: CreateHabitViewOutput {
     
-    func createHabitButtonPressed(creationDate: Int, untilDate: Int, title: String, imageName: String, habitColor: [Double], target: String, units: String, numberOfCompletions: String, habitDays: [Int]) {
-        interactor.saveHabit(creationDate: creationDate, untilDate: untilDate, title: title, imageName: imageName, habitColor: habitColor, target: target, units: units, numberOfCompletions: numberOfCompletions, habitDays: habitDays)
+    func createHabitButtonPressed(creationDate: Int, untilDate: Int, title: String, imageName: String, habitColor: [Double], target: String, units: String, habitDays: [Int], habitProgress: [String: Int]) {
+        interactor.saveHabit(creationDate: creationDate, untilDate: untilDate, title: title, imageName: imageName, habitColor: habitColor, target: target, units: units, habitDays: habitDays, habitProgress: habitProgress)
     }
     
     func showAlert() {
