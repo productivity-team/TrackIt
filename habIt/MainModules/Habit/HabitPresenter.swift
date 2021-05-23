@@ -33,7 +33,8 @@ extension HabitPresenter: HabitViewOutput {
     }
     
     //сохранение выполнения привычки/дневника
-    func saveHabitButtonPressed() {
+    func saveProgressButtonPressed(tappedHabitName: String, updateKey: String, numberOfCompletions: Int) {
+        interactor.updateProgress(tappedHabitName: tappedHabitName, updateKey: updateKey, numberOfCompletions: numberOfCompletions)
     }
     
     //переход на главный экран
@@ -45,4 +46,9 @@ extension HabitPresenter: HabitViewOutput {
 }
 
 extension HabitPresenter: HabitInteractorOutput {
+    
+    func openMenu() {
+        router.openMenu()
+    }
+    
 }

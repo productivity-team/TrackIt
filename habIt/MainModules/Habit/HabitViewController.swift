@@ -106,7 +106,7 @@ final class HabitViewController: UIViewController {
         backBarButtonItem.tintColor = UIColor(named: "Text")
         self.navigationItem.leftBarButtonItem  = backBarButtonItem
         
-        let saveBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .done, target: self, action: #selector(saveHabitButtonPressed))
+        let saveBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .done, target: self, action: #selector(saveProgressButtonPressed))
         saveBarButtonItem.tintColor = UIColor(named: "Text")
         self.navigationItem.rightBarButtonItem  = saveBarButtonItem
         
@@ -226,8 +226,13 @@ final class HabitViewController: UIViewController {
     }
     
     
-    @objc func saveHabitButtonPressed(){
-        output.saveHabitButtonPressed()
+    @objc func saveProgressButtonPressed(){
+        
+        let numberOfCompletions = self.numberOfCompletions
+        let tappedHabitName = HabitViewController.tappedHabitName
+        let updateKey = String(calendar.dateComponents([.day], from: startDate, to: date).day!)
+        
+        output.saveProgressButtonPressed(tappedHabitName: tappedHabitName, updateKey: updateKey, numberOfCompletions: numberOfCompletions)
     }
     
 }
