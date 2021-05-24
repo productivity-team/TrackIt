@@ -14,11 +14,12 @@ final class HabitInteractor {
 }
 
 extension HabitInteractor: HabitInteractorInput {
+    
     func updateProgress(tappedHabitName: String, updateKey: String, numberOfCompletions: Int) {
-        
+
         let db = Firestore.firestore()
         let uid = Auth.auth().currentUser!.uid
-        
+
         db.collection("users").document(uid).collection("habits").document(tappedHabitName).updateData([
             "habitProgress.\(updateKey)": numberOfCompletions
         ]) { err in
@@ -28,10 +29,7 @@ extension HabitInteractor: HabitInteractorInput {
                 print("Document successfully written!")
                 self.output?.openMenu()
             }
-            
         }
-        
     }
-    
     
 }

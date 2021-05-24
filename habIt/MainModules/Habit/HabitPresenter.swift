@@ -25,14 +25,18 @@ extension HabitPresenter: HabitModuleInput {
 }
 
 extension HabitPresenter: HabitViewOutput {
-    
-    
+
     //алерт при обнаружении пустых полей
     func showAlert() {
         router.showAlert()
     }
     
-    //сохранение выполнения привычки/дневника
+    //алерт перед сбросом прогресса привычки
+    func resetAlert() {
+        router.resetAlert()
+    }
+    
+    //сохранение выполнения привычки
     func saveProgressButtonPressed(tappedHabitName: String, updateKey: String, numberOfCompletions: Int) {
         interactor.updateProgress(tappedHabitName: tappedHabitName, updateKey: updateKey, numberOfCompletions: numberOfCompletions)
     }

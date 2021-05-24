@@ -22,6 +22,7 @@ protocol HabitViewOutput: class {
     func toMenuButtonPressed()
     func saveProgressButtonPressed(tappedHabitName: String, updateKey: String, numberOfCompletions: Int)
     func showAlert()
+    func resetAlert()
 }
 
 protocol HabitInteractorInput: class {
@@ -35,4 +36,5 @@ protocol HabitInteractorOutput: class {
 protocol HabitRouterInput: class {
     func openMenu()
     func showAlert()
+    func resetAlert()
 }

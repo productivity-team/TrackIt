@@ -212,6 +212,7 @@ final class HabitViewController: UIViewController {
         completionsLabel.sizeToFit()
         let percentCompleted: Float = 0
         animateProgress(progress: percentCompleted)
+        output.resetAlert()
     }
     
     
@@ -230,7 +231,7 @@ final class HabitViewController: UIViewController {
         
         let numberOfCompletions = self.numberOfCompletions
         let tappedHabitName = HabitViewController.tappedHabitName
-        let updateKey = String(calendar.dateComponents([.day], from: startDate, to: date).day!)
+        let updateKey = String(diffInDays)
         
         output.saveProgressButtonPressed(tappedHabitName: tappedHabitName, updateKey: updateKey, numberOfCompletions: numberOfCompletions)
     }

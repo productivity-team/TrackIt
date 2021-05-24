@@ -20,6 +20,23 @@ extension HabitRouter: HabitRouterInput {
         sourceViewController?.present(alert, animated: true, completion: nil)
     }
     
+    //алерт сброса прогресса привычки
+    func resetAlert() {
+        let alert = UIAlertController(title: "Сбросить прогресс?", message: "Вы уверены, что хотите сбросить весь прогресс за сегодня?", preferredStyle: .alert)
+        let tappedHabitName = HabitViewController.tappedHabitName
+        let updateKey = String(diffInDays)
+        alert.addAction(UIAlertAction(title: "Да", style: .destructive, handler: { action in
+            
+            FirebaseHandler.shared.resetProgress(tappedHabitName: tappedHabitName, updateKey: updateKey)
+        
+            let viewController = TabBarContainer.assemble(with: TabBarContext()).viewController
+            viewController.modalPresentationStyle = .fullScreen
+            self.sourceViewController?.present(viewController, animated: true, completion: nil)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Нет", style: .cancel, handler: nil))
+        sourceViewController?.present(alert, animated: true, completion: nil)
+    }
     
     //переход на главный экран
     func openMenu() {

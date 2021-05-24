@@ -39,6 +39,9 @@ final class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(diffInDays)
+        
         let background = UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -80,7 +83,6 @@ final class MenuViewController: UIViewController {
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(false)
-        diffInDays = calendar.dateComponents([.day], from: startDate, to: date).day!
         currentweekday = Calendar.current.component(.weekday, from: dateGMT)
         output.didLoadView()
         reloadData()
@@ -195,5 +197,6 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
         currentweekday = Calendar.current.component(.weekday, from: currentCellDate!)
         output.didLoadView()
         reloadData()
+        print(diffInDays)
     }
 }
