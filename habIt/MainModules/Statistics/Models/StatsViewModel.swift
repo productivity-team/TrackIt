@@ -7,8 +7,14 @@
 
 struct StatsViewModel {
     let title: String
+    let systemImageName: String
+    let target: String
+    let units: String
     
-    init(title: String) {
+    init(title: String, imageName: String, target: String, units: String) {
         self.title = title
+        self.systemImageName = imageName
+        self.target = target
+        self.units = units
     }
 }

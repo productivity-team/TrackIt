@@ -23,7 +23,10 @@ final class StatsPresenter {
     }
     
     private func viewModel(from stats: Stats) -> StatsViewModel {
-        return StatsViewModel(title: stats.title)
+        return StatsViewModel(title: stats.title,
+                              imageName: stats.systemImageName,
+                              target: stats.target,
+                              units: stats.units)
     }
 }
 

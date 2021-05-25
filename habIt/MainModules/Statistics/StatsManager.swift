@@ -43,16 +43,22 @@ final class StatsManager: StatsManagerDescriprion {
 final class StatsConverter {
     enum Key: String {
         case title
+        case imageName
+        case target
+        case units
     }
     
     static func stats(from document: DocumentSnapshot) -> Stats? {
         guard let dict = document.data(),
-              let title = dict[Key.title.rawValue] as? String
+              let title = dict[Key.title.rawValue] as? String,
+              let systemImageName = dict[Key.imageName.rawValue] as? String,
+              let target = dict[Key.target.rawValue] as? String,
+              let units = dict[Key.units.rawValue] as? String
         else {
             return nil
         }
 
-        return Stats(title: title, identifier: document.documentID)
+        return Stats(title: title, imageName: systemImageName, target: target, units: units, identifier: document.documentID)
     }
 }
 
