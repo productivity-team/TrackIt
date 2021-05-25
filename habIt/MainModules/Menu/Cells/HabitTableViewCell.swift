@@ -51,7 +51,7 @@ class HabitTableViewCell: UITableViewCell {
                     .sizeToFit(.height)
         
         completionsLabel.pin
-                    .before(of: targetLabel).margin(1)
+                    .before(of: targetLabel)
                     .bottom(33)
                     .height(20)
                     .sizeToFit(.height)
