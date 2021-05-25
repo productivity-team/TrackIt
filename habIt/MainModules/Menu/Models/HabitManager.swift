@@ -72,6 +72,6 @@ final class HabitConverter {
         guard diffInDays >= creationDate && diffInDays <= untilDate && habitDays.contains(currentweekday) else {
             return nil
         }
-        return Habit(title: title, imageName: systemImageName, target: target, numberOfCompletions: numberOfCompletions, units: units, identifier: document.documentID,creationDate: creationDate,untilDate: untilDate, habitDays: habitDays)
+        return Habit(title: title, imageName: systemImageName, target: target, numberOfCompletions: numberOfCompletions, units: units, identifier: document.documentID, creationDate: creationDate,untilDate: untilDate, habitDays: habitDays)
     }
 }

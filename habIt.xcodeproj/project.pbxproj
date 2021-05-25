@@ -17,6 +17,10 @@
 		6B52C63C2657094D004AD98B /* HabitProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52C63B2657094C004AD98B /* HabitProgress.swift */; };
 		6B52C63F26570A12004AD98B /* HabitProgressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52C63E26570A12004AD98B /* HabitProgressManager.swift */; };
 		6B52C657265C37D0004AD98B /* FirebaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52C656265C37D0004AD98B /* FirebaseHandler.swift */; };
+		6B52C67E265C53A6004AD98B /* StatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52C67D265C53A6004AD98B /* StatsTableViewCell.swift */; };
+		6B52C683265C541F004AD98B /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52C682265C541F004AD98B /* StatsViewModel.swift */; };
+		6B52C686265C5489004AD98B /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52C685265C5489004AD98B /* Stats.swift */; };
+		6B52C689265C54D7004AD98B /* StatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52C688265C54D7004AD98B /* StatsManager.swift */; };
 		6B61EAEC261F8C680009C24B /* LogInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B61EAE6261F8C680009C24B /* LogInPresenter.swift */; };
 		6B61EAED261F8C680009C24B /* LogInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B61EAE7261F8C680009C24B /* LogInRouter.swift */; };
 		6B61EAEE261F8C680009C24B /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B61EAE8261F8C680009C24B /* LogInViewController.swift */; };
@@ -115,6 +119,10 @@
 		6B52C63B2657094C004AD98B /* HabitProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitProgress.swift; sourceTree = "<group>"; };
 		6B52C63E26570A12004AD98B /* HabitProgressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitProgressManager.swift; sourceTree = "<group>"; };
 		6B52C656265C37D0004AD98B /* FirebaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHandler.swift; sourceTree = "<group>"; };
+		6B52C67D265C53A6004AD98B /* StatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTableViewCell.swift; sourceTree = "<group>"; };
+		6B52C682265C541F004AD98B /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
+		6B52C685265C5489004AD98B /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		6B52C688265C54D7004AD98B /* StatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsManager.swift; sourceTree = "<group>"; };
 		6B61EAE6261F8C680009C24B /* LogInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInPresenter.swift; sourceTree = "<group>"; };
 		6B61EAE7261F8C680009C24B /* LogInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInRouter.swift; sourceTree = "<group>"; };
 		6B61EAE8261F8C680009C24B /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +251,23 @@
 				6B52C63B2657094C004AD98B /* HabitProgress.swift */,
 				6B52C63E26570A12004AD98B /* HabitProgressManager.swift */,
 				6B52C656265C37D0004AD98B /* FirebaseHandler.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6B52C680265C53FA004AD98B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6B52C67D265C53A6004AD98B /* StatsTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6B52C681265C540A004AD98B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6B52C682265C541F004AD98B /* StatsViewModel.swift */,
+				6B52C685265C5489004AD98B /* Stats.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -445,6 +470,9 @@
 		BB847DCE2623040B006AF2B6 /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
+				6B52C688265C54D7004AD98B /* StatsManager.swift */,
+				6B52C681265C540A004AD98B /* Models */,
+				6B52C680265C53FA004AD98B /* Cell */,
 				BB847DD32623040B006AF2B6 /* StatsProtocols.swift */,
 				BB847DD22623040B006AF2B6 /* StatsViewController.swift */,
 				BB847DD42623040B006AF2B6 /* StatsPresenter.swift */,
@@ -634,6 +662,7 @@
 				BB847DFD2623040C006AF2B6 /* AchievementsViewController.swift in Sources */,
 				6BB7E879261E2E71008ABB41 /* WelcomeContainer.swift in Sources */,
 				BB847DF32623040C006AF2B6 /* StatsViewController.swift in Sources */,
+				6B52C686265C5489004AD98B /* Stats.swift in Sources */,
 				BB847E082623040C006AF2B6 /* MenuProtocols.swift in Sources */,
 				6B7336112642C38D000232E9 /* IconPickerPresenter.swift in Sources */,
 				BB847E072623040C006AF2B6 /* MenuPresenter.swift in Sources */,
@@ -655,6 +684,7 @@
 				BB847E0B2623040C006AF2B6 /* TabBarContainer.swift in Sources */,
 				6BB7E876261E2E71008ABB41 /* WelcomeViewController.swift in Sources */,
 				BB847E062623040C006AF2B6 /* MenuContainer.swift in Sources */,
+				6B52C67E265C53A6004AD98B /* StatsTableViewCell.swift in Sources */,
 				6B61EAED261F8C680009C24B /* LogInRouter.swift in Sources */,
 				6BCE6A652635AFCF006D5601 /* ColorPickerInteractor.swift in Sources */,
 				6B94DCAD2631E1E800FC279F /* CreateHabitInteractor.swift in Sources */,
@@ -663,6 +693,7 @@
 				6B7336122642C38D000232E9 /* IconPickerRouter.swift in Sources */,
 				BB847DFC2623040C006AF2B6 /* AchievementsPresenter.swift in Sources */,
 				BB0D35412606A5A800A9988E /* AppDelegate.swift in Sources */,
+				6B52C683265C541F004AD98B /* StatsViewModel.swift in Sources */,
 				6B52C63C2657094D004AD98B /* HabitProgress.swift in Sources */,
 				6B61EB02262190260009C24B /* SignUpContainer.swift in Sources */,
 				BB847E0D2623040C006AF2B6 /* TabBarInteractor.swift in Sources */,
@@ -700,6 +731,7 @@
 				BB847E042623040C006AF2B6 /* TabBarRouter.swift in Sources */,
 				B68CAC59263E9AB600D62D5C /* HabitManager.swift in Sources */,
 				6B61EB00262190260009C24B /* SignUpProtocols.swift in Sources */,
+				6B52C689265C54D7004AD98B /* StatsManager.swift in Sources */,
 				6B94DC9D2631DE0000FC279F /* HabitInteractor.swift in Sources */,
 				BB847E0A2623040C006AF2B6 /* MenuViewController.swift in Sources */,
 				BB847DF52623040C006AF2B6 /* StatsPresenter.swift in Sources */,
