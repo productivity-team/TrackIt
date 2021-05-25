@@ -48,7 +48,7 @@ final class HabitConverter {
         case title
         case imageName
         case target
-        case numberOfCompletions
+        case habitProgress
         case units
         case creationDate
         case untilDate
@@ -60,7 +60,7 @@ final class HabitConverter {
               let title = dict[Key.title.rawValue] as? String,
               let systemImageName = dict[Key.imageName.rawValue] as? String,
               let target = dict[Key.target.rawValue] as? String,
-              let numberOfCompletions = dict[Key.numberOfCompletions.rawValue] as? String?,
+              let habitProgress = dict[Key.habitProgress.rawValue] as? [String: Any],
               let units = dict[Key.units.rawValue] as? String,
               let creationDate = dict[Key.creationDate.rawValue] as? Int,
               let untilDate = dict[Key.untilDate.rawValue] as? Int,
@@ -68,10 +68,11 @@ final class HabitConverter {
         else {
             return nil
         }
-
-        guard diffInDays >= creationDate && diffInDays <= untilDate && habitDays.contains(currentweekday) else {
+        let numberOfCompletions = "\(habitProgress["\(diffInDays)"] as? Int ?? 0)"
+        guard diffInDays >= creationDate && diffInDays <= untilDate && habitDays.contains(currentweekday)
+            else {
             return nil
         }
-        return Habit(title: title, imageName: systemImageName, target: target, numberOfCompletions: numberOfCompletions, units: units, identifier: document.documentID,creationDate: creationDate,untilDate: untilDate, habitDays: habitDays)
+        return Habit(title: title, imageName: systemImageName, target: target, numberOfCompletions: numberOfCompletions, units: units, identifier: document.documentID, creationDate: creationDate,untilDate: untilDate, habitDays: habitDays)
     }
 }
