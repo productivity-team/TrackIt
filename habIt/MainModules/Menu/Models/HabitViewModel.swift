@@ -15,6 +15,7 @@ struct HabitViewModel {
     let untilDate: Int //дата окончания привычки (в днях от 01.01.2001)
     let habitDays: [Int] // массив с днями недели (1-вс, 2-пн и т.д)
     
+    
     init(title: String, imageName: String, target: String, numberOfCompletions: String, units: String, creationDate: Int, untilDate: Int, habitDays: [Int]) {
         self.title = title
         self.systemImageName = imageName

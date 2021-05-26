@@ -12,9 +12,11 @@ class HabitTableViewCell: UITableViewCell {
     private let titleLabel = UILabel()
     private let iconImageView = UIImageView()
     private let unitsLabel = UILabel()
-    private let diaryImageView = UIImageView()
     private let completionsLabel = UILabel()
     private let targetLabel = UILabel()
+    private let progressBar = UIProgressView()
+    
+    private var progressPercent: Float = 0
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -43,30 +45,31 @@ class HabitTableViewCell: UITableViewCell {
                     .size(50)
                     .left(20)
                     .vCenter()
-                
-        targetLabel.pin
-                    .right(15)
-                    .bottom(33)
+        
+        completionsLabel.pin
+                    .left(85)
+                    .bottom(37)
                     .height(20)
                     .sizeToFit(.height)
         
-        completionsLabel.pin
-                    .before(of: targetLabel)
-                    .bottom(33)
+        targetLabel.pin
+                    .after(of: completionsLabel)
+                    .bottom(37)
                     .height(20)
                     .sizeToFit(.height)
         
         unitsLabel.pin
-                    .right(15)
-                    .bottom(15)
+                    .right(20)
+                    .bottom(38)
                     .height(18)
                     .sizeToFit(.height)
         
-        diaryImageView.pin
-                    .size(20)
-                    .after(of: (targetLabel)).marginHorizontal(-22)
-                    .above(of: (targetLabel)).marginVertical(11)
-
+        progressBar.pin
+                    .left(85)
+                    .right(20)
+                    .top(63)
+                    .height(4)
+                    .sizeToFit(.width)
     }
     
     private func setup() {
@@ -74,6 +77,7 @@ class HabitTableViewCell: UITableViewCell {
         unitsLabel.font = UIFont(name: "Lato-Regular", size: 15)
         targetLabel.font = UIFont(name: "Lato-Bold", size: 20)
         completionsLabel.font = UIFont(name: "Lato-Bold", size: 20)
+        progressBar.trackTintColor = UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
         
         
         backgroundColor = UIColor.white
@@ -81,12 +85,12 @@ class HabitTableViewCell: UITableViewCell {
         contentView.layer.shadowColor = UIColor.black.cgColor
         contentView.layer.shadowRadius = 1
         contentView.layer.shadowOffset = CGSize(width: 1, height: 1)
-        contentView.layer.shadowOpacity = 0.8
+        contentView.layer.shadowOpacity = 0.3
         contentView.layer.cornerRadius = 8
         contentView.backgroundColor = UIColor.white
                 
                 selectionStyle = .none
-        [titleLabel, iconImageView, completionsLabel, targetLabel, unitsLabel, diaryImageView].forEach {
+        [titleLabel, iconImageView, completionsLabel, targetLabel, unitsLabel, progressBar].forEach {
             contentView.addSubview($0) }
     }
     
@@ -96,7 +100,11 @@ class HabitTableViewCell: UITableViewCell {
         completionsLabel.text = "\(model.numberOfCompletions) "
         targetLabel.text = "/ \(model.target)"
         unitsLabel.text = model.units
-        diaryImageView.image = UIImage(named: "diary")
+        progressPercent = Float(model.numberOfCompletions)!/Float(model.target)!
+        UIView.animate(withDuration: 0.4) {
+            self.progressBar.setProgress(self.progressPercent, animated: true)
+        }
+
     }
 }
 
