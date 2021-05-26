@@ -26,7 +26,7 @@ final class HabitsManager: HabitManagerDescriprion {
     func observeHabits(completion: @escaping (Result<[Habit], Error>) -> Void) {
         if let user = self.user {
             let uid = user.uid
-            database.collection("users").document(uid).collection("habits").addSnapshotListener { (querySnapshot, error) in
+            database.collection("users").document(uid).collection("habits").order(by: "creationDate", descending: true).addSnapshotListener { (querySnapshot, error) in
                 if let error = error {
                     completion(.failure(error))
                     return

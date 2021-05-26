@@ -18,6 +18,10 @@ class StatsTableViewCell: UITableViewCell {
     private let totalLabel = UILabel()
     private let doneLabel = UILabel()
     
+    private let completedInUnits = UILabel() //Суммарно
+    private let CompletedDaysInRow = UILabel() //Всего
+    private let completedInDays = UILabel() //Всего выполнено
+    
     private let progressForCircle: Float = 0.75
     
     private let circularProgress = CircularProgress(frame: CGRect(x: 200, y: 44, width: 130, height: 130))
