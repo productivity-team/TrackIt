@@ -20,7 +20,7 @@ final class HabitViewController: UIViewController {
     private let dividerLabel = UILabel() // "из"
     private let targetLabel = UILabel() //цель привычки
     private let unitsLabel = UILabel() //единицы измерения
-    private let settingsiconButton = UIButton() //редактировать привычку
+    private let deleteButton = UIButton() //удалить привычку
     private let unitsField = UITextField() //textfield для добавления прогресса
     private let addButton = UIButton() //кнопка добавления прогресса
     private let resetButton = UIButton() //кнопка сброса прогресса
@@ -91,8 +91,11 @@ final class HabitViewController: UIViewController {
         resetButton.setTitleColor(UIColor(red: 123/255, green: 124/255, blue: 124/255, alpha: 1), for: .normal)
         resetButton.addTarget(self, action: #selector(resetButtonPressed), for: .touchUpInside)
         
-        settingsiconButton.setImage(UIImage(named: "pencil"), for: .normal)
-        settingsiconButton.tintColor = screenColor
+        deleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
+        deleteButton.tintColor = UIColor(red: 255/255, green: 143/255, blue: 143/255, alpha: 1)
+        deleteButton.contentVerticalAlignment = .fill
+        deleteButton.contentHorizontalAlignment = .fill
+        deleteButton.addTarget(self, action: #selector(deleteHabitButtonPressed), for: .touchUpInside)
         
         unitsField.placeholder = "0"
         unitsField.textColor = UIColor(named: "Text")
@@ -114,7 +117,7 @@ final class HabitViewController: UIViewController {
         self.navigationItem.rightBarButtonItem  = saveBarButtonItem
         
         
-        [topbarImage, habitName, circularProgress, completionsLabel, dividerLabel, targetLabel, unitsLabel, unitsboxImage, unitsField, addButton, resetButton, settingsiconButton].forEach{view.addSubview($0)}
+        [topbarImage, habitName, circularProgress, completionsLabel, dividerLabel, targetLabel, unitsLabel, unitsboxImage, unitsField, addButton, resetButton, deleteButton].forEach{view.addSubview($0)}
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -189,16 +192,16 @@ final class HabitViewController: UIViewController {
             .width(145)
             .hCenter()
         
-        settingsiconButton.pin
+        deleteButton.pin
+            .height(33)
+            .width(33)
             .right(40)
             .bottom(40)
-            .height(35)
-            .width(35)
+            
     }
     
     @objc func addButtonPressed() {
         if unitsField.hasText == false {
-            print("field is empty")
             output.showAlert()
         } else {
             
@@ -243,6 +246,12 @@ final class HabitViewController: UIViewController {
         let updateKey = String(diffInDays)
         
         output.saveProgressButtonPressed(tappedHabitName: tappedHabitName, updateKey: updateKey, numberOfCompletions: numberOfCompletions)
+    }
+    
+    @objc func deleteHabitButtonPressed() {
+        let habitName = HabitViewController.tappedHabitName
+        
+        output.deleteHabitButtonPressed(habitName: habitName)
     }
     
 }

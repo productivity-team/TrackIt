@@ -31,9 +31,18 @@ class FirebaseHandler {
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err.localizedDescription)")
-            } else {
-                print("Document successfully written!")
-                return
+            }
+        }
+    }
+    
+    func deleteHabit(habitName: String) {
+        
+        let db = Firestore.firestore()
+        let uid = Auth.auth().currentUser!.uid
+        
+        db.collection("users").document(uid).collection("habits").document(habitName).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
             }
         }
     }

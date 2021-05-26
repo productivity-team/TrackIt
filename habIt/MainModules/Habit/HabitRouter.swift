@@ -44,6 +44,24 @@ extension HabitRouter: HabitRouterInput {
         return resetConfirmed
     }
     
+    //алерт удаления привычки
+    func deleteHabitAlert() {
+        let alert = UIAlertController(title: "Удалить привычку?", message: "Вы уверены, что хотите удалить все данные об этой привычке?", preferredStyle: .alert)
+        let habitName = HabitViewController.tappedHabitName
+        alert.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: { action in
+            
+            FirebaseHandler.shared.deleteHabit(habitName: habitName)
+        
+            let viewController = TabBarContainer.assemble(with: TabBarContext()).viewController
+            viewController.modalPresentationStyle = .fullScreen
+            self.sourceViewController?.present(viewController, animated: true, completion: nil)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        sourceViewController?.present(alert, animated: true, completion: nil)
+    }
+    
+    
     //переход на главный экран
     func openMenu() {
         let container = TabBarContainer.assemble(with: TabBarContext())

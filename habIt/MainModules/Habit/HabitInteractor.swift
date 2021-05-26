@@ -26,10 +26,8 @@ extension HabitInteractor: HabitInteractorInput {
             if let err = err {
                 print("Error writing document: \(err.localizedDescription)")
             } else {
-                print("Document successfully written!")
                 self.output?.openMenu()
             }
         }
     }
-    
 }

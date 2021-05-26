@@ -60,6 +60,11 @@ extension HabitPresenter: HabitViewOutput {
         interactor.updateProgress(tappedHabitName: tappedHabitName, updateKey: updateKey, numberOfCompletions: numberOfCompletions)
     }
     
+    //удаление привычки
+    func deleteHabitButtonPressed(habitName: String) {
+        router.deleteHabitAlert()
+    }
+    
     //переход на главный экран
     func toMenuButtonPressed() {
         router.openMenu()
