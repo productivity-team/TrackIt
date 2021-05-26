@@ -33,6 +33,7 @@ final class HabitViewController: UIViewController {
     static var tappedHabitName = ""
 
     
+    
     init(output: HabitViewOutput) {
         self.output = output
         
@@ -44,12 +45,14 @@ final class HabitViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(named: "Background1")
         
-        habitName.text = "Выпить воды"
+        habitName.text = output.getTitle()
         habitName.font = UIFont(name: "Lato-Regular", size: 25)
         
         
@@ -61,8 +64,8 @@ final class HabitViewController: UIViewController {
         //animate progress
         self.perform(#selector(animateProgress), with: nil, afterDelay: 0.3)
         
-        
-        completionsLabel.text = numberOfCompletions.description
+        numberOfCompletions = Int(output.getNumberOfCompletions()) ?? 0
+        completionsLabel.text = String(numberOfCompletions)
         completionsLabel.textColor = screenColor
         completionsLabel.font = UIFont(name: "Lato-Bold", size: 35)
         completionsLabel.sizeToFit()
@@ -72,7 +75,7 @@ final class HabitViewController: UIViewController {
         dividerLabel.textColor = screenColor
         dividerLabel.font = UIFont(name: "Lato-Bold", size: 35)
         
-        targetLabel.text = target.description
+        targetLabel.text = output.getTarget()
         targetLabel.textColor = screenColor
         targetLabel.font = UIFont(name: "Lato-Bold", size: 35)
         
@@ -96,7 +99,7 @@ final class HabitViewController: UIViewController {
         unitsField.font = UIFont(name: "Lato-Regular", size: 18)
         unitsField.keyboardType = .numberPad
         
-        unitsLabel.text = "Миллилитры"
+        unitsLabel.text = output.getUnits()
         unitsLabel.textColor = UIColor(named: "Green")
         unitsLabel.font = UIFont(name: "Lato-Medium", size: 22)
         
@@ -116,7 +119,9 @@ final class HabitViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        let percentCompleted = Float(numberOfCompletions)/Float(target)
+        let doneNumber = Float(output.getNumberOfCompletions()) ?? 0
+        let targetNumber = Float(output.getTarget()) ?? 1
+        let percentCompleted = doneNumber/targetNumber
         animateProgress(progress: percentCompleted)
     }
     
@@ -196,10 +201,12 @@ final class HabitViewController: UIViewController {
             print("field is empty")
             output.showAlert()
         } else {
+            
             numberOfCompletions += Int(unitsField.text!)!
-            completionsLabel.text = numberOfCompletions.description
+            completionsLabel.text = String(numberOfCompletions)
             completionsLabel.sizeToFit()
-            let percentCompleted = Float(numberOfCompletions)/Float(target)
+            let targetNumber = Float(output.getTarget()) ?? 1
+            let percentCompleted = Float(numberOfCompletions)/targetNumber
             animateProgress(progress: percentCompleted)
             unitsField.text = nil
         }
@@ -207,12 +214,14 @@ final class HabitViewController: UIViewController {
     
     
     @objc func resetButtonPressed() {
-        numberOfCompletions = 0
-        completionsLabel.text = numberOfCompletions.description
-        completionsLabel.sizeToFit()
-        let percentCompleted: Float = 0
-        animateProgress(progress: percentCompleted)
-        output.resetAlert()
+        if output.resetAlert() == true
+        {
+            let numberOfCompletions = 0
+            completionsLabel.text = numberOfCompletions.description
+            completionsLabel.sizeToFit()
+            let percentCompleted: Float = 0
+            animateProgress(progress: percentCompleted)
+        }
     }
     
     

@@ -11,6 +11,7 @@ import Foundation
 final class HabitPresenter {
 	weak var view: HabitViewInput?
     weak var moduleOutput: HabitModuleOutput?
+    var habitProgress = HabitProgress(title: "", habitColor: [], target: "", units: "", identifier: "", numberOfCompletions: "")
 
 	private let router: HabitRouterInput
 	private let interactor: HabitInteractorInput
@@ -26,13 +27,31 @@ extension HabitPresenter: HabitModuleInput {
 
 extension HabitPresenter: HabitViewOutput {
 
+    
+    
+    func getTitle () -> String {
+        habitProgress.title
+    }
+    
+    func getNumberOfCompletions() -> String {
+        habitProgress.numberOfCompletions
+    }
+    
+    func getTarget() -> String {
+        habitProgress.target
+    }
+    
+    func getUnits() -> String {
+        habitProgress.units
+    }
+
     //алерт при обнаружении пустых полей
     func showAlert() {
         router.showAlert()
     }
     
     //алерт перед сбросом прогресса привычки
-    func resetAlert() {
+    func resetAlert() -> Bool {
         router.resetAlert()
     }
     

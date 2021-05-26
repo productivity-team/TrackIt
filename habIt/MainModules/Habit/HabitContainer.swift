@@ -21,6 +21,10 @@ final class HabitContainer {
 
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
+        presenter.habitProgress.title = context.title
+        presenter.habitProgress.target = context.target
+        presenter.habitProgress.numberOfCompletions = context.numberOfCompletions
+        presenter.habitProgress.units = context.units
         router.sourceViewController = viewController
 
 		interactor.output = presenter
@@ -36,5 +40,9 @@ final class HabitContainer {
 }
 
 struct HabitContext {
-	weak var moduleOutput: HabitModuleOutput?
+    weak var moduleOutput: HabitModuleOutput?
+    var title: String
+    var target: String
+    var numberOfCompletions: String
+    var units: String
 }

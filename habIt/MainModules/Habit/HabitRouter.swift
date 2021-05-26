@@ -14,6 +14,7 @@ final class HabitRouter {
 
 extension HabitRouter: HabitRouterInput {
     
+    
     func showAlert() {
         let alert = UIAlertController(title: "Ошибка", message: "Пожалуйста, впишите ваш прогресс", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -21,13 +22,16 @@ extension HabitRouter: HabitRouterInput {
     }
     
     //алерт сброса прогресса привычки
-    func resetAlert() {
+    func resetAlert() -> Bool {
+        var resetConfirmed: Bool = false
         let alert = UIAlertController(title: "Сбросить прогресс?", message: "Вы уверены, что хотите сбросить весь прогресс за сегодня?", preferredStyle: .alert)
         let tappedHabitName = HabitViewController.tappedHabitName
         let updateKey = String(diffInDays)
         alert.addAction(UIAlertAction(title: "Да", style: .destructive, handler: { action in
             
             FirebaseHandler.shared.resetProgress(tappedHabitName: tappedHabitName, updateKey: updateKey)
+            resetConfirmed = true
+            
         
             let viewController = TabBarContainer.assemble(with: TabBarContext()).viewController
             viewController.modalPresentationStyle = .fullScreen
@@ -36,6 +40,8 @@ extension HabitRouter: HabitRouterInput {
         
         alert.addAction(UIAlertAction(title: "Нет", style: .cancel, handler: nil))
         sourceViewController?.present(alert, animated: true, completion: nil)
+        resetConfirmed = false
+        return resetConfirmed
     }
     
     //переход на главный экран

@@ -15,7 +15,6 @@
 		6B32E3C4264545D700AD4540 /* IconPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B32E3C3264545D700AD4540 /* IconPickerCell.swift */; };
 		6B52C6202656885C004AD98B /* CircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52C61F2656885C004AD98B /* CircularProgress.swift */; };
 		6B52C63C2657094D004AD98B /* HabitProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52C63B2657094C004AD98B /* HabitProgress.swift */; };
-		6B52C63F26570A12004AD98B /* HabitProgressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52C63E26570A12004AD98B /* HabitProgressManager.swift */; };
 		6B52C657265C37D0004AD98B /* FirebaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52C656265C37D0004AD98B /* FirebaseHandler.swift */; };
 		6B52C67E265C53A6004AD98B /* StatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52C67D265C53A6004AD98B /* StatsTableViewCell.swift */; };
 		6B52C683265C541F004AD98B /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52C682265C541F004AD98B /* StatsViewModel.swift */; };
@@ -117,7 +116,6 @@
 		6B32E3C3264545D700AD4540 /* IconPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCell.swift; sourceTree = "<group>"; };
 		6B52C61F2656885C004AD98B /* CircularProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgress.swift; sourceTree = "<group>"; };
 		6B52C63B2657094C004AD98B /* HabitProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitProgress.swift; sourceTree = "<group>"; };
-		6B52C63E26570A12004AD98B /* HabitProgressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitProgressManager.swift; sourceTree = "<group>"; };
 		6B52C656265C37D0004AD98B /* FirebaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHandler.swift; sourceTree = "<group>"; };
 		6B52C67D265C53A6004AD98B /* StatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTableViewCell.swift; sourceTree = "<group>"; };
 		6B52C682265C541F004AD98B /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
@@ -249,7 +247,6 @@
 			isa = PBXGroup;
 			children = (
 				6B52C63B2657094C004AD98B /* HabitProgress.swift */,
-				6B52C63E26570A12004AD98B /* HabitProgressManager.swift */,
 				6B52C656265C37D0004AD98B /* FirebaseHandler.swift */,
 			);
 			path = Models;
@@ -698,7 +695,6 @@
 				6B61EB02262190260009C24B /* SignUpContainer.swift in Sources */,
 				BB847E0D2623040C006AF2B6 /* TabBarInteractor.swift in Sources */,
 				6B94DC9C2631DE0000FC279F /* HabitProtocols.swift in Sources */,
-				6B52C63F26570A12004AD98B /* HabitProgressManager.swift in Sources */,
 				BB847E092623040C006AF2B6 /* MenuInteractor.swift in Sources */,
 				BB0D35432606A5A800A9988E /* SceneDelegate.swift in Sources */,
 				6BCE6A612635AFCF006D5601 /* ColorPickerPresenter.swift in Sources */,

@@ -17,7 +17,7 @@ extension MenuRouter: MenuRouterInput {
     //открыть экран привычки
     func showHabit(model: HabitViewModel) {
         
-        let container = HabitContainer.assemble(with: HabitContext())
+        let container = HabitContainer.assemble(with: HabitContext(title: model.title, target: model.target, numberOfCompletions: model.numberOfCompletions, units: model.units ))
         let viewController = container.viewController
 
         viewController.view.backgroundColor = .systemBackground
