@@ -150,8 +150,9 @@ final class CreateHabitViewController: UIViewController {
         CreateHabitViewController.colorcircleView.backgroundColor = UIColor(red: 254/255, green: 194/255, blue: 76/255, alpha: 1)
         CreateHabitViewController.colorcircleView.layer.cornerRadius = 18
         
-        CreateHabitViewController.iconView.image = IconPickerViewController.selectedIcon
-        CreateHabitViewController.iconView.tintColor = ColorPickerViewController.habitColor
+        CreateHabitViewController.iconView.image = UIImage(named: "task")
+        CreateHabitViewController.iconView.tintColor = UIColor(red: 254/255, green: 194/255, blue: 76/255, alpha: 1)
+//            ColorPickerViewController.habitColor
         
         
         goalLable.text = "Цель"
@@ -162,7 +163,6 @@ final class CreateHabitViewController: UIViewController {
         
         timelimitLable.text = "Период выполнения"
         timelimitLable.font = UIFont(name: "Lato-Medium", size: 20)
-        
         
         
         [untilSwitch, createButton, timelimitLable, untilBoxImage, untilLable, mondayButton, untilField, tuesdayButton, wednesdayButton, thursdayButton, fridayButton, saturdayButton, sundayButton, goalBoxImage, unitsBoxImage, weekLable, goalLable, colorchangeButton, CreateHabitViewController.colorcircleView, iconchangeButton, CreateHabitViewController.iconView, nameBoxImage, upperLable, nameField, unitsField, goalField, calendarImage].forEach {view.addSubview($0)}
