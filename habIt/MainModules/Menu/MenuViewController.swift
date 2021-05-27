@@ -17,10 +17,13 @@ var addTime = TimeZone.current.secondsFromGMT()//время в секундах 
 var date = Date.init(timeInterval: TimeInterval(addTime), since: dateGMT) //текущая дата с часовым поясом как на устройстве
 var diffInDays = calendar.dateComponents([.day], from: startDate, to: date).day! //разница между текущим днем и 01.01.2001
 var currentweekday = calendar.component(.weekday, from: dateGMT) // текущий день недели
+var updateRequired = true
 
 final class MenuViewController: UIViewController {
     private let output: MenuViewOutput
     private let tableView = UITableView()
+
+    var dateLabel = UILabel()
     
     init(output: MenuViewOutput) {
         self.output = output
@@ -39,6 +42,14 @@ final class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if updateRequired == true {
+            dateLabel.text = dateFormatter(dateToFormat: Date())
+        } else {
+            dateLabel.text = dateFormatter(dateToFormat: getSelectedDate())
+        }
+        dateLabel.font = UIFont(name: "Roboto-Regular", size: 17)
+        dateLabel.textAlignment = .center
+        
         
         let background = UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
         collectionView.delegate = self
@@ -49,6 +60,7 @@ final class MenuViewController: UIViewController {
         collectionView.showsHorizontalScrollIndicator = false
         
         view.addSubview(collectionView)
+        view.addSubview(dateLabel)
         
         collectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: "CalendarCollectionViewCell")
         
@@ -75,15 +87,26 @@ final class MenuViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
+        if updateRequired == true {
         let firstMondayIndexPath = output.scrollToDate(date: Date())
         collectionView.scrollToItem(at: firstMondayIndexPath, at: .left, animated: false)
+        } else {
+            let firstMondayIndexPath = output.scrollToDate(date: getSelectedDate())
+            collectionView.scrollToItem(at: firstMondayIndexPath, at: .left, animated: false)
+            updateRequired = true
+        }
+        
         
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(false)
-        currentweekday = Calendar.current.component(.weekday, from: dateGMT)
-        output.didLoadView()
-        reloadData()
+            if updateRequired == true {
+            diffInDays = calendar.dateComponents([.day], from: startDate, to: date).day!
+            currentweekday = Calendar.current.component(.weekday, from: dateGMT)
+            dateLabel.text = dateFormatter(dateToFormat: Date())
+            output.didLoadView()
+            reloadData()
+            }
     }
        
 
@@ -96,8 +119,14 @@ final class MenuViewController: UIViewController {
             .right()
             .height(65)
         
+        dateLabel.pin
+            .below(of: collectionView).marginVertical(10)
+            .left()
+            .right()
+            .sizeToFit(.width)
+        
         tableView.pin
-            .below(of: collectionView)
+            .below(of: dateLabel)
             .marginVertical(0)
             .left()
             .right()
@@ -112,6 +141,23 @@ final class MenuViewController: UIViewController {
     @objc
     private func didPullRefesh() {
         output.didPullRefesh()
+    }
+    
+    private func dateFormatter(dateToFormat: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+        let text = dateFormatter.string(from: dateToFormat)
+        return text
+    }
+    
+    func getSelectedDate() -> Date {
+        var addedDaysDateComp = DateComponents()
+        addedDaysDateComp.day = diffInDays
+        let currentCellDate = Calendar.current.date(byAdding: addedDaysDateComp, to: startDate)
+        currentweekday = Calendar.current.component(.weekday, from: currentCellDate!)
+        return currentCellDate!
     }
     
 }
@@ -138,6 +184,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         
         HabitViewController.tappedHabitName = output.getCellNameByIndentifier(id:indexPath.row)
         output.didSelectHabit(at: indexPath.row)
+        updateRequired = output.updateRequired()
     }
     
 }
@@ -161,7 +208,6 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
         else {
             return .init()
         }
-        
         if (indexPath.row == diffInDays) {
             cell.dayNumber.textColor = UIColor.red
             cell.dayName.textColor = UIColor.red
@@ -189,10 +235,7 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         diffInDays = indexPath.row
-        var addedDaysDateComp = DateComponents()
-        addedDaysDateComp.day = diffInDays
-        let currentCellDate = Calendar.current.date(byAdding: addedDaysDateComp, to: startDate)
-        currentweekday = Calendar.current.component(.weekday, from: currentCellDate!)
+        dateLabel.text = dateFormatter(dateToFormat: getSelectedDate())
         output.didLoadView()
         reloadData()
 

@@ -115,6 +115,10 @@ extension MenuPresenter: MenuViewOutput {
         interactor.observeItems()
     }
     
+    func updateRequired() -> Bool {
+        return false
+        }
+    
 }
 
 

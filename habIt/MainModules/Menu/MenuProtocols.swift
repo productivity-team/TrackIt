@@ -29,6 +29,7 @@ protocol MenuViewOutput: class {
     func configureCollectionViewCell(cell: CalendarCollectionViewCell, addedDays: Int) -> CalendarCollectionViewCell
     func scrollToDate(date: Date) -> IndexPath
     func getCellNameByIndentifier(id: Int) -> String
+    func updateRequired() -> Bool
 }
 
 protocol MenuInteractorInput: class {
