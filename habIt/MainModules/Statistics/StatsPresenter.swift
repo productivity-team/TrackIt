@@ -26,7 +26,8 @@ final class StatsPresenter {
         return StatsViewModel(title: stats.title,
                               imageName: stats.systemImageName,
                               target: stats.target,
-                              units: stats.units)
+                              units: stats.units,
+                              habitProgress: stats.habitProgress)
     }
 }
 

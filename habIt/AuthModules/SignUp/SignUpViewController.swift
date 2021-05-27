@@ -57,15 +57,15 @@ final class SignUpViewController: UIViewController {
         emailField.leftViewMode = .always
         emailField.textColor = UIColor(red: 42/255, green: 43/255, blue: 43/255, alpha: 1)
         emailField.font = UIFont(name: "Lato-Regular", size: 18)
-        
+        emailField.autocorrectionType = .no
         
         passwordField.placeholder = "Пароль"
         passwordField.autocapitalizationType = .none
         passwordField.leftViewMode = .always
         passwordField.textColor = UIColor(red: 42/255, green: 43/255, blue: 43/255, alpha: 1)
         passwordField.font = UIFont(name: "Lato-Regular", size: 18)
+        passwordField.autocorrectionType = .no
         passwordField.isSecureTextEntry.toggle() //делает пароль невидимым
-        
         
         nameboxImage.image = UIImage(named: "TypingBox")
         emailboxImage.image = UIImage(named: "TypingBox")

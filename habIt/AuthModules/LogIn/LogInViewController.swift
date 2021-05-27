@@ -20,7 +20,6 @@ final class LogInViewController: UIViewController {
     private let signupButton = UIButton()
     private let emailboxImage1 = UIImageView()  // Овальная штуковина за надписью Email
     private let passwordboxImage = UIImageView()
-    private let forgotlabel = UILabel()  //Забыли пароль?
     
     
     init(output: LogInViewOutput) {
@@ -60,36 +59,28 @@ final class LogInViewController: UIViewController {
         signupButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 18)
         signupButton.addTarget(self, action: #selector(toSignUpButtonPressed), for: .touchUpInside)
         
-        
-        forgotlabel.text = "Забыли пароль?"
-        forgotlabel.font = .systemFont(ofSize: 15)
-        forgotlabel.textColor = UIColor(red: 123/255, green: 124/255, blue: 124/255, alpha: 1)
-        forgotlabel.font = UIFont(name: "Lato-Regular", size: 15)
-        
-        
         labelLogIn.text = "Вход"
         labelLogIn.font = .systemFont(ofSize: 30)
         labelLogIn.font = UIFont(name: "Lato-Regular", size: 30)
-        
         
         emailField.placeholder = "Email"
         emailField.autocapitalizationType = .none
         emailField.leftViewMode = .always
         emailField.textColor = UIColor(red: 42/255, green: 43/255, blue: 43/255, alpha: 1)
         emailField.font = UIFont(name: "Lato-Regular", size: 18)
-        
+        emailField.autocorrectionType = .no
         
         emailboxImage1.image = UIImage(named: "TypingBox")
         passwordboxImage.image = UIImage(named: "TypingBox")
-        
         
         passwordField.placeholder = "Пароль"
         passwordField.autocapitalizationType = .none
         passwordField.leftViewMode = .always
         passwordField.font = UIFont(name: "Lato-Regular", size: 18)
+        passwordField.autocorrectionType = .no
         passwordField.isSecureTextEntry.toggle() //делает пароль невидимым
         
-        [emailField, labelLogIn, passwordField, loginButton, signupButton, emailboxImage1, passwordboxImage, forgotlabel].forEach { view.addSubview($0) }
+        [emailField, labelLogIn, passwordField, loginButton, signupButton, emailboxImage1, passwordboxImage].forEach { view.addSubview($0) }
     }
     
     override func viewDidLayoutSubviews() {
@@ -122,11 +113,6 @@ final class LogInViewController: UIViewController {
             .bottom(391)
             .width(245)
             .height(50)
-        
-        forgotlabel.pin
-            .bottom(358)
-            .hCenter()
-            .sizeToFit()
         
         loginButton.pin
             .hCenter()

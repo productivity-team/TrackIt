@@ -13,14 +13,17 @@ class StatsTableViewCell: UITableViewCell {
     private let targetLabel = UILabel()
     private let unitsLabel = UILabel()
     
-    private let summLabel = UILabel()
-    private let inRowLabel = UILabel()
-    private let totalLabel = UILabel()
-    private let doneLabel = UILabel()
+    private let summLabel = UILabel() //Суммарно
+    private let partlyDoneLabel = UILabel() //Частично
+    private let fullyDoneLabel = UILabel() //Полностью
+    private let doneLabel = UILabel() //Выполнено (внутри круга)
     
-    private let completedInUnits = UILabel() //Суммарно
-    private let CompletedDaysInRow = UILabel() //Всего
-    private let completedInDays = UILabel() //Всего выполнено
+    private let completedInUnits = UILabel() //Суммарно число
+    private let completedInUnitsLabel = UILabel() //Суммарно юниты
+    private let partlyDone = UILabel() //Частично число
+    private let fullyDone = UILabel() //Полностью число
+    private let partlyTimes = UILabel()
+    private let fullyTimes = UILabel()
     
     private let progressForCircle: Float = 0.75
     
@@ -74,13 +77,13 @@ class StatsTableViewCell: UITableViewCell {
             .height(22)
             .sizeToFit(.height)
         
-        inRowLabel.pin
+        partlyDoneLabel.pin
             .top(235)
             .left(30)
             .height(22)
             .sizeToFit(.height)
         
-        totalLabel.pin
+        fullyDoneLabel.pin
             .top(235)
             .left(153)
             .height(22)
@@ -96,7 +99,42 @@ class StatsTableViewCell: UITableViewCell {
             .top(50)
             .right(30)
             .sizeToFit()
-
+        
+        completedInUnits.pin
+            .top(194)
+            .left(30)
+            .height(22)
+            .sizeToFit(.height)
+        
+        completedInUnitsLabel.pin
+            .top(197)
+            .after(of: completedInUnits)
+            .height(18)
+            .sizeToFit(.height)
+        
+        partlyDone.pin
+            .top(265)
+            .left(30)
+            .height(22)
+            .sizeToFit(.height)
+        
+        partlyTimes.pin
+            .top(268)
+            .after(of: partlyDone)
+            .height(18)
+            .sizeToFit(.height)
+        
+        fullyDone.pin
+            .top(265)
+            .left(153)
+            .height(22)
+            .sizeToFit(.height)
+        
+        fullyTimes.pin
+            .top(268)
+            .after(of: fullyDone)
+            .height(18)
+            .sizeToFit(.height)
     }
     
     private func setup() {
@@ -111,22 +149,33 @@ class StatsTableViewCell: UITableViewCell {
         summLabel.font = UIFont(name: "Lato-Regular", size: 18)
         summLabel.text = "Суммарно"
         summLabel.textColor = color
-        inRowLabel.font = UIFont(name: "Lato-Regular", size: 18)
-        inRowLabel.text = "Подряд"
-        inRowLabel.textColor = color
-        totalLabel.font = UIFont(name: "Lato-Regular", size: 18)
-        totalLabel.text = "Всего выполнено"
-        totalLabel.textColor = color
+        
+        partlyDoneLabel.font = UIFont(name: "Lato-Regular", size: 18)
+        partlyDoneLabel.text = "Частично"
+        partlyDoneLabel.textColor = color
+        partlyDone.font = UIFont(name: "Lato-Regular", size: 18)
+        partlyTimes.text = " Раз"
+        partlyTimes.font = UIFont(name: "Lato-Regular", size: 18)
+        
+        fullyDoneLabel.font = UIFont(name: "Lato-Regular", size: 18)
+        fullyDoneLabel.text = "Полностью"
+        fullyDoneLabel.textColor = color
+        fullyDone.font = UIFont(name: "Lato-Regular", size: 18)
+        fullyTimes.text = " Раз"
+        fullyTimes.font = UIFont(name: "Lato-Regular", size: 18)
+        
         doneLabel.font = UIFont(name: "Lato-Regular", size: 15)
         doneLabel.text = "Выполнено"
         
         circularProgress.progressColor = color
         circularProgress.trackColor =  UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
         circularProgress.tag = 101
-//        circularProgress.center = self.view.center
         
         //animate progress
         self.perform(#selector(animateProgress), with: nil, afterDelay: 0.3)
+        
+        completedInUnits.font = UIFont(name: "Lato-Regular", size: 18)
+        completedInUnitsLabel.font = UIFont(name: "Lato-Regular", size: 15)
         
         backgroundColor = UIColor.white
         
@@ -139,7 +188,7 @@ class StatsTableViewCell: UITableViewCell {
         
         selectionStyle = .none
         
-        [titleLabel, iconImageView, targetLabel, unitsLabel, summLabel, inRowLabel, totalLabel, doneLabel, circularProgress].forEach {
+        [titleLabel, iconImageView, targetLabel, unitsLabel, summLabel, partlyDoneLabel, fullyDoneLabel, doneLabel, circularProgress, completedInUnits, completedInUnitsLabel, partlyDone, fullyDone, partlyTimes, fullyTimes].forEach {
             contentView.addSubview($0) }
 
     }
@@ -155,5 +204,11 @@ class StatsTableViewCell: UITableViewCell {
         iconImageView.image = UIImage(named: model.systemImageName)
         targetLabel.text = "\(model.target)"
         unitsLabel.text = model.units
+        completedInUnits.text = String((model.habitProgress.values.reduce(0, +)))
+        completedInUnitsLabel.text = " \(unitsLabel.text!)"
+        let partly = model.habitProgress.values.filter {$0 > 0 && $0 < Int(model.target)!}
+        partlyDone.text = String(partly.count)
+        let fully = model.habitProgress.values.filter {$0 >= Int(model.target)!}
+        fullyDone.text = String(fully.count)
     }
 }
