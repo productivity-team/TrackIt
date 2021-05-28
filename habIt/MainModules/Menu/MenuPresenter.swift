@@ -31,7 +31,8 @@ final class MenuPresenter {
                               units: habit.units,
                               creationDate: habit.creationDate,
                               untilDate: habit.creationDate,
-                              habitDays: habit.habitDays)
+                              habitDays: habit.habitDays,
+                              color: habit.habitIconColor)
     }
 }
 

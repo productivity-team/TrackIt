@@ -225,5 +225,17 @@ class StatsTableViewCell: UITableViewCell {
         fullyDone.text = String(fully.count)
         progressLabel.text = "\(fully.count)/\(totalNumberOfDays)"
         progressForCircle = Float(fully.count) / Float(totalNumberOfDays)
+        
+        let customColor = model.habitStatsColor
+        
+        titleLabel.textColor = customColor
+        unitsLabel.textColor = customColor
+        targetLabel.textColor = customColor
+        iconImageView.tintColor = customColor
+        summLabel.textColor = customColor
+        partlyDoneLabel.textColor = customColor
+        fullyDoneLabel.textColor = customColor
+        circularProgress.progressColor = customColor
+        progressLabel.textColor = customColor
     }
 }

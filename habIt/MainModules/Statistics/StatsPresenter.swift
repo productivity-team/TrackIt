@@ -30,8 +30,8 @@ final class StatsPresenter {
                               habitProgress: stats.habitProgress,
                               creationDate: stats.creationDate,
                               untilDate: stats.untilDate,
-                              habitDays: stats.habitDays
-                              )
+                              habitDays: stats.habitDays,
+                              color: stats.habitStatsColor)
     }
 }
 

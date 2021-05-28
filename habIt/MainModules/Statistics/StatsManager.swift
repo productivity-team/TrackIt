@@ -50,6 +50,7 @@ final class StatsConverter {
         case creationDate
         case untilDate
         case habitDays
+        case habitColor
     }
     
     static func stats(from document: DocumentSnapshot) -> Stats? {
@@ -61,14 +62,20 @@ final class StatsConverter {
               let habitProgress = dict[Key.habitProgress.rawValue] as? [String:Int],
               let creationDate = dict[Key.creationDate.rawValue] as? Int,
               let untilDate = dict[Key.untilDate.rawValue] as? Int,
-              let habitDays = dict[Key.habitDays.rawValue] as? [Int]
+              let habitDays = dict[Key.habitDays.rawValue] as? [Int],
+              let habitColor = dict[Key.habitColor.rawValue] as? [Double]
             
             
         else {
             return nil
         }
+        let red = CGFloat(habitColor[0])
+        let green = CGFloat(habitColor[1])
+        let blue = CGFloat(habitColor[2])
+        let alpha = CGFloat(habitColor[3])
+        let habitStatsColor = UIColor(displayP3Red: red, green: green, blue: blue, alpha: alpha)
 
-        return Stats(title: title, imageName: systemImageName, target: target, units: units, identifier: document.documentID, habitProgress: habitProgress, creationDate: creationDate,untilDate: untilDate, habitDays: habitDays)
+        return Stats(title: title, imageName: systemImageName, target: target, units: units, identifier: document.documentID, habitProgress: habitProgress, creationDate: creationDate,untilDate: untilDate, habitDays: habitDays, color: habitStatsColor)
     }
 }
 

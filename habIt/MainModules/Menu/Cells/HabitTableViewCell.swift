@@ -100,6 +100,7 @@ class HabitTableViewCell: UITableViewCell {
         completionsLabel.text = "\(model.numberOfCompletions) "
         targetLabel.text = "/ \(model.target)"
         unitsLabel.text = model.units
+        progressBar.tintColor = model.habitIconColor
         progressPercent = Float(model.numberOfCompletions)!/Float(model.target)!
         UIView.animate(withDuration: 0.4) {
             self.progressBar.setProgress(self.progressPercent, animated: true)

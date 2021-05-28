@@ -4,7 +4,7 @@
 //
 //  Created by Maria Pecheritsyna on 25.05.2021.
 //
-
+import UIKit
 struct Stats {
     let title: String
     let identifier: String
@@ -15,8 +15,9 @@ struct Stats {
     let creationDate: Int
     let untilDate: Int
     let habitDays: [Int]
+    let habitStatsColor: UIColor
     
-    init(title: String, imageName: String, target: String, units: String, identifier: String, habitProgress: [String:Int], creationDate: Int, untilDate: Int, habitDays: [Int]) {
+    init(title: String, imageName: String, target: String, units: String, identifier: String, habitProgress: [String:Int], creationDate: Int, untilDate: Int, habitDays: [Int], color: UIColor) {
         self.title = title
         self.identifier = identifier
         self.systemImageName = imageName
@@ -26,5 +27,6 @@ struct Stats {
         self.creationDate = creationDate
         self.untilDate = untilDate
         self.habitDays = habitDays
+        self.habitStatsColor = color
     }
 }
