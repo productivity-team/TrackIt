@@ -34,6 +34,5 @@ protocol TabBarInteractorOutput: class {
 }
 
 protocol TabBarRouterInput: class {
-    func openTabBar()
     func displayTabBar() -> [UIViewController]
 }

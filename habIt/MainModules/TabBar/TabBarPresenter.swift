@@ -20,7 +20,6 @@ final class TabBarPresenter {
         self.router = router
         self.interactor = interactor
     }
-    
 }
 
 extension TabBarPresenter: TabBarModuleInput {
@@ -30,7 +29,6 @@ extension TabBarPresenter: TabBarViewOutput {
     func didLoadView() {
         self.interactor.load()
     }
-    
 }
 
 extension TabBarPresenter: TabBarInteractorOutput {
@@ -38,9 +36,5 @@ extension TabBarPresenter: TabBarInteractorOutput {
         self.view?.loadTabBarItems(Items: Items)
         
         self.view?.showTabBar(items: self.router.displayTabBar())
-        
-        
-//        self.view?.showTabBar(items: [MenuViewController(), StatsViewController(), AchieveViewController(), SettingsViewController()])
     }
-    
 }

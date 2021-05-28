@@ -38,8 +38,7 @@ struct TabBarContext {
 }
 
 
-
 struct itemInfo {
-    let systemImageName: String
+    let named: String
     let description: String
 }

@@ -30,8 +30,8 @@ final class TabBarViewController: UIViewController {
         view.backgroundColor = UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
         output.didLoadView()
         tabBar.selectedIndex = 1
-        
 	}
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBar.modalPresentationStyle = .fullScreen
@@ -54,9 +54,8 @@ extension TabBarViewController: TabBarViewInput {
             return
         }
         for i in 0..<items.count {
-            items[i].image = UIImage(systemName: tabBarItems[i].systemImageName)
+            items[i].image = UIImage(named: tabBarItems[i].named)
             items[i].title = tabBarItems[i].description
         }
     }
-    
 }

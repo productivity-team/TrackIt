@@ -24,13 +24,5 @@ extension TabBarRouter: TabBarRouterInput {
             .map { UINavigationController(rootViewController: $0) }
         
         
-    }
-    
-    func openTabBar() {
-        //let container = MenuContainer.assemble()
-        //sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
-    }
-
-    
-    
+    } 
 }
