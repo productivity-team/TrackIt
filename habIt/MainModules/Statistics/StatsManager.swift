@@ -47,6 +47,9 @@ final class StatsConverter {
         case target
         case units
         case habitProgress
+        case creationDate
+        case untilDate
+        case habitDays
     }
     
     static func stats(from document: DocumentSnapshot) -> Stats? {
@@ -55,12 +58,17 @@ final class StatsConverter {
               let systemImageName = dict[Key.imageName.rawValue] as? String,
               let target = dict[Key.target.rawValue] as? String,
               let units = dict[Key.units.rawValue] as? String,
-              let habitProgress = dict[Key.habitProgress.rawValue] as? [String:Int]
+              let habitProgress = dict[Key.habitProgress.rawValue] as? [String:Int],
+              let creationDate = dict[Key.creationDate.rawValue] as? Int,
+              let untilDate = dict[Key.untilDate.rawValue] as? Int,
+              let habitDays = dict[Key.habitDays.rawValue] as? [Int]
+            
+            
         else {
             return nil
         }
 
-        return Stats(title: title, imageName: systemImageName, target: target, units: units, identifier: document.documentID, habitProgress: habitProgress)
+        return Stats(title: title, imageName: systemImageName, target: target, units: units, identifier: document.documentID, habitProgress: habitProgress, creationDate: creationDate,untilDate: untilDate, habitDays: habitDays)
     }
 }
 

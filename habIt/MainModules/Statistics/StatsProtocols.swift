@@ -24,6 +24,7 @@ protocol StatsViewOutput: class {
     func didPullRefesh()
     func countStats() -> Int
     func getCellByIndentifier(id: Int) -> StatsViewModel
+    func progressCount(with model: StatsViewModel) -> Int
 }
 
 protocol StatsInteractorInput: class {

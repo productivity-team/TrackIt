@@ -320,7 +320,7 @@ final class CreateHabitViewController: UIViewController {
             untilBoxImage.isHidden = true
             calendarImage.isHidden = true
             
-            untilDate = 44193
+            untilDate = 20000
             
             for day in creationDate...untilDate {
                 habitProgress[String(day)] = 0

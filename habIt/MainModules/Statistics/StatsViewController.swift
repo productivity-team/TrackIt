@@ -11,6 +11,7 @@ import UIKit
 final class StatsViewController: UIViewController {
 	private let output: StatsViewOutput
     private let tableView = UITableView()
+    var totalNumberOfDays = Int()
 
     init(output: StatsViewOutput) {
         self.output = output
@@ -69,8 +70,8 @@ extension StatsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "StatsTableViewCell", for: indexPath) as? StatsTableViewCell else {
             return .init()
         }
-        
-        cell.configure(with: output.getCellByIndentifier(id: indexPath.row))
+        totalNumberOfDays = output.progressCount(with: output.getCellByIndentifier(id: indexPath.row))
+        cell.configure(with: output.getCellByIndentifier(id: indexPath.row), totalNumberOfDays: totalNumberOfDays)
         cell.backgroundColor = UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
         
         return cell

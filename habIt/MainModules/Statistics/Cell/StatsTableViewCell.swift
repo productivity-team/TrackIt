@@ -17,6 +17,7 @@ class StatsTableViewCell: UITableViewCell {
     private let partlyDoneLabel = UILabel() //Частично
     private let fullyDoneLabel = UILabel() //Полностью
     private let doneLabel = UILabel() //Выполнено (внутри круга)
+    private let progressLabel = UILabel() // прогресс (внутри круга)
     
     private let completedInUnits = UILabel() //Суммарно число
     private let completedInUnitsLabel = UILabel() //Суммарно юниты
@@ -25,7 +26,7 @@ class StatsTableViewCell: UITableViewCell {
     private let partlyTimes = UILabel()
     private let fullyTimes = UILabel()
     
-    private let progressForCircle: Float = 0.75
+    private var progressForCircle: Float = 0.75
     
     private let circularProgress = CircularProgress(frame: CGRect(x: 200, y: 44, width: 130, height: 130))
     
@@ -90,10 +91,17 @@ class StatsTableViewCell: UITableViewCell {
             .sizeToFit(.height)
         
         doneLabel.pin
-            .top(111)
+            .top(120)
             .right(55)
             .height(18)
             .sizeToFit(.height)
+        
+        progressLabel.pin
+            .above(of: doneLabel, aligned: .center).margin(6)
+            .height(20)
+            .sizeToFit(.height)
+ 
+            
         
         circularProgress.pin
             .top(50)
@@ -167,6 +175,11 @@ class StatsTableViewCell: UITableViewCell {
         doneLabel.font = UIFont(name: "Lato-Regular", size: 15)
         doneLabel.text = "Выполнено"
         
+        progressLabel.font = UIFont(name: "Lato-Bold", size: 20)
+        progressLabel.text = "1/5"
+        progressLabel.textColor = color
+        
+        
         circularProgress.progressColor = color
         circularProgress.trackColor =  UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
         circularProgress.tag = 101
@@ -188,7 +201,7 @@ class StatsTableViewCell: UITableViewCell {
         
         selectionStyle = .none
         
-        [titleLabel, iconImageView, targetLabel, unitsLabel, summLabel, partlyDoneLabel, fullyDoneLabel, doneLabel, circularProgress, completedInUnits, completedInUnitsLabel, partlyDone, fullyDone, partlyTimes, fullyTimes].forEach {
+        [titleLabel, iconImageView, targetLabel, unitsLabel, summLabel, partlyDoneLabel, fullyDoneLabel, doneLabel, circularProgress, completedInUnits, completedInUnitsLabel, partlyDone, fullyDone, partlyTimes, fullyTimes, progressLabel].forEach {
             contentView.addSubview($0) }
 
     }
@@ -199,7 +212,7 @@ class StatsTableViewCell: UITableViewCell {
     }
     
 
-    func configure(with model: StatsViewModel) {
+    func configure(with model: StatsViewModel,totalNumberOfDays: Int) {
         titleLabel.text = model.title
         iconImageView.image = UIImage(named: model.systemImageName)
         targetLabel.text = "\(model.target)"
@@ -210,5 +223,7 @@ class StatsTableViewCell: UITableViewCell {
         partlyDone.text = String(partly.count)
         let fully = model.habitProgress.values.filter {$0 >= Int(model.target)!}
         fullyDone.text = String(fully.count)
+        progressLabel.text = "\(fully.count)/\(totalNumberOfDays)"
+        progressForCircle = Float(fully.count) / Float(totalNumberOfDays)
     }
 }
