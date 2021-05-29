@@ -62,7 +62,7 @@ final class CreateHabitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        untilField.minimumDate = Date()
         creationDate = calendar.dateComponents([.day], from: startDate, to: date).day!
         untilDate = creationDate
         
