@@ -29,9 +29,6 @@ class StatsTableViewCell: UITableViewCell {
     private var progressForCircle: Float = 0.75
     
     private let circularProgress = CircularProgress(frame: CGRect(x: 200, y: 44, width: 130, height: 130))
-    
-    private let color = UIColor(red: 0/255, green: 230/255, blue: 190/255, alpha: 1)
-
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -147,40 +144,29 @@ class StatsTableViewCell: UITableViewCell {
     
     private func setup() {
         titleLabel.font = UIFont(name: "Lato-Regular", size: 18)
-        titleLabel.textColor = color
         unitsLabel.font = UIFont(name: "Lato-Regular", size: 16)
-        unitsLabel.textColor = color
         targetLabel.font = UIFont(name: "Lato-Bold", size: 20)
-        targetLabel.textColor = color
-        iconImageView.tintColor = color
         
         summLabel.font = UIFont(name: "Lato-Regular", size: 18)
         summLabel.text = "Суммарно"
-        summLabel.textColor = color
         
         partlyDoneLabel.font = UIFont(name: "Lato-Regular", size: 18)
         partlyDoneLabel.text = "Частично"
-        partlyDoneLabel.textColor = color
         partlyDone.font = UIFont(name: "Lato-Regular", size: 18)
         partlyTimes.text = " Раз"
-        partlyTimes.font = UIFont(name: "Lato-Regular", size: 18)
+        partlyTimes.font = UIFont(name: "Lato-Regular", size: 15)
         
         fullyDoneLabel.font = UIFont(name: "Lato-Regular", size: 18)
         fullyDoneLabel.text = "Полностью"
-        fullyDoneLabel.textColor = color
         fullyDone.font = UIFont(name: "Lato-Regular", size: 18)
         fullyTimes.text = " Раз"
-        fullyTimes.font = UIFont(name: "Lato-Regular", size: 18)
+        fullyTimes.font = UIFont(name: "Lato-Regular", size: 15)
         
         doneLabel.font = UIFont(name: "Lato-Regular", size: 15)
         doneLabel.text = "Выполнено"
         
         progressLabel.font = UIFont(name: "Lato-Bold", size: 20)
-        progressLabel.text = "1/5"
-        progressLabel.textColor = color
         
-        
-        circularProgress.progressColor = color
         circularProgress.trackColor =  UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
         circularProgress.tag = 101
         
@@ -218,18 +204,22 @@ class StatsTableViewCell: UITableViewCell {
         targetLabel.text = "\(model.target)"
         unitsLabel.text = model.units
         completedInUnits.text = String((model.habitProgress.values.reduce(0, +)))
+        completedInUnitsLabel.font = UIFont(name: "Lato-Regular", size: 15)
         completedInUnitsLabel.text = " \(unitsLabel.text!)"
         let partly = model.habitProgress.values.filter {$0 > 0 && $0 < Int(model.target)!}
         partlyDone.text = String(partly.count)
         let fully = model.habitProgress.values.filter {$0 >= Int(model.target)!}
         fullyDone.text = String(fully.count)
+        if model.untilDate == 20000 {
+            progressLabel.font = UIFont(name: "Lato-Bold", size: 20)
+            progressLabel.text = "\(fully.count)/∞"
+            progressForCircle = 1
+        } else {
         progressLabel.text = "\(fully.count)/\(totalNumberOfDays)"
-        progressForCircle = Float(fully.count) / Float(totalNumberOfDays)
+            progressForCircle = Float(fully.count) / Float(totalNumberOfDays)
+        }
         
         let customColor = model.habitStatsColor
-        
-        titleLabel.textColor = customColor
-        unitsLabel.textColor = customColor
         targetLabel.textColor = customColor
         iconImageView.tintColor = customColor
         summLabel.textColor = customColor

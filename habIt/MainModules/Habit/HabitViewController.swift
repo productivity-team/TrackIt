@@ -25,10 +25,9 @@ final class HabitViewController: UIViewController {
     private let addButton = UIButton() //кнопка добавления прогресса
     private let resetButton = UIButton() //кнопка сброса прогресса
     private let circularProgress = CircularProgress(frame: CGRect(x: 10.0, y: 30.0, width: 305.0, height: 305.0))
-    private let screenColor = UIColor(red: 0/255, green: 230/255, blue: 190/255, alpha: 1)
     
     private var numberOfCompletions = 0
-    private let target = 100
+    private var target = 100
     
     static var tappedHabitName = ""
 
@@ -49,14 +48,15 @@ final class HabitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let model = output.getModel
+        let habitIconColor = model().habitColor
         view.backgroundColor = UIColor(named: "Background1")
         
-        habitName.text = output.getTitle()
+        habitName.text = model().title
         habitName.font = UIFont(name: "Lato-Regular", size: 25)
         
         
-        circularProgress.progressColor = screenColor
+        circularProgress.progressColor = habitIconColor
         circularProgress.trackColor = UIColor.lightGray
         circularProgress.tag = 101
         circularProgress.center = self.view.center
@@ -64,19 +64,19 @@ final class HabitViewController: UIViewController {
         //animate progress
         self.perform(#selector(animateProgress), with: nil, afterDelay: 0.3)
         
-        numberOfCompletions = Int(output.getNumberOfCompletions()) ?? 0
+        numberOfCompletions = Int(model().numberOfCompletions) ?? 0
         completionsLabel.text = String(numberOfCompletions)
-        completionsLabel.textColor = screenColor
+        completionsLabel.textColor = habitIconColor
         completionsLabel.font = UIFont(name: "Lato-Bold", size: 35)
         completionsLabel.sizeToFit()
 
         
         dividerLabel.text = "из"
-        dividerLabel.textColor = screenColor
+        dividerLabel.textColor = habitIconColor
         dividerLabel.font = UIFont(name: "Lato-Bold", size: 35)
-        
-        targetLabel.text = output.getTarget()
-        targetLabel.textColor = screenColor
+        target = Int(model().target) ?? 1
+        targetLabel.text = String(target)
+        targetLabel.textColor = habitIconColor
         targetLabel.font = UIFont(name: "Lato-Bold", size: 35)
         
         addButton.setTitle("Добавить", for: .normal)
@@ -102,8 +102,8 @@ final class HabitViewController: UIViewController {
         unitsField.font = UIFont(name: "Lato-Regular", size: 18)
         unitsField.keyboardType = .numberPad
         
-        unitsLabel.text = output.getUnits()
-        unitsLabel.textColor = UIColor(named: "Green")
+        unitsLabel.text = model().units
+        unitsLabel.textColor = UIColor(named: "Black")
         unitsLabel.font = UIFont(name: "Lato-Medium", size: 22)
         
         
@@ -120,10 +120,12 @@ final class HabitViewController: UIViewController {
         [topbarImage, habitName, circularProgress, completionsLabel, dividerLabel, targetLabel, unitsLabel, unitsboxImage, unitsField, addButton, resetButton, deleteButton].forEach{view.addSubview($0)}
     }
     
+
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        let doneNumber = Float(output.getNumberOfCompletions()) ?? 0
-        let targetNumber = Float(output.getTarget()) ?? 1
+        let doneNumber = Float(numberOfCompletions)
+        let targetNumber = Float(target)
         let percentCompleted = doneNumber/targetNumber
         animateProgress(progress: percentCompleted)
     }
@@ -208,7 +210,7 @@ final class HabitViewController: UIViewController {
             numberOfCompletions += Int(unitsField.text!)!
             completionsLabel.text = String(numberOfCompletions)
             completionsLabel.sizeToFit()
-            let targetNumber = Float(output.getTarget()) ?? 1
+            let targetNumber = Float(target)
             let percentCompleted = Float(numberOfCompletions)/targetNumber
             animateProgress(progress: percentCompleted)
             unitsField.text = nil

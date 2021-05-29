@@ -19,10 +19,7 @@ protocol HabitViewInput: class {
 }
 
 protocol HabitViewOutput: class {
-    func getTitle() -> String
-    func getUnits() -> String
-    func getNumberOfCompletions() -> String
-    func getTarget() -> String 
+    func getModel() -> HabitProgress
     func toMenuButtonPressed()
     func saveProgressButtonPressed(tappedHabitName: String, updateKey: String, numberOfCompletions: Int)
     func showAlert()

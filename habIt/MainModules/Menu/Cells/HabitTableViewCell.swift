@@ -97,6 +97,7 @@ class HabitTableViewCell: UITableViewCell {
     func configure(with model: HabitViewModel) {
         titleLabel.text = model.title
         iconImageView.image = UIImage(named: model.systemImageName)
+        iconImageView.tintColor = model.habitIconColor
         completionsLabel.text = "\(model.numberOfCompletions) "
         targetLabel.text = "/ \(model.target)"
         unitsLabel.text = model.units

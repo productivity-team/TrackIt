@@ -25,6 +25,7 @@ final class HabitContainer {
         presenter.habitProgress.target = context.target
         presenter.habitProgress.numberOfCompletions = context.numberOfCompletions
         presenter.habitProgress.units = context.units
+        presenter.habitProgress.habitColor = context.habitIconColor
         router.sourceViewController = viewController
 
 		interactor.output = presenter
@@ -45,4 +46,5 @@ struct HabitContext {
     var target: String
     var numberOfCompletions: String
     var units: String
+    var habitIconColor: UIColor
 }
