@@ -212,7 +212,7 @@ class StatsTableViewCell: UITableViewCell {
         }
         UIView.animate(withDuration: 0) {
             let cp = self.contentView.viewWithTag(101) as! CircularProgress
-            cp.setProgressWithAnimation(duration: 0, value: self.progressForCircle)
+            cp.setProgressWithAnimation(duration: 0.4, value: self.progressForCircle)
 
         }
         let customColor = model.habitStatsColor

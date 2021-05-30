@@ -88,6 +88,7 @@ final class CreateHabitViewController: UIViewController {
         
         nameField.placeholder = "Название"
         nameField.font = UIFont(name: "Lato-Regular", size: 18)
+        nameField.delegate = self
         
         [mondayButton, tuesdayButton, wednesdayButton, thursdayButton, fridayButton, saturdayButton, sundayButton].forEach {
             $0.backgroundColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
@@ -118,7 +119,7 @@ final class CreateHabitViewController: UIViewController {
         
         sundayButton.setTitle("Вс", for: .normal)
         sundayButton.addTarget(self, action: #selector(dayButtonPressed), for: .touchUpInside)
-
+        
         
         createButton.setTitle("Создать", for: .normal)
         createButton.titleLabel?.font = UIFont(name: "Lato-Medium", size: 20)
@@ -129,10 +130,12 @@ final class CreateHabitViewController: UIViewController {
         
         unitsField.placeholder = "Ед. измерения"
         unitsField.font = UIFont(name: "Lato-Regular", size: 18)
+        unitsField.delegate = self
         
         goalField.placeholder = "Количество"
         goalField.font = UIFont(name: "Lato-Regular", size: 18)
         goalField.keyboardType = .numberPad
+        goalField.delegate = self
         
         untilField.timeZone = .current
         untilField.datePickerMode = .date
@@ -152,8 +155,6 @@ final class CreateHabitViewController: UIViewController {
         
         CreateHabitViewController.iconView.image = UIImage(named: "task")
         CreateHabitViewController.iconView.tintColor = UIColor(red: 254/255, green: 194/255, blue: 76/255, alpha: 1)
-//            ColorPickerViewController.habitColor
-        
         
         goalLable.text = "Цель"
         goalLable.font = UIFont(name: "Lato-Medium", size: 20)
@@ -415,7 +416,35 @@ final class CreateHabitViewController: UIViewController {
         ColorPickerViewController.habitColor = UIColor(red: 254/255, green: 194/255, blue: 76/255, alpha: 1)
     }
     
+}
+
+extension CreateHabitViewController: UITextFieldDelegate {
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        switch textField {
+        case nameField:
+            if ((textField.text?.count)! + (string.count - range.length)) > 18 {
+                return false
+            }
+            
+        case unitsField:
+            if ((textField.text?.count)! + (string.count - range.length)) > 13 {
+                return false
+            }
+            
+        case goalField:
+            if ((textField.text?.count)! + (string.count - range.length)) > 6 {
+                return false
+            }
+        
+        default:
+            return true
+        }
+        
+        return true
+        
+    }
 }
 
 extension CreateHabitViewController: CreateHabitViewInput {

@@ -10,7 +10,7 @@
 import UIKit
 
 
-final class HabitViewController: UIViewController {
+final class HabitViewController: UIViewController, UITextFieldDelegate {
     private let output: HabitViewOutput
     private let unitsboxImage = UIImageView(image: UIImage(named: "textbox"))
     private let topbarImage = UIImageView(image: UIImage(named: "topbar"))
@@ -101,6 +101,7 @@ final class HabitViewController: UIViewController {
         unitsField.textColor = UIColor(named: "Text")
         unitsField.font = UIFont(name: "Lato-Regular", size: 18)
         unitsField.keyboardType = .numberPad
+        unitsField.delegate = self
         
         unitsLabel.text = model().units
         unitsLabel.textColor = UIColor(named: "Black")
@@ -254,6 +255,24 @@ final class HabitViewController: UIViewController {
         let habitName = HabitViewController.tappedHabitName
         
         output.deleteHabitButtonPressed(habitName: habitName)
+    }
+    
+    
+    private func textLimit(existingText: String?,
+                           newText: String,
+                           limit: Int) -> Bool {
+        let text = existingText ?? ""
+        let isAtLimit = text.count + newText.count <= limit
+        return isAtLimit
+    }
+    
+    
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        return self.textLimit(existingText: textField.text,
+                              newText: string,
+                              limit: 6)
     }
     
 }
