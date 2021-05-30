@@ -23,7 +23,7 @@ final class StatsManager: StatsManagerDescriprion {
     func observeStats(completion: @escaping (Result<[Stats], Error>) -> Void) {
         if let user = self.user {
             let uid = user.uid
-            database.collection("users").document(uid).collection("habits").order(by: "creationDate", descending: true).addSnapshotListener { (querySnapshot, error) in
+            database.collection("users").document(uid).collection("habits").order(by: "timestamp", descending: true).addSnapshotListener { (querySnapshot, error) in
                 if let error = error {
                     completion(.failure(error))
                     return

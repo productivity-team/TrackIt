@@ -33,7 +33,8 @@ extension CreateHabitInteractor: CreateHabitInteractorInput {
                                                                                             "target": target,
                                                                                             "units": units,
                                                                                             "habitDays": habitDays,
-                                                                                            "habitProgress": habitProgress
+                                                                                            "habitProgress": habitProgress,
+                                                                                            "timestamp" : Timestamp()
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err.localizedDescription)")
