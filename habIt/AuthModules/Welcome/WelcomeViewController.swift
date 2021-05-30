@@ -16,6 +16,7 @@ final class WelcomeViewController: UIViewController {
     private let habLabel = UILabel()
     private let signUpButton = UIButton()
     private let loginButton = UIButton()
+    private let clyacsaImage = UIImageView(image: UIImage(named: "clyacsa1"))
     
     init(output: WelcomeViewOutput) {
         self.output = output
@@ -61,7 +62,7 @@ final class WelcomeViewController: UIViewController {
         signUpButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 18)
         signUpButton.addTarget(self, action: #selector(toSignUpButtonPressed), for: .touchUpInside)
         
-        [greetingLabel, habLabel, signUpButton, loginButton].forEach {view.addSubview($0)}
+        [greetingLabel, habLabel, signUpButton, loginButton, clyacsaImage].forEach {view.addSubview($0)}
     }
     
     override func viewDidLayoutSubviews() {
@@ -88,6 +89,12 @@ final class WelcomeViewController: UIViewController {
             .width(290)
             .height(50)
             .bottom(258)
+        
+        clyacsaImage.pin
+            .width(414)
+            .height(239)
+            .above(of: greetingLabel).marginVertical(135)
+            .hCenter()
     }
     
     @objc

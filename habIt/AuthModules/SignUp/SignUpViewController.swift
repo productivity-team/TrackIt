@@ -20,6 +20,7 @@ final class SignUpViewController: UIViewController {
     private let passwordboxImage = UIImageView()
     private let signUpButton = UIButton()
     private let logInButton = UIButton()
+    private let clyacsaImage = UIImageView(image: UIImage(named: "clyacsa3"))
 
     init(output: SignUpViewOutput) {
         self.output = output
@@ -90,7 +91,7 @@ final class SignUpViewController: UIViewController {
         logInButton.addTarget(self, action: #selector(toLoginButtonPressed), for: .touchUpInside)
         
         
-        [regLable, nameboxImage, emailField, emailboxImage, passwordboxImage, nameField, passwordField, signUpButton, logInButton].forEach { view.addSubview($0) }
+        [regLable, nameboxImage, emailField, emailboxImage, passwordboxImage, nameField, passwordField, signUpButton, logInButton, clyacsaImage].forEach { view.addSubview($0) }
     }
     
     
@@ -148,6 +149,12 @@ final class SignUpViewController: UIViewController {
             .hCenter()
             .height(50)
             .width(290)
+        
+        clyacsaImage.pin
+            .width(414)
+            .height(212)
+            .above(of: regLable).marginVertical(107)
+            .hCenter()
     }
     
     @objc

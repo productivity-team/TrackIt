@@ -20,6 +20,7 @@ final class LogInViewController: UIViewController {
     private let signupButton = UIButton()
     private let emailboxImage1 = UIImageView()  // Овальная штуковина за надписью Email
     private let passwordboxImage = UIImageView()
+    private let clyacsaImage = UIImageView(image: UIImage(named: "clyacsa2"))
     
     
     init(output: LogInViewOutput) {
@@ -80,7 +81,7 @@ final class LogInViewController: UIViewController {
         passwordField.autocorrectionType = .no
         passwordField.isSecureTextEntry.toggle() //делает пароль невидимым
         
-        [emailField, labelLogIn, passwordField, loginButton, signupButton, emailboxImage1, passwordboxImage].forEach { view.addSubview($0) }
+        [emailField, labelLogIn, passwordField, loginButton, signupButton, emailboxImage1, passwordboxImage, clyacsaImage].forEach { view.addSubview($0) }
     }
     
     override func viewDidLayoutSubviews() {
@@ -125,6 +126,12 @@ final class LogInViewController: UIViewController {
             .hCenter()
             .height(50)
             .width(290)
+        
+        clyacsaImage.pin
+            .width(414)
+            .height(189)
+            .above(of: labelLogIn).marginVertical(130)
+            .hCenter()
     }
     
     @objc

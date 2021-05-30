@@ -284,7 +284,7 @@ final class CreateHabitViewController: UIViewController {
         
         untilBoxImage.pin
             .height(50)
-            .width(160)
+            .width(170)
             .after(of: untilLable).marginLeft(20)
             .top(579)
         
@@ -296,7 +296,7 @@ final class CreateHabitViewController: UIViewController {
         
         calendarImage.pin
             .below(of: untilBoxImage).margin(-37)
-            .after(of: untilBoxImage).margin(-37)
+            .after(of: untilBoxImage).marginHorizontal(-32)
             .height(24)
             .width(24)
         
