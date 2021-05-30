@@ -73,12 +73,21 @@ extension StatsPresenter: StatsViewOutput {
         let endDate = Calendar.current.date(byAdding: addedDaysDateComp, to: ReferenceDate)
         let endWeekday = Calendar.current.component(.weekday, from: endDate!)
          
-        for i in model.habitDays {
-            if i >= startWeekday {totalNumberOfDays = totalNumberOfDays + 1}
-            if i <= endWeekday {totalNumberOfDays = totalNumberOfDays + 1}
-            totalNumberOfDays = totalNumberOfDays - 1
-            totalNumberOfDays = totalNumberOfDays +  differenceInIndices/7
-        }
+       for i in model.habitDays {
+           if differenceInIndices / 7 == 0 {
+            for j in startIndex...endIndex {
+                addedDaysDateComp.day = j
+                let date = Calendar.current.date(byAdding: addedDaysDateComp, to: ReferenceDate)
+                let dateWeekday = Calendar.current.component(.weekday, from: date!)
+                if i == dateWeekday {totalNumberOfDays = totalNumberOfDays + 1}
+            }
+           } else {
+           if i >= startWeekday {totalNumberOfDays = totalNumberOfDays + 1}
+           if i <= endWeekday {totalNumberOfDays = totalNumberOfDays + 1}
+           totalNumberOfDays = totalNumberOfDays - 1
+           totalNumberOfDays = totalNumberOfDays +  differenceInIndices/7
+           }
+       }
         return totalNumberOfDays
     }
 }

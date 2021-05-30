@@ -98,8 +98,6 @@ class StatsTableViewCell: UITableViewCell {
             .height(20)
             .sizeToFit(.height)
  
-            
-        
         circularProgress.pin
             .top(50)
             .right(30)
@@ -170,8 +168,7 @@ class StatsTableViewCell: UITableViewCell {
         circularProgress.trackColor =  UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
         circularProgress.tag = 101
         
-        //animate progress
-        self.perform(#selector(animateProgress), with: nil, afterDelay: 0.3)
+        
         
         completedInUnits.font = UIFont(name: "Lato-Regular", size: 18)
         completedInUnitsLabel.font = UIFont(name: "Lato-Regular", size: 15)
@@ -190,11 +187,6 @@ class StatsTableViewCell: UITableViewCell {
         [titleLabel, iconImageView, targetLabel, unitsLabel, summLabel, partlyDoneLabel, fullyDoneLabel, doneLabel, circularProgress, completedInUnits, completedInUnitsLabel, partlyDone, fullyDone, partlyTimes, fullyTimes, progressLabel].forEach {
             contentView.addSubview($0) }
 
-    }
-    
-    @objc func animateProgress() {
-        let cp = self.contentView.viewWithTag(101) as! CircularProgress
-        cp.setProgressWithAnimation(duration: 1.0, value: progressForCircle)
     }
     
 
@@ -218,7 +210,11 @@ class StatsTableViewCell: UITableViewCell {
         progressLabel.text = "\(fully.count)/\(totalNumberOfDays)"
             progressForCircle = Float(fully.count) / Float(totalNumberOfDays)
         }
-        
+        UIView.animate(withDuration: 0) {
+            let cp = self.contentView.viewWithTag(101) as! CircularProgress
+            cp.setProgressWithAnimation(duration: 0, value: self.progressForCircle)
+
+        }
         let customColor = model.habitStatsColor
         targetLabel.textColor = customColor
         iconImageView.tintColor = customColor
