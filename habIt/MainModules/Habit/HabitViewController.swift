@@ -13,7 +13,6 @@ import UIKit
 final class HabitViewController: UIViewController, UITextFieldDelegate {
     private let output: HabitViewOutput
     private let unitsboxImage = UIImageView(image: UIImage(named: "textbox"))
-    private let topbarImage = UIImageView(image: UIImage(named: "topbar"))
 
     private let habitName = UILabel() //название привычки
     private let completionsLabel = UILabel() //сколько выполнено
@@ -118,7 +117,7 @@ final class HabitViewController: UIViewController, UITextFieldDelegate {
         self.navigationItem.rightBarButtonItem  = saveBarButtonItem
         
         
-        [topbarImage, habitName, circularProgress, completionsLabel, dividerLabel, targetLabel, unitsLabel, unitsboxImage, unitsField, addButton, resetButton, deleteButton].forEach{view.addSubview($0)}
+        [habitName, circularProgress, completionsLabel, dividerLabel, targetLabel, unitsLabel, unitsboxImage, unitsField, addButton, resetButton, deleteButton].forEach{view.addSubview($0)}
     }
     
 
@@ -135,62 +134,56 @@ final class HabitViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        topbarImage.pin
-            .top()
-            .hCenter()
-            .height(92)
-            .width(440)
-        
         circularProgress.pin
-            .top(277)
-            .left(55)
-            .sizeToFit()
-        
-        habitName.pin
-            .top(190)
+            .top((view.frame.height/2)-165)
             .hCenter()
             .sizeToFit()
         
         dividerLabel.pin
-            .top(402)
+            .top((view.frame.height/2)-40)
             .hCenter()
             .sizeToFit()
         
         completionsLabel.pin
-            .top(402)
+            .top((view.frame.height/2)-40)
             .before(of: dividerLabel).marginHorizontal(6)
             .sizeToFit()
         
         targetLabel.pin
-            .top(402)
+            .top((view.frame.height/2)-40)
             .after(of: dividerLabel).marginHorizontal(6)
             .sizeToFit()
 
         unitsLabel.pin
-            .top(450)
+            .below(of: dividerLabel).marginHorizontal(8)
+            .hCenter()
+            .sizeToFit()
+        
+        habitName.pin
+            .above(of: circularProgress).marginVertical(57)
             .hCenter()
             .sizeToFit()
         
         unitsboxImage.pin
-            .top(658)
-            .left(82)
+            .below(of: circularProgress).marginVertical(76)
+            .left((view.frame.width/2)-125)
             .height(50)
             .width(105)
         
         unitsField.pin
-            .top(658)
-            .left(96)
+            .below(of: circularProgress).marginVertical(76)
+            .left((view.frame.width/2)-111)
             .height(50)
             .width(75)
         
         addButton.pin
+            .below(of: circularProgress).marginVertical(76)
             .height(50)
             .width(118)
-            .top(658)
-            .right(82)
+            .after(of: unitsboxImage).marginHorizontal(27)
         
         resetButton.pin
-            .top(732)
+            .below(of: addButton).marginVertical(24)
             .height(18)
             .width(145)
             .hCenter()
@@ -198,7 +191,7 @@ final class HabitViewController: UIViewController, UITextFieldDelegate {
         deleteButton.pin
             .height(33)
             .width(33)
-            .right(40)
+            .after(of: addButton).marginHorizontal(12)
             .bottom(40)
             
     }
