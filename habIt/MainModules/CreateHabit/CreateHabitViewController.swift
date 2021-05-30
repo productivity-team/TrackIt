@@ -41,8 +41,8 @@ final class CreateHabitViewController: UIViewController {
     
     
     // 1-воскресенье, 2-понедельник, 3-вторник и тд
-    private var days = [2:true, 3:true, 4:true, 5:true, 6:true, 7:true, 1:true]
-    private var habitDays: [Int] = [2, 3, 4, 5, 6, 7, 1]
+    private var days = [2:false, 3:false, 4:false, 5:false, 6:false, 7:false, 1:false]
+    private var habitDays: [Int] = []
     
     private var creationDate = calendar.dateComponents([.day], from: startDate, to: date).day!
     private var untilDate = calendar.dateComponents([.day], from: startDate, to: date).day!
@@ -91,7 +91,7 @@ final class CreateHabitViewController: UIViewController {
         nameField.delegate = self
         
         [mondayButton, tuesdayButton, wednesdayButton, thursdayButton, fridayButton, saturdayButton, sundayButton].forEach {
-            $0.backgroundColor = UIColor(red: 182/255, green: 230/255, blue: 255/255, alpha: 1)
+            $0.backgroundColor = UIColor(red: 238/255, green: 246/255, blue: 251/255, alpha: 1)
             $0.layer.cornerRadius = 7
             $0.frame.size.height = 40
             $0.frame.size.width = 40
