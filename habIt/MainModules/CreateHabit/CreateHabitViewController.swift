@@ -172,6 +172,8 @@ final class CreateHabitViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        let smallSpace = (view.frame.height - 483)/13
+        let bigSpace = smallSpace+7
         
         upperLable.pin
             .top(33)
@@ -180,20 +182,20 @@ final class CreateHabitViewController: UIViewController {
         
         nameBoxImage.pin
             .height(50)
-            .width(350)
-            .below(of: upperLable).marginVertical(25)
-            .hCenter()
+            .left(32)
+            .right(32)
+            .below(of: upperLable).marginVertical(smallSpace)
         
         nameField.pin
             .height(50)
-            .width(320)
-            .below(of: upperLable).marginVertical(25)
-            .hCenter()
+            .left(to: nameBoxImage.edge.left).margin(15)
+            .right(to: nameBoxImage.edge.right).margin(15)
+            .below(of: upperLable).marginVertical(smallSpace)
         
         colorchangeButton.pin
             .height(60)
             .width(60)
-            .below(of: nameBoxImage).marginVertical(35)
+            .below(of: nameBoxImage).marginVertical(bigSpace)
             .right(97)
         
         CreateHabitViewController.colorcircleView.pin
@@ -205,7 +207,7 @@ final class CreateHabitViewController: UIViewController {
         iconchangeButton.pin
             .height(60)
             .width(60)
-            .below(of: nameBoxImage).marginVertical(35)
+            .below(of: nameBoxImage).marginVertical(bigSpace)
             .left(97)
         
         CreateHabitViewController.iconView.pin
@@ -215,33 +217,33 @@ final class CreateHabitViewController: UIViewController {
             .above(of: iconchangeButton).marginVertical(-48)
         
         goalLable.pin
-            .below(of: iconchangeButton).marginVertical(35)
+            .below(of: iconchangeButton).marginVertical(bigSpace)
             .before(of: iconchangeButton).marginHorizontal(15)
             .sizeToFit()
         
         goalBoxImage.pin
             .height(50)
-            .width(160)
-            .right(40)
-            .below(of: goalLable).marginVertical(25)
-        
-        goalField.pin
-            .height(50)
-            .width(130)
-            .right(62)
-            .below(of: goalLable).marginVertical(25)
+            .width((view.frame.width/2)-7.5-40)
+            .left(40)
+            .below(of: goalLable).marginVertical(smallSpace)
         
         unitsBoxImage.pin
             .height(50)
-            .width(160)
-            .left(40)
-            .below(of: goalLable).marginVertical(25)
+            .width((view.frame.width/2)-7.5-40)
+            .right(40)
+            .below(of: goalLable).marginVertical(smallSpace)
         
         unitsField.pin
             .height(50)
-            .width(130)
-            .left(47)
-            .below(of: goalLable).marginVertical(25)
+            .width((view.frame.width/2)-7.5-55)
+            .left(to: unitsBoxImage.edge.left).margin(10)
+            .below(of: goalLable).marginVertical(smallSpace)
+
+        goalField.pin
+            .height(50)
+            .left(to: goalBoxImage.edge.left).margin(10)
+            .width((view.frame.width/2)-7.5-55)
+            .below(of: goalLable).marginVertical(smallSpace)
         
         weekLable.pin
             .left(35)
@@ -250,35 +252,36 @@ final class CreateHabitViewController: UIViewController {
         
         [mondayButton, tuesdayButton, wednesdayButton, thursdayButton, fridayButton, saturdayButton, sundayButton].forEach {
             $0.pin
-                .below(of: weekLable).marginVertical(25)
+                .below(of: weekLable).marginVertical(bigSpace)
         }
         
+        let placeBetweenDays = (view.frame.width-68-280)/6
         mondayButton.pin
             .left(34)
         tuesdayButton.pin
-            .after(of: mondayButton).marginLeft(11)
+            .after(of: mondayButton).marginLeft(placeBetweenDays)
         wednesdayButton.pin
-            .after(of: tuesdayButton).marginLeft(11)
+            .after(of: tuesdayButton).marginLeft(placeBetweenDays)
         thursdayButton.pin
-            .after(of: wednesdayButton).marginLeft(11)
+            .after(of: wednesdayButton).marginLeft(placeBetweenDays)
         fridayButton.pin
-            .after(of: thursdayButton).marginLeft(11)
+            .after(of: thursdayButton).marginLeft(placeBetweenDays)
         saturdayButton.pin
-            .after(of: fridayButton).marginLeft(11)
+            .after(of: fridayButton).marginLeft(placeBetweenDays)
         sundayButton.pin
-            .after(of: saturdayButton).marginLeft(11)
+            .after(of: saturdayButton).marginLeft(placeBetweenDays)
         
         timelimitLable.pin
             .left(35)
-            .below(of: mondayButton).marginVertical(45)
+            .below(of: mondayButton).marginVertical(bigSpace)
             .sizeToFit()
         
         untilSwitch.pin
-            .after(of: timelimitLable).marginHorizontal(15)
+            .centerLeft(to: timelimitLable.anchor.centerRight).margin(10)
             .below(of: mondayButton).marginVertical(43)
         
         untilLable.pin
-            .below(of: timelimitLable).marginVertical(39)
+            .below(of: timelimitLable).marginVertical(bigSpace+4)
             .sizeToFit()
             .left(61)
         
@@ -286,12 +289,12 @@ final class CreateHabitViewController: UIViewController {
             .height(50)
             .width(170)
             .after(of: untilLable).marginLeft(20)
-            .top(579)
+            .below(of: timelimitLable).marginVertical(smallSpace)
         
         untilField.pin
             .height(50)
             .width(130)
-            .below(of: timelimitLable).marginVertical(25)
+            .below(of: timelimitLable).marginVertical(smallSpace)
             .after(of: untilLable).marginLeft(25)
         
         calendarImage.pin
@@ -304,7 +307,7 @@ final class CreateHabitViewController: UIViewController {
             .height(50)
             .width(160)
             .hCenter()
-            .below(of: untilBoxImage).margin(89)
+            .bottom(50)
     }
     
     @objc
