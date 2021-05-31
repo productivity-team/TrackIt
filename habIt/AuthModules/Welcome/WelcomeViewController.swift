@@ -38,7 +38,7 @@ final class WelcomeViewController: UIViewController {
         greetingLabel.font = UIFont(name: "Lato-Regular", size: 25)
         
         
-        habLabel.text = "Habit Tracker!"
+        habLabel.text = "TrackIt!"
         habLabel.font = UIFont(name: "Lato-Medium", size: 25)
         
         
