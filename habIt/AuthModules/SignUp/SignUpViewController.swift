@@ -151,8 +151,8 @@ final class SignUpViewController: UIViewController {
             .width(290)
         
         clyacsaImage.pin
-            .width(414)
-            .height(212)
+            .width(435)
+            .height(250)
             .above(of: regLable).marginVertical(107)
             .hCenter()
     }

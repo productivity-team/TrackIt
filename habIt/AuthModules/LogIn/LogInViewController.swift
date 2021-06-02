@@ -128,8 +128,8 @@ final class LogInViewController: UIViewController {
             .width(290)
         
         clyacsaImage.pin
-            .width(414)
-            .height(189)
+            .width(435)
+            .height(225)
             .above(of: labelLogIn).marginVertical(130)
             .hCenter()
     }

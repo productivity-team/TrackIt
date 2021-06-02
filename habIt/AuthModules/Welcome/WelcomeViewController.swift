@@ -91,9 +91,9 @@ final class WelcomeViewController: UIViewController {
             .bottom(258)
         
         clyacsaImage.pin
-            .width(414)
-            .height(239)
-            .above(of: greetingLabel).marginVertical(135)
+            .width(435)
+            .height(265)
+            .above(of: greetingLabel).marginVertical(133)
             .hCenter()
     }
     
