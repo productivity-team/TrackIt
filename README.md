@@ -1,1 +1,1 @@
-# habitTracker
+# TrackIt
